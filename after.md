@@ -22,7 +22,7 @@ After your paper has been accepted (or sometimes during the revision process), y
 
 # What to include in your replication package
 The replication package is a ZIP archive of folders and files that includes
-- all replicable outputs reported in the article (figures, tables, numbers reported in the text)
+- all reproducible outputs reported in the article (figures, tables, numbers reported in the text)
 - the analysis code to construct these outputs
 - the analysis data on which the analysis code would run
 - a README file with data citations and instructions on how to reproduce the results
@@ -39,7 +39,7 @@ The README document is key to explain readers how to reproduce your work. It tel
 - how to use it (for example, what software versions and packages are required)
 - how to access the data used (by default, it is included in the package, but a citation and a Data Availability Statement is still necessary)
 
-Imagine a trained computational scientist trying to reproduce your work and give as specific instructions as you can. Please see [several worked-out exmaples here]({{ site.baseurl }}/template-README/).
+Imagine a trained computational scientist trying to reproduce your work and give as specific instructions as you can. Please see [several worked-out examples here]({{ site.baseurl }}/template-README/).
 
 The README can be in PDF, plain text, or Markdown format.
 
@@ -60,7 +60,7 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 	- Description: Include a full citation of your manuscript and a one-sentence description of what the replication package contains.
 	- Do not worry about other metadata, these will be filled out by the journal office once the paper is published.
 ![]({{ site.baseurl }}/assets/img/zenodo/metadata.png)
-7. Select an open access License for your upload. Our [Data Availability Policy](https://www.restud.com/submissions/) requires that you allow readers to download, copy and modify your replication package. We recommend a "Creative Commons Attribution 4.0 International" license, but if you wish to use a different license, select "Other (Attribution)."
+7. Select an open access License for your upload. Our [Data Availability Policy]({{ site.baseurl }}/before/#data-availability-policy) requires that you allow readers to download, copy and modify your replication package. We recommend a "Creative Commons Attribution 4.0 International" license, but if you wish to use a different license, select "Other (Attribution)."
 ![]({{ site.baseurl }}/assets/img/zenodo/other-license.png)
 8. "Save" and then "Publish." This will notify the Data Editor who will review the files you submitted. Note that once published, you cannot edit or delete your uploaded files. You can only create a new version.
 ![]({{ site.baseurl }}/assets/img/zenodo/save-and-publish.png)
