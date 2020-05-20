@@ -11,7 +11,7 @@ description: Information and guidelines about reproducible research from the Dat
 author:
     title: Data Editor
     title_url: '/editor/'
-    description: Author description
+    description: Contact information
 
 # Grid navigation
 grid_navigation:

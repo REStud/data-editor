@@ -5,9 +5,9 @@ keywords:
 comments: false
 
 # Hero section
-title: Page title
-description: Page description
+title: Data Editor
+description: Contact information
 
 ---
 
-Miklós Koren
+The Data Editor of the Review of Economic Studies is [Miklós Koren](https://koren.mk), who can be reached at korenm@ceu.edu.
