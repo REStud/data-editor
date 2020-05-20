@@ -34,7 +34,7 @@ Questions regarding any aspect of this policy should be forwarded to the Data Ed
 
 Upon acceptance, authors should provide data set(s) and computer programs used in the work.
 
-A [Data Citation](https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html) and a [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) should be include for ALL data used in the work, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope.
+A [Data Citation](https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html) and a [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) should be included for ALL data used in the work, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope.
 
 If intermediate data sets and programs used for the composition of the final data set are not submitted, authors are expected to provide a description of the final data set construction and to cooperate with investigators seeking to conduct a replication.
 Data files and programs can be provided in any format using any statistical package or software.
@@ -44,7 +44,7 @@ Readme files should include information on the operating system-software version
 Software requirements should explicitly list all modules, libraries, toolboxes and commands used that are not part of the core software.
 Programs that rely on random number generators should set seeds to allow replication.  
 If it is necessary to execute programs in a particular order, this should be made explicit in the Readme files.
-A template README file is [available here]().
+A template README file is [available here]({{ site.baseurl }}/template-README/).
 
 The Data Editor acknowledge that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
 Exemptions in such cases are possible, but authors must provide interested investigators the necessary information on how to obtain the data (even if the data are provided by a third party at a monetary cost).
@@ -80,7 +80,7 @@ The article will then be reviewed at the discretion of the Managing Editors and 
 Exceptions will not be considered later in the review and publication process.
 
 # What if your dataset is confidential?
-There may be cases when you cannot share the dataset directly. This does not lead to automatic exemptions to the Data Availability Policy. Please note, *at the time of submission*, why you cannot comply fully with the policy, and be prepared to answer the following questions if needed. 
+There may be cases when you cannot share the dataset directly. This does not lead to automatic exemption from the Data Availability Policy. Please note, *at the time of submission*, why you cannot comply fully with the policy, and be prepared to answer the following questions if needed. 
 ## Checklist
 - Is the dataset citable? Please provide at least the following information.
     - Creator or publisher (can be an organization)
