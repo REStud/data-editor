@@ -11,7 +11,7 @@ doks:
             logo:
                 text: The Review of Economic Studies Data Editor
                 image:
-            copyright: Copyright &copy; 2020. - The Review of Economic Studes. <br>CC-BY-4.0.
+            copyright: Copyright &copy; 2020. - The Review of Economic Studies. <br>CC-BY-4.0.
         social_list:
             - network_name: twitter
               profile_url: 'https://twitter.com/korenmiklos'
