@@ -39,7 +39,7 @@ The README document is key to explain readers how to reproduce your work. It tel
 - how to use it (for example, what software versions and packages are required)
 - how to access the data used (by default, it is included in the package, but a citation and a Data Availability Statement is still necessary)
 
-Imagine a trained computational scientist trying to reproduce your work and give as specific instructions as you can. Please see [several worked-out examples here]({{ site.baseurl }}/template-README/).
+Imagine a trained computational scientist trying to reproduce your work and give as specific instructions as you can. Please see [several worked-out examples here](https://social-science-data-editors.github.io/template_README/).
 
 The README can be in PDF, plain text, or Markdown format.
 
