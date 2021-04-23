@@ -4,7 +4,7 @@ title: My data is confidential
 permalink: /confidential/
 ---
 # Checklist
-- Is the dataset citable? Please provide at least the following information.
+- How can your data be cited? Please provide at least the following information.
     - Creator or publisher (can be an organization)
     - Name of dataset
     - Creation date of version used
