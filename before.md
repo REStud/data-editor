@@ -82,7 +82,7 @@ Exceptions will not be considered later in the review and publication process.
 # What if your dataset is confidential?
 There may be cases when you cannot share the dataset directly. This does not lead to automatic exemption from the Data Availability Policy. Please note, *at the time of submission*, why you cannot comply fully with the policy, and be prepared to answer the following questions if needed. 
 ## Checklist
-- Is the dataset citable? Please provide at least the following information.
+- How can your dataset be cited? Please provide at least the following information.
     - Creator or publisher (can be an organization)
     - Name of dataset
     - Creation date of version used
@@ -93,7 +93,7 @@ There may be cases when you cannot share the dataset directly. This does not lea
 - Can the publisher ensure access to the exact same version of the data you are using?
 
 ## Example
-- Is the dataset citable? 
+- How can your dataset be cited? 
     - U.S. Bureau of the Census, 2005. "Longitudinal Business Database (LBD)" https://www.census.gov/ces/dataproducts/datasets/lbd.html
 - Have other published articles used this dataset? If so, give precise citations.
     -  Timothy Dunne, J. Bradford Jensen, Mark J. Roberts. 2009. "Producer Dynamics: New Evidence from Micro Data." University of Chicago Press.
