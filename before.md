@@ -21,11 +21,12 @@ By submitting to the journal, you indicate that you accept the Data Availability
 
 # Data Availability Policy
 
-> ![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.png) 
-> The Review of Economic Studies endorses DCAS, 
-> the [Data and Code Availability Standard](https://datacodestandard.org/)
-> [v1.0], and its data and code availability policy is 
-> compatible with DCAS.
+![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.svg) 
+
+The Review of Economic Studies endorses DCAS, 
+the [Data and Code Availability Standard](https://datacodestandard.org/)
+[v1.0], and its data and code availability policy is 
+compatible with DCAS.
 
 Authors of accepted papers that contain empirical work, numerical simulations, or experimental work must in principle make available to the journal any data, programs, and details for the computations necessary for replication.
 The submission of this material indicates that authors [license](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html) users to download, copy, and modify it.
