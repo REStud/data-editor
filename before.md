@@ -20,6 +20,13 @@ page_nav:
 By submitting to the journal, you indicate that you accept the Data Availability Policy. In short, the default rule is that you are required to submit all code and data necessary to reproduce your work, and permit any reader of the journal to use them.
 
 # Data Availability Policy
+
+> ![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.png) 
+> The Review of Economic Studies endorses DCAS, 
+> the [Data and Code Availability Standard](https://datacodestandard.org/)
+> [v1.0], and its data and code availability policy is 
+> compatible with DCAS.
+
 Authors of accepted papers that contain empirical work, numerical simulations, or experimental work must in principle make available to the journal any data, programs, and details for the computations necessary for replication.
 The submission of this material indicates that authors [license](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html) users to download, copy, and modify it.
 Such users must acknowledge all authors as the original creators and the Review of Economic Studies as the original publisher.
@@ -38,17 +45,17 @@ A [Data Citation](https://social-science-data-editors.github.io/guidance/Data_ci
 
 If intermediate data sets and programs used for the composition of the final data set are not submitted, authors are expected to provide a description of the final data set construction and to cooperate with investigators seeking to conduct a replication.
 Data files and programs can be provided in any format using any statistical package or software.
-A Readme file listing all included files and documenting the purpose and format of each file should be provided in PDF or Markdown format.
+A README file listing all included files and documenting the purpose and format of each file should be provided in PDF or Markdown format.
 
-Readme files should include information on the operating system-software version combination used in the analysis and ideally an estimate for computation time (possibly with hardware specifications used in the execution of the programs).
+README files should include information on the operating system-software version combination used in the analysis and ideally an estimate for computation time (possibly with hardware specifications used in the execution of the programs).
 Software requirements should explicitly list all modules, libraries, toolboxes and commands used that are not part of the core software.
 Programs that rely on random number generators should set seeds to allow replication.  
-If it is necessary to execute programs in a particular order, this should be made explicit in the Readme files.
+If it is necessary to execute programs in a particular order, this should be made explicit in the README files.
 A template README file is [available here]({{ site.baseurl }}/template-README/).
 
 The Data Editor acknowledge that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
 Exemptions in such cases are possible, but authors must provide interested investigators the necessary information on how to obtain the data (even if the data are provided by a third party at a monetary cost).
-This information should be provided in the Readme file and a copy of the relevant programs to generate the final results is still required.
+This information should be provided in the README file and a copy of the relevant programs to generate the final results is still required.
 In some specific cases, computer programs may have value in themselves and the authors may not make them public.
 Similarly, there may be compelling reasons to restrict usage, and if Managing Editors agree, we will post a notice on the web site regarding such restrictions.
 
