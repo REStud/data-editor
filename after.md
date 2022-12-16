@@ -22,16 +22,19 @@ After your paper has been accepted (or sometimes during the revision process), y
 
 # What to include in your replication package
 The replication package is a ZIP archive of folders and files that includes
-- all reproducible outputs reported in the article (figures, tables, numbers reported in the text)
-- the analysis code to construct these outputs
+- the analysis code to construct the research outputs displayed in the paper
 - the analysis data on which the analysis code would run
 - a README file with data citations and instructions on how to reproduce the results
-- (preferably) data cleaning and manipulation codes
-- (preferably) raw data
+- data cleaning and manipulation codes
+- raw data
 
 There are no specific requirements for software use, file names and folder structure, but the package should enable any other trained computational scientist to run the replication code and create the outputs. This will be verified by the Data Editor.
 
-More detailed suggestions on what to submit can be found on the [Social Science Data Editors' website](https://social-science-data-editors.github.io/guidance/Requested_information.html).
+![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.svg)
+
+The Review of Economic Studies endorses DCAS, 
+the [Data and Code Availability Standard](https://datacodestandard.org/)
+[v1.0]. Use it as a checklist of what needs to be included in the replication package.
 
 ## README
 The README document is key to explain readers how to reproduce your work. It tells the reader
