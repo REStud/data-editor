@@ -1,10 +1,10 @@
 group,topic,description
-Data,Data Availability Statement,"A Data Availability Statement is provided with detailed enough information such that an independent researcher can replicate the steps needed to access the original data, including any limitations and the expected monetary and time cost of data access."
+Data,Data Availability Statement,"A [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) is provided with detailed enough information such that an independent researcher can replicate the steps needed to access the original data, including any limitations and the expected monetary and time cost of data access."
 ,Raw data,"Raw data used in the research (primary data collected by the author and secondary data not otherwise available) is made publicly accessible. Exceptions are explained under Rule 1."
 ,Analysis data,"Analysis data is provided as part of the replication package unless they can be fully reproduced from accessible data within a reasonable time frame. Exceptions are explained under Rule 1."
 ,Format,"The data files are provided in any format compatible with commonly used statistical package or software. Some journals require data files in open, non-proprietary formats."
 ,Metadata,Description of variables and their allowed values are publicly accessible.
-,Citation,All data used in the paper are cited.
+,Citation,All data used in the paper are [cited](https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html).
 Code,Data transformation,Programs used to create any final and analysis data sets from raw data are included.
 ,Analysis,"Programs producing the computational results (estimation, simulation, model solution, visualization) are included."
 ,Format,Code is provided in source format that can be directly interpreted or compiled by appropriate software. 

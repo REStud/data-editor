@@ -21,38 +21,31 @@ By submitting to the journal, you indicate that you accept the Data Availability
 
 # Data Availability Policy
 
-![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.svg) 
+[![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.svg)](https://datacodestandard.org/)
 
 The Review of Economic Studies endorses DCAS, 
 the [Data and Code Availability Standard](https://datacodestandard.org/)
 [v1.0], and its data and code availability policy is 
 compatible with DCAS.
 
-Authors of accepted papers that contain empirical work, numerical simulations, or experimental work must in principle make available to the journal any data, programs, and details for the computations necessary for replication.
-The submission of this material indicates that authors [license](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html) users to download, copy, and modify it.
-Such users must acknowledge all authors as the original creators and the Review of Economic Studies as the original publisher.
-These will be posted in the Review's Replication Archive.
+{% for rule in site.data.rules -%}
+{% if rule.group %}
+| | **{{ rule.group }}** | {% else -%}
+{% endif %} 
+| {{ forloop.index}} | {{ rule.topic }} | {{ rule.description }} |{% endfor %}
+
+Replication packages will be posted in the Review's [Replication Archive](https://zenodo.org/communities/restud-replication/).
+
 The Managing Editor should be notified at the time of submission if the above requirements cannot be met for any reason (see details below).
 We reserve the right to refuse publication of papers whose authors do not comply with these requirements.
 
 As soon as possible after receiving instructions from the Journal Manager, authors of accepted papers are expected to send their data, programs, and sufficient details to permit replication, in electronic form, to the Review office.
 Questions regarding any aspect of this policy should be forwarded to the Data Editor.
 
-## Econometric and Simulation Papers
-
-Upon acceptance, authors should provide data set(s) and computer programs used in the work.
-
-A [Data Citation](https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html) and a [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) should be included for ALL data used in the work, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope.
-
-If intermediate data sets and programs used for the composition of the final data set are not submitted, authors are expected to provide a description of the final data set construction and to cooperate with investigators seeking to conduct a replication.
-Data files and programs can be provided in any format using any statistical package or software.
-A README file listing all included files and documenting the purpose and format of each file should be provided in PDF or Markdown format.
-
 README files should include information on the operating system-software version combination used in the analysis and ideally an estimate for computation time (possibly with hardware specifications used in the execution of the programs).
 Software requirements should explicitly list all modules, libraries, toolboxes and commands used that are not part of the core software.
 Programs that rely on random number generators should set seeds to allow replication.  
 If it is necessary to execute programs in a particular order, this should be made explicit in the README files.
-A template README file is [available here]({{ site.baseurl }}/template-README/).
 
 The Data Editor acknowledge that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
 Exemptions in such cases are possible, but authors must provide interested investigators the necessary information on how to obtain the data (even if the data are provided by a third party at a monetary cost).
@@ -62,55 +55,8 @@ Similarly, there may be compelling reasons to restrict usage, and if Managing Ed
 
 Requests for exemptions should be clearly stated when the article is first submitted.  The article will then be reviewed at the discretion of the Managing Editors and the Data Editor. Exceptions will not be considered later in the review and publication process.
 
-## Experimental Papers
-
-Procedural information is relevant to evaluate the potential publication of experimental papers.
-For this reason, we expect authors of (field or laboratory) experimental papers to provide the following supplementary materials at the time of submission:
-
-### Original instructions
-These should be provided in full as an appendix and possibly summarised in the discussion of the experimental design.
-These should be presented in a way that allows the design to be replicated by a reasonably skilled experimentalist.
-If any accompanying materials, such as experimental instructions, are not written in English, then a translation should be provided.
-In the discussion of the experimental design, the submitted manuscript must provide information about subject eligibility or selection, such as exclusions based on past participation in experiments, college major, etc.
-Upon acceptance, authors are expected to provide the following additional information:
-
-### Computer programs, configuration files, or scripts used to run the experiment and/or to analyse the data
-As with Econometric and Simulation papers, information on operating system-software version combination should be provided.
-### The raw data from the experiment
-Aside from properly summarising those in the submitted manuscript, the data should be provided upon acceptance of the manuscript, with sufficient explanation to make it possible to use the submitted computer programs to replicate the data analysis.
-
-As with Econometric and Simulation papers, we understand that there may be a need for exceptions for confidentiality or related reasons.
-In such cases, when the paper is first submitted, authors should clearly state that certain data or other material cannot or will not be made available, and an explanation should be provided.
-In such cases, it is understood that interested investigators may contact the authors to negotiate the use of the data for replication purposes.
-
-Requests for exemptions should be clearly stated when the article is first submitted.  
-The article will then be reviewed at the discretion of the Managing Editors and the Data Editor.
-Exceptions will not be considered later in the review and publication process.
-
 # What if your dataset is confidential?
-There may be cases when you cannot share the dataset directly. This does not lead to automatic exemption from the Data Availability Policy. Please note, *at the time of submission*, why you cannot comply fully with the policy, and be prepared to answer the following questions if needed. 
-## Checklist
-- How can your dataset be cited? Please provide at least the following information.
-    - Creator or publisher (can be an organization)
-    - Name of dataset
-    - Creation date of version used
-    - If available, link to a description of the data by the publisher
-- Have other published articles used this dataset? If so, give precise citations.
-- Why cannot you share this dataset? Refer to explicit license terms or other legal restrictions as appropriate.
-- Can other researchers access this data under similar terms you have? If so, describe the steps necessary to access this data.
-- Can the publisher ensure access to the exact same version of the data you are using?
-
-## Example
-- How can your dataset be cited? 
-    - U.S. Bureau of the Census, 2005. "Longitudinal Business Database (LBD)" https://www.census.gov/ces/dataproducts/datasets/lbd.html
-- Have other published articles used this dataset? If so, give precise citations.
-    -  Timothy Dunne, J. Bradford Jensen, Mark J. Roberts. 2009. "Producer Dynamics: New Evidence from Micro Data." University of Chicago Press.
-- Why cannot you share this dataset? Refer to explicit license terms or other legal restrictions as appropriate.
-    - This is restricted-use microdata published by the U.S. Bureau of the Census. Federal law prohibits the Census to publish private information. https://www.census.gov/about/policies/privacy/data_stewardship/federal_law.html
-- Can other researchers access this data under similar terms you have? If so, describe the steps necessary to access this data.
-    - The data can be accessed at one of the 29 Federal Statistical Research Data Centers by researchers who have obtained Special Sworn Status at the Census. https://www.census.gov/fsrdc See, for example, http://web.sas.upenn.edu/pfsrdc/accessing-data/
-- Can the publisher ensure access to the exact same version of the data you are using?
-    - Yes, RDCs archive the data for seven years.
+There may be cases when you cannot share the dataset directly. This does not lead to automatic exemption from the Data Availability Policy. Please note, *at the time of submission*, why you cannot comply fully with the policy.
 
 # Submission instructions
 Please see detailed [submission instructions here](https://www.restud.com/submissions/).
