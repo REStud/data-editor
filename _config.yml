@@ -1,6 +1,6 @@
 # Theme settings
 doks:
-    baseurl: /
+    baseurl: https://restud.dataeditor.group
     color_theme: # Available themes: blue (default), green, purple, red and yellow
     header:
         logo:
