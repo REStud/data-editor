@@ -54,20 +54,22 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 2. You need a Zenodo account to publish your files. [Sign up](https://zenodo.org/signup/) if you do not have one yet. 
 ![]({{ site.baseurl }}/assets/img/zenodo/before-login.png)
 3. Create a [new Zenodo entry](https://zenodo.org/deposit/new?c=restud-replication) for your replication package. Make sure to use this link so that the Review receives your package once you are finished.
-4. Upload your ZIP archive to Zenodo by "drag and drop" or selecting "Choose files." Make sure to push the green "Start upload" button after selecting your files.
-![]({{ site.baseurl }}/assets/img/zenodo/push-start-upload.png)
-5. Select "Dataset" or "Software" as your upload type.
-6. Fill in the required metadata about your upload.
+4. Upload your ZIP archive to Zenodo by "Drag and drop" or selecting "Upload files." Make sure to push the green "Start upload" button after selecting your files.
+![]({{ site.baseurl }}/assets/img/zenodo/files-uploaded.png)
+5. Generate a Digital Object Identifier (DOI) by clicking "No" and "Get a DOI now!". Make note of the DOI number issued by Zenodo. You will need to cite this in the [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) at the end of your manuscript.
+![]({{ site.baseurl }}/assets/img/zenodo/doi-no.png)
+6. Select "Dataset" or "Software" as your upload type.
+7. Fill in the required metadata about your upload.
 	- Title: "Replication package for: {full title of your manuscript}"
-	- Authors: Typically same as manuscript authors, but can you can add others who have contributed significantly to the code you are uploading (such as research assistants).
+	- Publication date: {keep the Zenodo default - the day you are uploading the package}
+	- Creators: Typically same as manuscript authors, but can you can add others who have contributed significantly to the code you are uploading (such as research assistants).
 	- Description: Include a full citation of your manuscript and a one-sentence description of what the replication package contains.
 	- Do not worry about other metadata, these will be filled out by the journal office once the paper is published.
-![]({{ site.baseurl }}/assets/img/zenodo/metadata.png)
-7. Select an open access License for your upload. Our [Data Availability Policy]({{ site.baseurl }}/before/#data-availability-policy) requires that you allow readers to download, copy and modify your replication package. We recommend a "Creative Commons Attribution 4.0 International" license, but if you wish to use a different license, select "Other (Attribution)."
-![]({{ site.baseurl }}/assets/img/zenodo/other-license.png)
-8. "Save" and then "Publish." This will notify the Data Editor who will review the files you submitted. Note that once published, you cannot edit or delete your uploaded files. You can only create a new version.
-![]({{ site.baseurl }}/assets/img/zenodo/save-and-publish.png)
-9. Make note of the DOI number issued by Zenodo. You will need to cite this in the [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) at the end of your manuscript.
+![]({{ site.baseurl }}/assets/img/zenodo/description.png)
+8. Select an open access License for your upload. Our [Data Availability Policy]({{ site.baseurl }}/before/#data-availability-policy) requires that you allow readers to download, copy and modify your replication package. We recommend a "Creative Commons Attribution 4.0 International" license, but if you wish to use a different license, select "Other (Attribution)."
+![]({{ site.baseurl }}/assets/img/zenodo/license-other.png)
+9. To avoid mistakes and errors please "Preview" your package before publishing. "Save draft" and then "Publish to community", read and check the warnings and finally "Publish record to community." This will notify the Data Editor who will review the files you submitted. Note that once published, you cannot edit or delete your uploaded files (only metadata). You can only edit uploaded files by creating a new version of the package. 
+![]({{ site.baseurl }}/assets/img/zenodo/publish.png)
 
 ## Uploading additional versions of your replication package
 In case you are asked to make changes to your replication package, follow these steps.
