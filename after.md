@@ -68,8 +68,8 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 ![]({{ site.baseurl }}/assets/img/zenodo/description.png)
 8. Select an open access License for your upload. Our [Data Availability Policy]({{ site.baseurl }}/before/#data-availability-policy) requires that you allow readers to download, copy and modify your replication package. We recommend a "Creative Commons Attribution 4.0 International" license, but if you wish to use a different license, select "Other (Attribution)."
 ![]({{ site.baseurl }}/assets/img/zenodo/license-other.png)
-9. To avoid mistakes and errors please "Preview" your package before publishing. "Save draft" and then "Publish to community", read and check the warnings and finally "Publish record to community." This will notify the Data Editor who will review the files you submitted. Note that once published, you cannot edit or delete your uploaded files (only metadata). You can only edit uploaded files by creating a new version of the package. 
-![]({{ site.baseurl }}/assets/img/zenodo/publish.png)
+9. To avoid mistakes and errors please "Preview" your package before submitting. "Save draft" and then "Submit for review", read and check the warnings and finally "Submit record for review." This will notify the Data Editor who will review the files you submitted. Note that once published, you cannot edit or delete your uploaded files (only metadata). You can only edit uploaded files by creating a new version of the package. 
+![]({{ site.baseurl }}/assets/img/zenodo/submit.png)
 
 ## Uploading additional versions of your replication package
 In case you are asked to make changes to your replication package, follow these steps.
