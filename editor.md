@@ -10,4 +10,4 @@ description: Contact information
 
 ---
 
-The Data Editor of the Review of Economic Studies is [Miklós Koren](https://koren.mk), who can be reached at korenm@ceu.edu.
+The Data Editor of the Review of Economic Studies is [Andrea Moro](https://andreamoro.net), Vanderbilt University, who can be reached at andrea@andreamoro.net.
