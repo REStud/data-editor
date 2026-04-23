@@ -8,6 +8,7 @@
 *.bak
 *.swp
 Thumbs.db
+.vscode
 
 # -----------------------
 # Local Development Tools
