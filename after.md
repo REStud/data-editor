@@ -32,8 +32,8 @@ the [Data and Code Availability Standard](https://datacodestandard.org/)
 
 # What if...
 - *You realized while preparing the package that your last replication does not exactly reproduce the output reported in th accepted manuscript?* In this case, please contact the Managing Editor and let them know about the issue, and explain in detail how you want to change the manuscript and why. The Managing Editor is the best person go judge if the changes do not alter the message of the paper and if they are acceptable. After the ME's approval, forward to the data editor the updated manuscript.
-- *Our replication does not exactly reproduce your output* We will work with you to understand the reason why this happens and how to fix it.
-- *You have a theory paper that does not use data* You still have to submit the replication package if you have code that generates simulation output. If in doubt, feel free to contact the Data Editor for clarification.
+- *Our replication does not exactly reproduce your output?* We will work with you to understand the reason why this happens and how to fix it.
+- *Your theory paper that does not use data* If you have code that generates simulation output, you still have to submit a replication package. We don't require a package only for TikZ figures. If in doubt, feel free to contact the Data Editor for clarification.
 
 # What to include in your replication package
 The replication package is a ZIP archive of folders and files that includes
@@ -114,6 +114,8 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 In case you are asked to make changes to your replication package, follow these steps.
 1. Go to the Zenodo entry you have created. You can use the DOI to find it.
 2. Click on the green "New version" button.
-3. Upload the new ZIP archive and edit metadata if necessary. Follow the steps above before saving and publishing.
+3. Upload the new ZIP archive and edit metadata if necessary.
+4. Change the Publication date.
+5. Follow the steps above before saving and publishing.
 
 If you have any questions about replication package submission, please contact the [Data Editor]({{ site.baseurl }}/editor/).
