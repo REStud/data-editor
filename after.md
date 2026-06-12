@@ -94,7 +94,7 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 ## Uploading the first version of your replication package
 
 1. Package all your files with their full directory structure in a ZIP archive. Please do not use any other archive format and do not compress files within the ZIP archive. Remove extraneous hidden files (the most frequent: __MACOSX directories and .git directories)
-2. Please leave the README outside the zip file. This will facilitate inspection of the package's features.
+2. Please leave the README outside the zip file. This will facilitate inspection of the package's features, improve transpacency and clarity that allow ourputs to be examined when needed to support evaluation and reuse.
 3. You need a Zenodo account to publish your files. [Sign up](https://zenodo.org/signup/) if you do not have one yet.
    ![]({{ site.baseurl }}/assets/img/zenodo/before-login.png)
 4. Create a [new Zenodo entry](https://zenodo.org/deposit/new?c=restud-replication) for your replication package. Make sure to use this link so that the Review receives your package once you are finished.
@@ -104,7 +104,6 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
    ![]({{ site.baseurl }}/assets/img/zenodo/doi-no.png)
 7. Select "Dataset" or "Software" as your upload type.
 8. Fill in the required metadata about your upload.
-
    - Title: "Replication package for: {full title of your manuscript}"
    - Publication date: {keep the Zenodo default - the day you are uploading the package}
    - Creators: Typically same as manuscript authors, but can you can add others who have contributed significantly to the code you are uploading (such as research assistants).
