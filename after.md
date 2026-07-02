@@ -64,8 +64,8 @@ Specifically:
 
 ## Data availability
 
-- Our policy requires you to share all data.
-- Requests for exemptions from this policy must be made in a cover letter to the Managing Editor at the time of first submission.
+- Our policy requires you to make available to the journal all the data.
+- Requests for exemptions from this policy must be made in a cover letter to the Managing Editor at the time of first submission (see [REStud's submission instructions](https://www.restud.com/submissions/))
 - If you cannot include some or all of the data in your package, please check with the data provider about whether the data may be shared with the Data Editor. We are happy to work with you and the data provider to find a solution that allows us to replicate your results, including by signing any necessary agreements. If that is not possible, we will try to obtain access to the data ourselves.
 - For confidential data that you cannot include, provide a data preservation statement. We ask you to commit to preserving the data for at least five years.
 - In rare cases, authors are asked not to disclose the identity of the data provider. This must be disclosed at the time of submission. In these cases, we follow the policy of the [American Economic Association](https://aeadataeditor.github.io/posts/2026-05-08-private-data). Please consult it and contact the Data Editor to arrange an appropriate resolution.
