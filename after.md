@@ -41,13 +41,16 @@ the [Data and Code Availability Standard](https://datacodestandard.org/)
 
 The replication package is a ZIP archive of folders and files that essentially includes:
 
-- a README file *with data citations, instructions on how to acquire the data,* and instructions on how to reproduce the results (details below)
 - raw data
 - data cleaning and manipulation code
 - the analysis data on which the analysis code would run
 - the analysis code to construct the research outputs displayed in the paper
 
 There are no specific requirements for software use, file names, or folder structure, but the package should enable another trained computational scientist to run the replication code and reproduce the outputs.
+
+The package also must include a README file *with data citations, instructions on how to acquire the data,* and instructions on how to reproduce the results (details below).
+
+You may include the readme in the ZIP archive, but we require that you ***upload it as a separate file alongside the .zip archive*** on Zenodo. Keeping the README separate lets editors and readers quickly assess data/code availability, requirements, and run instructions before downloading large files, which improves transparency, accessibility, and screening efficiency.
 
 # README file
 
