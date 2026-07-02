@@ -74,26 +74,25 @@ Specifically:
 
 Citing and describing data sources in the README is the best way to direct readers to them. We ask you to place full data citations in a References section at the end of the README, and to use short in-text citations in the Data Availability Statement (DAS) section, which should contain a full description of all data sources and how to access them. Specifically:
 
-- *Include a formal Data Availability Statement* for each dataset you use. The goal is to describe clearly the steps readers must take if they want to access the data. Please see the [template README](https://social-science-data-editors.github.io/template_README/) for examples and further guidance.
-- For clarity, *we recommend enumerating data sources in a list or table*, indicating whether each source is included, which files it corresponds to when included, and the files' paths relative to the root of the package.
-- *Provide all details* an independent replicator would need to obtain the data. In particular, the Data and Code Availability Statement "contains information about the sources of data used in the replication package, in addition to or instead of such detailed description in the manuscript. A DCAS goes beyond a typical data citation, as it describes additional information necessary for obtaining the data. These may include required registrations, memberships, application procedures, monetary cost, or other qualifications, beyond a simple URL for download which is typically part of Data Citations." If the data citation does not contain a Document Object Identifier (DOI), be specific about where the data can be accessed. It is not sufficient to provide only a URL or a generic provenance statement. If you provide a URL, do not stop at a generic link to the data provider's website. Instead, provide the specific URL for the data you used and explain the steps the replicator must follow to download it, including which variables you downloaded and when you downloaded them. Some data also have version numbers. Be as detailed as necessary to allow someone else to download the same data you used.
+- ***Include a formal Data Availability Statement*** for each dataset you use. The goal is to describe clearly the steps readers must take if they want to access the data. Please see the [template README](https://social-science-data-editors.github.io/template_README/) for examples and further guidance.
+- For clarity, ***we recommend enumerating data sources in a list or table***, indicating whether each source is included, which files it corresponds to when included, and the files' paths relative to the root of the package.
+- ***Provide all details*** an independent replicator would need to obtain the data. In particular, the Data and Code Availability Statement "contains information about the sources of data used in the replication package, in addition to or instead of such detailed description in the manuscript. A DCAS goes beyond a typical data citation, as it describes additional information necessary for obtaining the data. These may include required registrations, memberships, application procedures, monetary cost, or other qualifications, beyond a simple URL for download which is typically part of Data Citations." If the data citation does not contain a Document Object Identifier (DOI), be specific about where the data can be accessed. It is not sufficient to provide only a URL or a generic provenance statement. If you provide a URL, do not stop at a generic link to the data provider's website. Instead, provide the specific URL for the data you used and explain the steps the replicator must follow to download it, including which variables you downloaded and when you downloaded them. Some data also have version numbers. Be as detailed as necessary to allow someone else to download the same data you used.
 - Include a data dictionary or codebook for each dataset you used. If this information is already embedded in your software, for example in a Stata format file, there is no need to duplicate it.
 
 ## Data citations
 Each dataset you use should be cited in the README as well as in the manuscript, whether or not you include it in the package.
 
-The best way to avoid redundancy and clutter is to place *full citations only at the end of the README*, in the References section, and refer to them using an *in-text short citation* (for example, `Bureau of the Census (2009)`) in the DAS, the data descriptions, or the data list or table. Do the same in the manuscript wherever you cite the data. If the dataset has a DOI, please include it in the full citation. (This is the same practice you use when citing a book or an article).
+The best way to avoid redundancy and clutter is to place ***full citations only at the end of the README***, in the References section, and refer to them using an ***in-text short citation*** (for example, `Bureau of the Census (2009)`) in the DAS, the data descriptions, or the data list or table. Do the same in the manuscript wherever you cite the data. If the dataset has a DOI, please include it in the full citation. (This is the same practice you use when citing a book or an article).
 
-The data providers sometimes recommend a "suggested citation." If not, please see the [Data Citation Guide](https://social-science-data-editors.github.io/guidance/Guidance/Data_citation_guide.html) for guidance, and the [additional examples page](https://social-science-data-editors.github.io/guidance/addtl-data-citation-guidance.html) for further examples. The Data Citation Guide also includes a tool that may help you cite datasets that do not have a DOI or a suggested citation format.
+The data providers sometimes recommend a "suggested citation." If so, use it. If not, please see the [Data Citation Guide](https://social-science-data-editors.github.io/guidance/Guidance/Data_citation_guide.html) for guidance, and the [additional examples page](https://social-science-data-editors.github.io/guidance/addtl-data-citation-guidance.html) for further examples. The Data Citation Guide also includes a tool that may help you cite datasets that do not have a DOI or a suggested citation format.
 
 ## Rights
 - Verify that you have the right to share any data you include, and make sure you comply with the data license, which may differ from the license you choose for the package. Note that some licenses require the license text to be distributed together with the data.
 
-*Include the following Statement about Rights in the README:*
+***Include the following Statement about Rights in the README:***
 
 * I/We certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
 * I/We certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package.
-
 
 
 ## Hardware and software requirements
@@ -103,7 +102,7 @@ The data providers sometimes recommend a "suggested citation." If not, please se
 
 ## Instructions for the replicator
 
-- You may describe your code as you wish, but you must explain how to run it in a specific section titled "Instructions for the replicator".
+- You may describe your code in as much detail as you wish, but make sure you also explain succintly how to run it in a specific section titled "Instructions for the replicator," enumerating then steps.
 - Write your code to minimize the need for manual intervention. This is typically done by avoiding including absolute paths, and by providing scripts that run the entire analysis with a single or a few commands. If you have to include manual steps, please be as specific as possible about what these steps are and how to do them. If we find that there are too many manual steps, we will ask you to automate them.
 - Include information about how you controlled random number generation (e.g. in which file did you set the seed)
 - Use hardware-independent code. In particular, pay attention to filename capitalization and path separators, for example use "/" rather than "\\". If you used a specific operating system, please specify this in the README.
