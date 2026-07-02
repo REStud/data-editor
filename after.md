@@ -27,19 +27,19 @@ the [Data and Code Availability Standard](https://datacodestandard.org/)
 
 # What we do
 
-- We check that you described the data you used and how to obtained it thoroughly
-- We check that the code runs and produces the same output as in the manuscript you submitted: this includes tables, figures, and numerical output that is included in the text of the paper but does not directly refer to numbers in figures and tables.
+- We check that you have described the data you used and how to obtain it thoroughly.
+- We check that the code runs and produces the same output as in the manuscript you submitted. This includes tables, figures, and numerical output reported in the text of the paper, even when those numbers do not appear directly in a table or figure.
 
 # What if...
 
-- ***You realized while preparing the package that your last replication does not exactly reproduce the output reported in th accepted manuscript?*** In this case, please contact the Managing Editor and let them know about the issue, explain in detail how you want to change the manuscript and why. The Managing Editor is the best person go judge if the changes do not alter the message of the paper and if they are acceptable. After the ME's approval, forward to the data editor the updated manuscript.
-- ***Our replication does not exactly reproduce your output?*** We will work with you to understand the reason why this happens and how to fix it.
-- ***Your theory paper does not use data?*** Your paper may still be subject to the Data (and Code) Availability Standard if you have code that generates simulation output. Then, you have to submit a replication package. We don't require a package for figures that could essentially be drawn by hand, or for TikZ diagrams whose coordinates are not computed. If in doubt, feel free to contact the Data Editor for clarification.
-- ***You collected your data*** Please include all survey or experimental instruments, even if you included them in an online appendix. Online appendices do not have a DOI, therefore by including them in the replication package they will have a permanent home with a DOI, a reuse license, allowing readers to cite them and to access them. You may also consider releasing the data in a separate record. In that case, cite it with its DOI.
+- ***You realized while preparing the package that your latest replication attempt does not exactly reproduce the output reported in the accepted manuscript?*** In this case, please contact the Managing Editor, explain the issue, and describe in detail how you would like to change the manuscript and why. The Managing Editor is the best person to judge whether the changes alter the message of the paper and whether they are acceptable. After the Managing Editor approves the changes, please forward the updated manuscript to the Data Editor.
+- ***Our replication does not exactly reproduce your output?*** We will work with you to understand why this happened and how to fix it.
+- ***Your theory paper does not use data?*** Your paper may still be subject to the Data and Code Availability Standard if you have code that generates simulation output. In that case, you must submit a replication package. We do not require a package for figures that could essentially be drawn by hand, or for TikZ diagrams whose coordinates are not computed. If in doubt, please contact the Data Editor for clarification.
+- ***You collected your data?*** Please include all survey or experimental instruments, even if you have already included them in an online appendix. Online appendices do not have a DOI, so including them in the replication package gives them a permanent home, a DOI, and a reuse license, allowing readers to cite them and access them. You may also consider releasing the data in a separate record. If you do, cite that record using its DOI.
 
 # What to include in your replication package
 
-The replication package is a ZIP archive of folders and files that includes, essentially
+The replication package is a ZIP archive of folders and files that essentially includes:
 
 - a README file *with data citations, instructions on how to acquire the data,* and instructions on how to reproduce the results (details below)
 - raw data
@@ -47,16 +47,16 @@ The replication package is a ZIP archive of folders and files that includes, ess
 - the analysis data on which the analysis code would run
 - the analysis code to construct the research outputs displayed in the paper
 
-There are no specific requirements for software use, file names and folder structure, but the package should enable any other trained computational scientist to run the replication code and create the outputs.
+There are no specific requirements for software use, file names, or folder structure, but the package should enable another trained computational scientist to run the replication code and reproduce the outputs.
 
 # README file
 
-The README document is a PDF, plain text, or Markdown file (please no word documents) that explains readers how to reproduce your work. It tells the reader
+The README document should be a PDF, plain text, or Markdown file; please do not use Word documents. It should explain to readers how to reproduce your work. It should tell the reader:
 
-- the data used and, whether or not it is included with the package, instructions on how to access it. The most frequent revision request is the lack of data citations (see below); the second is lack of adequate instructions on how to access the data
-- details about the code and instructions on how to run the analysis. A frequent revision request is lack of instructions for the replicators
+- what data were used and, whether or not the data are included in the package, how to access them. The most frequent revision request is the absence of data citations; the second is the lack of adequate instructions on how to access the data.
+- details about the code and instructions on how to run the analysis. Another frequent revision request is the lack of clear instructions for replicators.
 
-You should write it under the principle of "computational empathy," that is, try to make the life of a replicator easier by avoiding unnecessary steps. Imagine a trained computational scientist trying to reproduce your work and give as specific instructions as you can.
+You should write it with "computational empathy" in mind. Try to make the replicator's job easier by avoiding unnecessary steps. Imagine a trained computational scientist trying to reproduce your work, and give as specific instructions as you can.
 
 The best approach is to follow the template README from the [social sciences data editors website](https://social-science-data-editors.github.io/template_README/).
 
@@ -64,25 +64,47 @@ Specifically:
 
 ## Data availability
 
-- If you cannot share the data, we ask you to check with the data provider for permission to share the data with the Data Editor. We are happy to work with you and the data provider to find a solution that allows us to replicate your results by signing the necessary agreeements. If this is not possible, we will try to get access to the data ourselves. This is why it is omportant to provide detailed information about how you obtained access to the data, and what data to ask for.
-- For confidential data, included a data preservation statement. We ask you to commit to preserving the data for at least five years.
-- Include a formal Data Availability Statement for each of the datasets you are using. The goal is to describe clearly the steps that readers have to take if they want to access the data. Please see here (https://social-science-data-editors.github.io/template_README/) for examples and further guidance. In particular, the Data and Code Availability Statement "contains information about the sources of data used in the replication package, in addition to or instead of such detailed description in the manuscript. A DCAS goes beyond a typical data citation, as it describes additional information necessary for obtaining the data. These may include required registrations, memberships, application procedures, monetary cost, or other qualifications, beyond a simple URL for download which is typically part of Data Citations."
-- List the data files whether or not they are included in the package and provide a citation for each dataset. If the data does not have a Document Object Identifier (DOI), be specific as to where the data can be accessed. It is not sufficient to provide a URL or a generic provenance statement. Specify what variables you downloaded and when you downloaded them. Sometimes, data has version numbers. Be as detailed as necessary to allow someone else to download the same data you used.
-- For each data source, cite the data, its format, how you obtained access, and whether it included with your replication package. Please see here (https://social-science-data-editors.github.io/guidance/addtl-data-citation-guidance.html) for examples and further guidance on how to cite data
-- Include a data dictionary or codebook (if this is included in your software, e.g. a stata format file, no need to duplicate this information).
-- Verify that you have the rights to share the data you include, and make sure you obey the data license (the license you chose may be different)
+- Our policy requires you to share all data.
+- Requests for exemptions from this policy must be made in a cover letter to the Managing Editor at the time of first submission.
+- If you cannot include some or all of the data in your package, please check with the data provider about whether the data may be shared with the Data Editor. We are happy to work with you and the data provider to find a solution that allows us to replicate your results, including by signing any necessary agreements. If that is not possible, we will try to obtain access to the data ourselves.
+- For confidential data that you cannot include, provide a data preservation statement. We ask you to commit to preserving the data for at least five years.
+- In rare cases, authors are asked not to disclose the identity of the data provider. This must be disclosed at the time of submission. In these cases, we follow the policy of the [American Economic Association](https://aeadataeditor.github.io/posts/2026-05-08-private-data). Please consult it and contact the Data Editor to arrange an appropriate resolution.
+
+## Data Availability Statement and description of the data
+
+Citing and describing data sources in the README is the best way to direct readers to them. We ask you to place full data citations in a References section at the end of the README, and to use short in-text citations in the Data Availability Statement (DAS) section, which should contain a full description of all data sources and how to access them. Specifically:
+
+- Include a formal Data Availability Statement for each dataset you use. The goal is to describe clearly the steps readers must take if they want to access the data. Please see the [template README](https://social-science-data-editors.github.io/template_README/) for examples and further guidance.
+- For clarity, we recommend enumerating data sources in a list or table, indicating whether each source is included, which files it corresponds to when included, and the files' paths relative to the root of the package.
+- Provide all details an independent replicator would need to obtain the data. In particular, the Data and Code Availability Statement "contains information about the sources of data used in the replication package, in addition to or instead of such detailed description in the manuscript. A DCAS goes beyond a typical data citation, as it describes additional information necessary for obtaining the data. These may include required registrations, memberships, application procedures, monetary cost, or other qualifications, beyond a simple URL for download which is typically part of Data Citations." If the data citation does not contain a Document Object Identifier (DOI), be specific about where the data can be accessed. It is not sufficient to provide only a URL or a generic provenance statement. If you provide a URL, do not stop at a generic link to the data provider's website. Instead, provide the specific URL for the data you used and explain the steps the replicator must follow to download it, including which variables you downloaded and when you downloaded them. Some data also have version numbers. Be as detailed as necessary to allow someone else to download the same data you used.
+- Include a data dictionary or codebook for each dataset you used. If this information is already embedded in your software, for example in a Stata format file, there is no need to duplicate it.
+
+## Data citations
+Each dataset you use should be cited in the README as well as in the manuscript, whether or not you include it in the package.
+
+The best way to avoid redundancy is to place full citations only at the end of the README, in the References section, and refer to them using an in-text short citation (for example, `Bureau of the Census (2009)`) in the DAS, the data descriptions, or the data list or table. Do the same in the manuscript wherever you cite the data. If the dataset has a DOI, please include it in the full citation.
+
+Please see the [Data Citation Guide](https://social-science-data-editors.github.io/guidance/Guidance/Data_citation_guide.html) for guidance, and the [additional examples page](https://social-science-data-editors.github.io/guidance/addtl-data-citation-guidance.html) for further examples. The Data Citation Guide also includes a tool that may help you cite datasets that do not have a DOI or a suggested citation format.
+
+## Rights
+- Verify that you have the right to share any data you include, and make sure you comply with the data license, which may differ from the license you choose for the package. Note that some licenses require the license text to be distributed together with the data. Include the following Statement about Rights in the README:
+
+* I/We certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
+* I/We certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package.
+
+
 
 ## Hardware and software requirements
 
-- Include detailed software requirements, including external packages and their versions. To ensure replicability, we recommend setting up virtual environments when the software allows it. You are welcome to use image/container technology (e.g., Docker) but if you do so please explain also how to run the code without it.
-- Describe the hardware you used and how long it took to run it in that system
+- Include detailed software requirements, including external packages and their versions. To improve replicability, we recommend using virtual environments when the software allows it. You are welcome to use image or container technology, such as Docker, but if you do, please also explain how to run the code without it.
+- Describe the hardware you used and how long the code took to run on that system.
 
 ## Instructions for the replicator
 
-- You may describe your code as you wish but you must explain how to run it in a specific section titled "Instructions for the replicator".
+- You may describe your code as you wish, but you must explain how to run it in a specific section titled "Instructions for the replicator".
 - Write your code to minimize the need for manual intervention. This is typically done by avoiding including absolute paths, and by providing scripts that run the entire analysis with a single or a few commands. If you have to include manual steps, please be as specific as possible about what these steps are and how to do them. If we find that there are too many manual steps, we will ask you to automate them.
 - Include information about how you controlled random number generation (e.g. in which file did you set the seed)
-- Use hardware-independent code. In particular, pay attention at filename capitalization, and path separators (e.g. use "/" and not "\"). If you used a specific operating system, please specify this in the README.
+- Use hardware-independent code. In particular, pay attention to filename capitalization and path separators, for example use "/" rather than "\\". If you used a specific operating system, please specify this in the README.
 - Specify from which working directory the code should be run.
 - Include a list of all tables and figures specifying which file generates them.
 - You may include tables and figures with your package. This helps us check that the code produces identical output but we also check it against the manuscript.
@@ -94,7 +116,7 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 ## Uploading the first version of your replication package
 
 1. Package all your files with their full directory structure in a ZIP archive. Please do not use any other archive format and do not compress files within the ZIP archive. Remove extraneous hidden files (the most frequent: __MACOSX directories and .git directories)
-2. Please leave the README outside the zip file. This will facilitate inspection of the package's features, improve transpacency and clarity that allow ourputs to be examined when needed to support evaluation and reuse.
+2. Please leave the README outside the ZIP file. This makes it easier to inspect the package, improves transparency, and allows the contents to be reviewed when needed to support evaluation and reuse.
 3. You need a Zenodo account to publish your files. [Sign up](https://zenodo.org/signup/) if you do not have one yet.
    ![]({{ site.baseurl }}/assets/img/zenodo/before-login.png)
 4. Create a [new Zenodo entry](https://zenodo.org/deposit/new?c=restud-replication) for your replication package. Make sure to use this link so that the Review receives your package once you are finished.
@@ -106,13 +128,13 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 8. Fill in the required metadata about your upload.
    - Title: "Replication package for: {full title of your manuscript}"
    - Publication date: {keep the Zenodo default - the day you are uploading the package}
-   - Creators: Typically same as manuscript authors, but can you can add others who have contributed significantly to the code you are uploading (such as research assistants).
+   - Creators: These are typically the manuscript authors, but you may also add others who have contributed significantly to the code you are uploading, such as research assistants.
    - Description: Include a full citation of your manuscript and a one-sentence description of what the replication package contains.
    - Do not worry about other metadata, these will be filled out by the journal office once the paper is published.
      ![]({{ site.baseurl }}/assets/img/zenodo/description.png)
 9. Select an open access License for your upload. Our [Data Availability Policy]({{ site.baseurl }}/before/#data-availability-policy) requires that you allow readers to download, copy and modify your replication package. We recommend a "Creative Commons Attribution 4.0 International" license, but if you wish to use a different license, select "Other (Attribution)."
    ![]({{ site.baseurl }}/assets/img/zenodo/license-other.png)
-10. In the "Communities" section, select our commmunity "restud-replication" to make sure your package is included in the list of replication packages for the Review of Economic Studies.
+10. Submit your record to our community, "restud-replication:" follow the link at the top of the record's edit page ("Select a community"), and search for "Review of Economics Studies."
 11. **Do not publish the package at this stage**. To avoid mistakes and errors please "Preview" your package before submitting. "Save draft" and then "Submit for review", read and check the warnings and finally "Submit record for review." Note that once published, you cannot edit or delete your uploaded files (only metadata). You can only edit uploaded files by creating a new version of the package.
     ![]({{ site.baseurl }}/assets/img/zenodo/submit.png)
 12. Make a note of the package's ID or URL and include it in the appropriate Typeform mentioned in the acceptance letter. Once you submit the form, the data editor will be notified that the package is ready to be checked.
