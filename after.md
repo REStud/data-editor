@@ -50,7 +50,7 @@ There are no specific requirements for software use, file names, or folder struc
 
 The package also must include a README file *with data citations, instructions on how to acquire the data,* and instructions on how to reproduce the results (details below).
 
-You may include the readme in the ZIP archive, but we require that you ***upload it as a separate file alongside the .zip archive*** on Zenodo. Keeping the README separate lets editors and readers quickly assess data/code availability, requirements, and run instructions before downloading large files, which improves transparency, accessibility, and screening efficiency.
+You may include the readme in the ZIP archive, but we require that you ***upload it as a separate file alongside the .zip archive*** on Zenodo. Keeping the README separate lets editors and readers quickly assess data/code availability, requirements, and run instructions before downloading large files, which improves transparency, accessibility, and screening efficiency. I you also include it with the zip, make sure they are identical copies.
 
 # README file
 
