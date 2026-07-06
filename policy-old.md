@@ -43,7 +43,7 @@ Questions regarding any aspect of this policy should be forwarded to the Data Ed
 
 Upon acceptance, authors should provide data set(s) and computer programs used in the work.
 
-A [Data Citation](https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html) and a [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) should be include for ALL data used in the work, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope.
+A [Data Citation](https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html) and a [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) should be included for ALL data used in the work, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope.
 
 If intermediate data sets and programs used for the composition of the final data set are not submitted, authors are expected to provide a description of the final data set construction and to cooperate with investigators seeking to conduct a replication.
 Data files and programs can be provided in any format using any statistical package or software.

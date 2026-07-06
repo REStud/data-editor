@@ -30,7 +30,7 @@ grid_navigation:
       excerpt: Before you prepare the package, learn what our requirements are
       cta: Read more
       url: '/policy/'
-    - title: How to prepare then package and write the README
+    - title: How to prepare the package and write the README
       excerpt: Follow our specific guidelines for a speedy replication
       cta: Read more
       url: '/package_howto/'
