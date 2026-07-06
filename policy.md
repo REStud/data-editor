@@ -65,7 +65,7 @@ The Data and Code Availability Standard sets out sixteen requirements, organized
 
 ## Specific requirements
 
-Sometimes exceptions are granted to rules 2-4. The following guidelines clarify and complement the DCAS requirements listed above.
+The following guidelines clarify and complement the DCAS requirements listed above, and explain how exceptions can be granted to rules 2-4.
 
 <div class="dcas-accordion">
 
