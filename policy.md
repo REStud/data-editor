@@ -20,21 +20,6 @@ page_nav:
         url: '/package_howto/'
 ---
 
-<style>
-.dcas-accordion { margin: 1.5rem 0; }
-.dcas-panel { margin-bottom: .5rem; overflow: hidden; }
-.dcas-panel > summary { cursor: pointer; padding: .75rem 2.25rem .75rem 1rem; font-weight: 700; list-style: none; position: relative; background: #f6f7f9; }
-.dcas-panel > summary::-webkit-details-marker { display: none; }
-.dcas-panel > summary::after { content: "\002B"; position: absolute; right: 1rem; top: .75rem; font-weight: 700; }
-.dcas-panel[open] > summary::after { content: "\2212"; }
-/*.dcas-panel[open] > summary { border-bottom: 1px solid #e2e2e2; } */
-.dcas-panel[open] > div.dcas-content {padding: .5rem .5rem 0 1rem; }
-.dcas-table { width: 100%; margin: .5rem 0 0 0; border-collapse: collapse; }
-.dcas-table th, .dcas-table td { text-align: left; vertical-align: top; padding: .5rem .75rem; border-bottom: 1px solid #eee; font-size: .92rem; }
-.dcas-table thead th { background: #fafafa; }
-.dcas-table td:first-child, .dcas-table th:first-child { width: 2rem; text-align: center; color: #999; }
-</style>
-
 By submitting to the journal, you indicate that you accept the Data and Code Availability Policy. In short, the default rule is that you are required to submit all code and data necessary to reproduce your work, and permit any reader of the journal to use them.
 
 # The Data and Code Availability Policy

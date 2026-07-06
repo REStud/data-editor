@@ -1,0 +1,34 @@
+/**
+ * Citation blocks (components/_citation.scss)
+ *
+ * Formatted reference / citation examples. Quality variants:
+ *   .goodcite   - recommended example (green)
+ *   .mediumcite - acceptable but not ideal (amber)
+ * Markup: <div class="citation goodcite" markdown="1"> ... </div>
+ */
+
+.citation {
+	margin: 1rem 0;
+	padding: .625rem 1rem;
+	border-left: 3px solid #c7c7c7;
+	background: #f6f7f9;
+	font-size: .92rem;
+
+	> :first-child {
+		margin-top: 0;
+	}
+
+	> :last-child {
+		margin-bottom: 0;
+	}
+}
+
+.citation.goodcite {
+	border-left-color: #146c43;
+	background: #eef8f1;
+}
+
+.citation.mediumcite {
+	border-left-color: #cc8a00;
+	background: #fbf5e7;
+}

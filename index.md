@@ -33,7 +33,7 @@ grid_navigation:
     - title: How to prepare the package and write the README
       excerpt: Follow our specific guidelines for a speedy replication
       cta: Read more
-      url: '/package_howto/'
+      url: '/package-howto/'
     - title: Submitting packages to Zenodo
       excerpt: After preparing the package, learn how to deposit it to the Review's repository.
       cta: Read more
@@ -57,5 +57,5 @@ grid_navigation:
 ## What we do
 
 - We check that you have thoroughly described the data you used, how to obtain it, and that you included it in the package following our Data and Code Availability Policy linked below.
-- We check that your code runs and produces the same output as in the manuscript you submitted. This includes tables, figures, and numerical output reported in the text of the paper, even when those numbers do not appear directly in a table or figure.
+- We check that your code runs and produces the same output as in the manuscript you submitted. This includes tables, figures, and numerical output reported in the text of the paper, when those numbers do not appear in a table or figure.
 - We then accept your Replication package into our [Zenodo community&#39;s Replication Archive](https://zenodo.org/communities/restud-replication/).

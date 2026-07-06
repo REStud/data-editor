@@ -3,7 +3,7 @@
 layout: default
 keywords:
 comments: false
-permalink: /package_howto/
+permalink: /package-howto
 
 # Hero section
 title: Preparing your replication package
@@ -58,7 +58,7 @@ Citing and describing data sources in the README is the best way to direct reade
 
 The best way to avoid redundancy and clutter is to place **full citations in a references section at the end of the README** and use **in-text short citations** (for example, `Bureau of the Census (2009)`) in the rest of the document when you need to refer to a dataset. Do the same in the manuscript whenever you cite the data; this is the same practice you use when citing a book or an article.
 
-If the dataset has a DOI, please include it in the full citation. Verify whether your data provider recommends a "suggested citation." If so, use it; if not, please see the [Data Citation Guide](https://social-science-data-editors.github.io/guidance/Guidance/Data_citation_guide.html) for guidance and the [additional examples page](https://social-science-data-editors.github.io/guidance/addtl-data-citation-guidance.html) for further examples. The Data Citation Guide also includes a tool that may help you cite datasets that do not have a DOI or a suggested citation format.
+If the dataset has a DOI, please include it in the full citation. Verify whether your data provider recommends a "suggested citation." If so, use it; if not, please see the **[Data Citation Guide](/citation-guide/)** for guidance and examples. The Data Citation Guide also includes a tool that may help you cite datasets that do not have a DOI or a suggested citation format.
 
 ### Data Availability Statement (DAS) and data description
 

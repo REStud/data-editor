@@ -1,0 +1,70 @@
+/**
+ * DCAS accordion (components/_dcas-accordion.scss)
+ *
+ * Collapsible <details>/<summary> panels, optionally holding a table.
+ * Markup: .dcas-accordion > .dcas-panel (details) > summary + .dcas-content
+ */
+
+.dcas-accordion {
+	margin: 1.5rem 0;
+}
+
+.dcas-panel {
+	margin-bottom: .5rem;
+	overflow: hidden;
+
+	> summary {
+		cursor: pointer;
+		padding: .75rem 2.25rem .75rem 1rem;
+		font-weight: 700;
+		list-style: none;
+		position: relative;
+		background: #f6f7f9;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&::after {
+			content: "\002B";
+			position: absolute;
+			right: 1rem;
+			top: .75rem;
+			font-weight: 700;
+		}
+	}
+
+	&[open] > summary::after {
+		content: "\2212";
+	}
+
+	&[open] > div.dcas-content {
+		padding: .5rem .5rem 0 1rem;
+	}
+}
+
+.dcas-table {
+	width: 100%;
+	margin: .5rem 0 0 0;
+	border-collapse: collapse;
+
+	th,
+	td {
+		text-align: left;
+		vertical-align: top;
+		padding: .5rem .75rem;
+		border-bottom: 1px solid #eee;
+		font-size: .92rem;
+	}
+
+	thead th {
+		background: #fafafa;
+	}
+
+	td:first-child,
+	th:first-child {
+		width: 2rem;
+		text-align: center;
+		color: #999;
+	}
+}
