@@ -11,10 +11,10 @@ description: How to upload and submit your replication package to the Review's Z
 # Page navigation
 page_nav:
     prev:
-        content: Preparing your replication package
+        content: Preparing the package
         url: '/package_howto/'
     next:
-        content: After the package is accepted
+        content: After package acceptance
         url: '/after-acceptance/'
 ---
 

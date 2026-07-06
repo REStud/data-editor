@@ -15,7 +15,7 @@ page_nav:
         url: '/zenodo/'
     next:
         content: Homepage
-        url: '/index/'
+        url: '/'
 ---
 After your package has been accepted, you will receive an acceptance email from the Data Editor, who will notify the REStud's Journal Manager in cc.
 

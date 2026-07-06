@@ -13,7 +13,7 @@ doks:
 
             copyright: Copyright &copy; 2020-2026. - The Review of Economic Studies. <br>CC-BY-4.0.
         social_list:
-            - network_name: X
+            - network_name: x
               profile_url: 'https://x.com/RevEconStudies'
     google_analytics:
         tracking_code: # Add your Google Analytics tracking code to activate Google Analytics

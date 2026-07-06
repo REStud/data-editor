@@ -12,7 +12,7 @@ description: What to include in your replication package and how to write the RE
 # Page navigation
 page_nav:
     prev:
-        content: Data and Code Availability Policy
+        content: DCAP
         url: '/policy/'
     next:
         content: Uploading to Zenodo

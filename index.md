@@ -4,6 +4,8 @@
 
 layout: homepage
 keywords:
+redirect_from:
+    - /before/
 
 # Hero section
 

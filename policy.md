@@ -14,7 +14,7 @@ description: The Review's data and code availability policy
 page_nav:
     prev:
         content: Homepage
-        url: '/index/'
+        url: '/'
     next:
         content: Preparing your replication package
         url: '/package_howto/'
@@ -83,7 +83,7 @@ The Data Editor acknowledges that practical difficulties in complying with this 
 
 
 <details class="dcas-panel" markdown="1">
-<summary>You collected primary data (Rules #2, #12)</summary>
+<summary>You collected primary data (Rules #2,12)</summary>
 <div class="content" markdown="1">
 Please include all survey or experimental instruments, even if you have already included them in an online appendix of the paper. Online appendices do not have a DOI, so including them in the replication package gives them a permanent home, a DOI, and a reuse license, allowing readers to cite them and access them. You may also consider releasing the data in a separate record. If you do, cite that record using its DOI.
 
@@ -97,21 +97,7 @@ Alternatively, you can publish you data separately and cite it in the README, in
 </details>
 
 <details class="dcas-panel" markdown="1">
-<summary>You cannot reproduce your results (Rule #7)</summary>
-<div class="content" markdown="1">
-In this case, please contact the Managing Editor and describe in detail how you would like to change the manuscript and why. The Managing Editor is the best person to judge whether the changes alter the message of the paper and whether they are acceptable. After the Managing Editor approves the changes, please forward the updated manuscript to the Data Editor.
-</div>
-</details>
-
-<details class="dcas-panel" markdown="1">
-<summary>Our replication does not exactly reproduce your output (Rule #7)</summary>
-<div class="content" markdown="1">
-We will work with you to understand why this happened and how to fix it.
-</div>
-</details>
-
-<details class="dcas-panel" markdown="1">
-<summary>Your paper does not use data or you only simulated data (Rules #7-8)</summary>
+<summary>Your paper does not use data or you only simulated data (Rule #3)</summary>
 <div class="content" markdown="1">
 Your paper is still subject to the Data and Code Availability Standard if you have code that generates  output. In that case, you must submit a replication package. We do not require a package for figures that could essentially be drawn by hand, or for TikZ diagrams whose coordinates are not computed. If in doubt, please contact the Data Editor for clarification.
 
@@ -122,13 +108,28 @@ State in your Data Availability Statement that you did not use primary or second
 </details>
 
 <details class="dcas-panel" markdown="1">
-<summary>Ethics (IRB) approvals (Rule #11)</summary>
+<summary>You cannot reproduce your results (Rule #8)</summary>
+<div class="content" markdown="1">
+In this case, please contact the Managing Editor and describe in detail how you would like to change the manuscript and why. The Managing Editor is the best person to judge whether the changes alter the message of the paper and whether they are acceptable. After the Managing Editor approves the changes, please forward the updated manuscript to the Data Editor.
+</div>
+</details>
+
+<details class="dcas-panel" markdown="1">
+<summary>Our replication does not exactly reproduce your output (Rule #8)</summary>
+<div class="content" markdown="1">
+We will work with you to understand why this happened and how to fix it.
+</div>
+</details>
+
+
+<details class="dcas-panel" markdown="1">
+<summary>Your paper received ethics (e.g., IRB) approvals (Rule #11)</summary>
 <div class="content" markdown="1">
 Authors who collect primary data (e.g., via experiment or survey) are required to include the IRB approval documentation (or similar) from their institution.
 </div>
 </details>
 <details class="dcas-panel" markdown="1">
-<summary>Rights to use and distribute the data (Rule #14)</summary>
+<summary>Including statements of Rights to use and distribute the data (Rule #14)</summary>
 <div class="content" markdown="1">
 We ask you to explicitly state the following in your README file:
 
@@ -138,7 +139,7 @@ We ask you to explicitly state the following in your README file:
 </details>
 
 <details class="dcas-panel" markdown="1">
-<summary>License (Rule #15)</summary>
+<summary>Including a License (Rule #15)</summary>
 <div class="content" markdown="1">
 Authors retain the copyright to their own data and code and convey any permissions or restrictions imposed on secondary data they include in the replication package. The authors must permit others to use all files in the deposit for the purpose of replication and are encouraged to permit unrestricted access for broader uses. These permissions are recorded in a license selected on Zenodo when you create your record. We recommend a "Creative Commons Attribution 4.0 International" license.
 </div>
