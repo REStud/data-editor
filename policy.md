@@ -28,7 +28,7 @@ page_nav:
 .dcas-panel > summary::after { content: "\002B"; position: absolute; right: 1rem; top: .75rem; font-weight: 700; }
 .dcas-panel[open] > summary::after { content: "\2212"; }
 /*.dcas-panel[open] > summary { border-bottom: 1px solid #e2e2e2; } */
-.dcas-panel[open] > div.content {padding: .3rem 0 0 1rem; }
+.dcas-panel[open] > div.dcas-content {padding: .5rem .5rem 0 1rem; }
 .dcas-table { width: 100%; margin: 0; border-collapse: collapse; }
 .dcas-table th, .dcas-table td { text-align: left; vertical-align: top; padding: .5rem .75rem; border-bottom: 1px solid #eee; font-size: .92rem; }
 .dcas-table thead th { background: #fafafa; }
@@ -71,7 +71,7 @@ The following guidelines clarify and complement the DCAS requirements listed abo
 
 <details class="dcas-panel" markdown="1">
 <summary>You used confidential or proprietary data you cannot share (Rules #2-3)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 The Data Editor acknowledges that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
 
 - Requests for exemptions from this policy must be made in a cover letter to the Managing Editor at the time of first submission (see [REStud's submission instructions](https://www.restud.com/submissions/)). The article will then be reviewed at the discretion of the Managing Editors and the Data Editor. Exceptions will not be considered later in the review and publication process.
@@ -84,7 +84,7 @@ The Data Editor acknowledges that practical difficulties in complying with this 
 
 <details class="dcas-panel" markdown="1">
 <summary>You collected primary data (Rules #2,12)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 Please include all survey or experimental instruments, even if you have already included them in an online appendix of the paper. Online appendices do not have a DOI, so including them in the replication package gives them a permanent home, a DOI, and a reuse license, allowing readers to cite them and access them. You may also consider releasing the data in a separate record. If you do, cite that record using its DOI.
 
 If any accompanying materials, such as experimental instructions, are not written in English, then a translation should be provided. In addition, upon acceptance, authors are expected to provide computer programs, configuration files, or scripts used to run the experiment and/or to analyse the data, and the raw data from the experiment per DCAS rule #2
@@ -98,7 +98,7 @@ Alternatively, you can publish you data separately and cite it in the README, in
 
 <details class="dcas-panel" markdown="1">
 <summary>Your paper does not use data or you only simulated data (Rule #3)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 Your paper is still subject to the Data and Code Availability Standard if you have code that generates  output. In that case, you must submit a replication package. We do not require a package for figures that could essentially be drawn by hand, or for TikZ diagrams whose coordinates are not computed. If in doubt, please contact the Data Editor for clarification.
 
 If you simulated data, you must include the code that generates it together with the code that analyzes it
@@ -109,14 +109,14 @@ State in your Data Availability Statement that you did not use primary or second
 
 <details class="dcas-panel" markdown="1">
 <summary>You cannot reproduce your results (Rule #8)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 In this case, please contact the Managing Editor and describe in detail how you would like to change the manuscript and why. The Managing Editor is the best person to judge whether the changes alter the message of the paper and whether they are acceptable. After the Managing Editor approves the changes, please forward the updated manuscript to the Data Editor.
 </div>
 </details>
 
 <details class="dcas-panel" markdown="1">
 <summary>Our replication does not exactly reproduce your output (Rule #8)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 We will work with you to understand why this happened and how to fix it.
 </div>
 </details>
@@ -124,13 +124,13 @@ We will work with you to understand why this happened and how to fix it.
 
 <details class="dcas-panel" markdown="1">
 <summary>Your paper received ethics (e.g., IRB) approvals (Rule #11)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 Authors who collect primary data (e.g., via experiment or survey) are required to include the IRB approval documentation (or similar) from their institution.
 </div>
 </details>
 <details class="dcas-panel" markdown="1">
 <summary>Including statements of Rights to use and distribute the data (Rule #14)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 We ask you to explicitly state the following in your README file:
 
 * I/We certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
@@ -140,7 +140,7 @@ We ask you to explicitly state the following in your README file:
 
 <details class="dcas-panel" markdown="1">
 <summary>Including a License (Rule #15)</summary>
-<div class="content" markdown="1">
+<div class="dcas-content" markdown="1">
 Authors retain the copyright to their own data and code and convey any permissions or restrictions imposed on secondary data they include in the replication package. The authors must permit others to use all files in the deposit for the purpose of replication and are encouraged to permit unrestricted access for broader uses. These permissions are recorded in a license selected on Zenodo when you create your record. We recommend a "Creative Commons Attribution 4.0 International" license.
 </div>
 </details>
