@@ -2,6 +2,9 @@
 # Page settings
 layout: homepage
 keywords:
+comments: false
+redirect-from:
+    - /policy/
 
 # Hero section
 title: The Review of Economic Studies Data Editor
