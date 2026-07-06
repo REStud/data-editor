@@ -13,12 +13,13 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
+					{% if site.doks.header.logo.link %}{% assign logo_href = site.doks.header.logo.link %}{% else %}{% capture logo_href %}{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}/{% endcapture %}{% endif %}
 					{% if site.doks.header.logo.image %}
-						<a href="{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}/" class="site-header__logo">
+						<a href="{{ logo_href }}" class="site-header__logo">
 							<img src="{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}{{ site.doks.header.logo.image }}" alt="{{ site.doks.header.logo.text }}">
 						</a><!-- /.site-header__logo -->
 					{% elsif site.doks.header.logo.text %}
-						<a href="{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}/" class="site-header__logo">{{ site.doks.header.logo.text }}</a>
+						<a href="{{ logo_href }}" class="site-header__logo">{{ site.doks.header.logo.text }}</a>
 					{% endif %}
 					{% if site.doks.header.nav %}
 						<ul class="site-header__nav hidden-xs">

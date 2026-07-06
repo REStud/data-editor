@@ -17,7 +17,7 @@ description: Information and guidelines about reproducible research from the Dat
 author:
     title: Data Editor
     title_url: '/editor/'
-    description: Andrea Moro, Vanderbilt University (restud_dataeditor@andreamoro.net)
+    description: Andrea Moro, Vanderbilt University [https://andreamoro.net](https://andreamoro.net) [restud_dataeditor@andreamoro.net](mailto:restud_dataeditor@andreamoro.net)
 
 # Grid navigation
 

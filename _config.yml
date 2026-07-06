@@ -6,6 +6,7 @@ doks:
         logo:
             text: The Review of Economic Studies Data Editor
             image: /assets/img/restud.png
+            link: https://academic.oup.com/restud
     footer:
         content:
             logo:
