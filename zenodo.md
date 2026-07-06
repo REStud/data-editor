@@ -12,7 +12,7 @@ description: How to upload and submit your replication package to the Review's Z
 page_nav:
     prev:
         content: Preparing the package
-        url: '/package_howto/'
+        url: '/package-howto/'
     next:
         content: After package acceptance
         url: '/after-acceptance/'

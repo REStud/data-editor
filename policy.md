@@ -17,7 +17,7 @@ page_nav:
         url: '/'
     next:
         content: Preparing your replication package
-        url: '/package_howto/'
+        url: '/package-howto/'
 ---
 
 By submitting to the journal, you indicate that you accept the Data and Code Availability Policy. In short, the default rule is that you are required to submit all code and data necessary to reproduce your work, and permit any reader of the journal to use them.
@@ -134,7 +134,7 @@ Authors retain the copyright to their own data and code and convey any permissio
 
 ## Preparing your replication package
 
-Finally, we ask you to follow the [instructions for preparing your replication package and README]({{ site.baseurl }}/readme/) — what to include, how to write the README, and how to upload to Zenodo.
+Finally, we ask you to follow the [instructions for preparing your replication package and README](/package-howto/) — what to include, how to write the README, and how to upload to Zenodo.
 
 
 <script>

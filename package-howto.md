@@ -3,7 +3,7 @@
 layout: default
 keywords:
 comments: false
-permalink: /package-howto
+permalink: /package-howto/
 
 # Hero section
 title: Preparing your replication package
