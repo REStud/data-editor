@@ -4,6 +4,7 @@
 		{% include site-head.html %}
 	</head>
 	<body class="{{ site.doks.color_theme }}">
+		{% include site-header.html %}
 		<div class="hero-subheader{% if page.grid_navigation %} hero-subheader--before-out{% endif %}">
 			<div class="container">
 				<div class="row">
@@ -58,6 +59,9 @@
 					{% endif %}
 				</div><!-- /.row -->
 			</div><!-- /.container -->
+			<div class="container">
+				{{ content }}
+			</div>
 		</div><!-- /.hero-subheader -->
 		{% if page.grid_navigation %}
 			<div class="section section--darker-theme-color-bg">
@@ -68,7 +72,7 @@
 								<div class="row">
 									{% for item in page.grid_navigation %}
 										<div class="col-sm-6 col-lg-4">
-											<a href="{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}{{ item.url }}" class="nav-grid__item">
+											<a href="{% if jekyll.environment == 'production' %}{{ site.doks.baseurl }}{% endif %}{{ item.url }}" class="nav-grid__item {{ item.type }}">
 												<div class="nav-grid__content" data-mh>
 													<h2 class="nav-grid__title">{{ item.title }}</h2>
 													<p>{{ item.excerpt }}</p>

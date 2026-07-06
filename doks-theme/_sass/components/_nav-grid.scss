@@ -16,6 +16,9 @@
 }
 
 /* ----- Item ----- */
+.external {
+	background-color: #fdfcec!important;
+}
 .nav-grid__item {
 	@include link-reset;
 	display: block;
