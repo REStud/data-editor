@@ -6,7 +6,7 @@ comments: false
 
 # Hero section
 title: Before You Submit
-description: Read our Data Availability Policy to see how it applies to your research.
+description: Read our Data and Code Availability Policy to see how it applies to your research.
 
 # Page navigation
 page_nav:
@@ -17,21 +17,21 @@ page_nav:
         content: After Your Paper is Accepted
         url: '/after/'
 ---
-By submitting to the journal, you indicate that you accept the Data Availability Policy. In short, the default rule is that you are required to submit all code and data necessary to reproduce your work, and permit any reader of the journal to use them.
+By submitting to the journal, you indicate that you accept the Data and Code Availability Policy. In short, the default rule is that you are required to submit all code and data necessary to reproduce your work, and permit any reader of the journal to use them.
 
-# Data Availability Policy
+# Data and Code Availability Policy
 
 [![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.svg)](https://datacodestandard.org/)
 
-The Review of Economic Studies endorses DCAS, 
+The Review of Economic Studies endorses DCAS,
 the [Data and Code Availability Standard](https://datacodestandard.org/)
-[v1.0], and its data and code availability policy is 
+[v1.0], and its data and code availability policy is
 compatible with DCAS.
 
 {% for rule in site.data.rules -%}
 {% if rule.group %}
 | | **{{ rule.group }}** | {% else -%}
-{% endif %} 
+{% endif %}
 | {{ forloop.index}} | {{ rule.topic }} | {{ rule.description }} |{% endfor %}
 
 Replication packages will be posted in the Review's [Replication Archive](https://zenodo.org/communities/restud-replication/).
@@ -44,7 +44,7 @@ Questions regarding any aspect of this policy should be forwarded to the Data Ed
 
 README files should include information on the operating system-software version combination used in the analysis and ideally an estimate for computation time (possibly with hardware specifications used in the execution of the programs).
 Software requirements should explicitly list all modules, libraries, toolboxes and commands used that are not part of the core software.
-Programs that rely on random number generators should set seeds to allow replication.  
+Programs that rely on random number generators should set seeds to allow replication.
 If it is necessary to execute programs in a particular order, this should be made explicit in the README files.
 
 The Data Editor acknowledge that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
@@ -56,7 +56,7 @@ Similarly, there may be compelling reasons to restrict usage, and if Managing Ed
 Requests for exemptions should be clearly stated when the article is first submitted.  The article will then be reviewed at the discretion of the Managing Editors and the Data Editor. Exceptions will not be considered later in the review and publication process.
 
 # What if your dataset is confidential?
-There may be cases when you cannot share the dataset directly. This does not lead to automatic exemption from the Data Availability Policy. Please note, *at the time of submission*, why you cannot comply fully with the policy.
+There may be cases when you cannot share the dataset directly. This does not lead to automatic exemption from the Data and Code Availability Policy. Please note, *at the time of submission*, why you cannot comply fully with the policy.
 
 # Submission instructions
 Please see detailed [submission instructions here](https://www.restud.com/submissions/).

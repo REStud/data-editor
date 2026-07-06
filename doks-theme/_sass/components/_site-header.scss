@@ -6,7 +6,7 @@
 .site-header {
 	position: absolute;
 	width: 100%;
-	height: 5.625rem;
+	height: 3.5rem;
 	border-bottom: 1px solid rgba($color-dark-blue, .15);
 }
 
@@ -19,7 +19,7 @@
 	font-family: $font-family-secondary;
 	font-weight: bold;
 	font-size: 2em;
-	line-height: 5.625rem;
+	line-height: 4.5rem;
 
 	&:hover,
 	&:focus,
@@ -28,7 +28,9 @@
 	}
 
 	img {
-		height: calc(5.625rem - 1px);
+		display: block;
+		height: 3.5rem;
+		margin-top: 0rem;
 	}
 }
 

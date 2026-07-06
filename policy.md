@@ -3,86 +3,165 @@
 layout: default
 keywords:
 comments: false
+redirect_from:
+    - /after/
 
 # Hero section
-title: Data Availability Policy
-description: Page description
-
-# Author box
-author:
-    title: About Author
-    title_url: '#'
-    external_url: true
-    description: Author description
-
-# Micro navigation
-micro_nav: true
+title: Data and Code Availability Policy
+description: The Review's data and code availability policy
 
 # Page navigation
 page_nav:
     prev:
-        content: Best Practices
-        url: '/practices/'
+        content: Homepage
+        url: '/index/'
     next:
-        content: What to Submit?
-        url: '/submit/'
+        content: Preparing your replication package
+        url: '/package_howto/'
 ---
-# Data Availability Policy
-Authors of accepted papers that contain empirical work, numerical simulations, or experimental work must in principle make available to the journal any data, programs, and details for the computations necessary for replication.
-The submission of this material indicates that authors [license](https://social-science-data-editors.github.io/guidance/Licensing_guidance.html) users to download, copy, and modify it.
-Such users must acknowledge all authors as the original creators and the Review of Economic Studies as the original publisher.
-These will be posted in the Review's Replication Archive.
-The Managing Editor should be notified at the time of submission if the above requirements cannot be met for any reason (see details below).
-We reserve the right to refuse publication of papers whose authors do not comply with these requirements.
 
-As soon as possible after receiving instructions from the Journal Manager, authors of accepted papers are expected to send their data, programs, and sufficient details to permit replication, in electronic form, to the Review office.
-Questions regarding any aspect of this policy should be forwarded to the Data Editor.
+<style>
+.dcas-accordion { margin: 1.5rem 0; }
+.dcas-panel { margin-bottom: .5rem; overflow: hidden; }
+.dcas-panel > summary { cursor: pointer; padding: .75rem 2.25rem .75rem 1rem; font-weight: 700; list-style: none; position: relative; background: #f6f7f9; }
+.dcas-panel > summary::-webkit-details-marker { display: none; }
+.dcas-panel > summary::after { content: "\002B"; position: absolute; right: 1rem; top: .75rem; font-weight: 700; }
+.dcas-panel[open] > summary::after { content: "\2212"; }
+/*.dcas-panel[open] > summary { border-bottom: 1px solid #e2e2e2; } */
+.dcas-panel[open] > div.content {padding: .3rem 0 0 1rem; }
+.dcas-table { width: 100%; margin: 0; border-collapse: collapse; }
+.dcas-table th, .dcas-table td { text-align: left; vertical-align: top; padding: .5rem .75rem; border-bottom: 1px solid #eee; font-size: .92rem; }
+.dcas-table thead th { background: #fafafa; }
+.dcas-table td:first-child, .dcas-table th:first-child { width: 2rem; text-align: center; color: #999; }
+</style>
 
-## Econometric and Simulation Papers
+By submitting to the journal, you indicate that you accept the Data and Code Availability Policy. In short, the default rule is that you are required to submit all code and data necessary to reproduce your work, and permit any reader of the journal to use them.
 
-Upon acceptance, authors should provide data set(s) and computer programs used in the work.
+# The Data and Code Availability Policy
 
-A [Data Citation](https://social-science-data-editors.github.io/guidance/Data_citation_guidance.html) and a [Data Availability Statement](https://academic.oup.com/journals/pages/authors/preparing_your_manuscript/research-data-policy#data2) should be include for ALL data used in the work, regardless of whether they are provided as part of the replication archive or not, and regardless of size or scope.
+![Link to DCAS Icon](https://datacodestandard.org/assets/img/DCAS-1.0.svg)
 
-If intermediate data sets and programs used for the composition of the final data set are not submitted, authors are expected to provide a description of the final data set construction and to cooperate with investigators seeking to conduct a replication.
-Data files and programs can be provided in any format using any statistical package or software.
-A Readme file listing all included files and documenting the purpose and format of each file should be provided in PDF or Markdown format.
+The Review of Economic Studies endorses DCAS,
+the [Data and Code Availability Standard](https://datacodestandard.org/)
+[v1.0], and its data and code availability policy is
+compatible with DCAS.
 
-Readme files should include information on the operating system-software version combination used in the analysis and ideally an estimate for computation time (possibly with hardware specifications used in the execution of the programs).
-Software requirements should explicitly list all modules, libraries, toolboxes and commands used that are not part of the core software.
-Programs that rely on random number generators should set seeds to allow replication.  
-If it is necessary to execute programs in a particular order, this should be made explicit in the Readme files.
-A template README file is [available here]().
+Questions regarding any aspect of this policy should be forwarded to the [Data Editor]({{ site.baseurl }}/editor/).
 
-The Data Editor acknowledge that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
-Exemptions in such cases are possible, but authors must provide interested investigators the necessary information on how to obtain the data (even if the data are provided by a third party at a monetary cost).
-This information should be provided in the Readme file and a copy of the relevant programs to generate the final results is still required.
-In some specific cases, computer programs may have value in themselves and the authors may not make them public.
-Similarly, there may be compelling reasons to restrict usage, and if Managing Editors agree, we will post a notice on the web site regarding such restrictions.
+## The DCAS requirements
 
-Requests for exemptions should be clearly stated when the article is first submitted.  The article will then be reviewed at the discretion of the Managing Editors and the Data Editor. Exceptions will not be considered later in the review and publication process.
+The Data and Code Availability Standard sets out sixteen requirements, organized into four areas. Expand each area below to read the standard's text. These are the criteria we use when reviewing your replication package.
 
-## Experimental Papers
+<div class="dcas-accordion">
+{%- for rule in site.data.rules -%}
+{%- if rule.group and rule.group != "" -%}
+{%- unless forloop.first %}</tbody></table></details>{% endunless -%}
+<details class="dcas-panel"><summary>{{ rule.group }}</summary><table class="dcas-table"><thead><tr><th>#</th><th>Requirement</th><th>Description</th></tr></thead><tbody>
+{%- endif -%}
+<tr><td>{{ forloop.index }}</td><td><strong>{{ rule.topic }}</strong></td><td>{{ rule.description | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines }}</td></tr>
+{%- if forloop.last %}</tbody></table></details>{% endif -%}
+{%- endfor -%}
+</div>
 
-Procedural information is relevant to evaluate the potential publication of experimental papers.
-For this reason, we expect authors of (field or laboratory) experimental papers to provide the following supplementary materials at the time of submission:
+## Specific requirements
 
-### Original instructions
-These should be provided in full as an appendix and possibly summarised in the discussion of the experimental design.
-These should be presented in a way that allows the design to be replicated by a reasonably skilled experimentalist.
-If any accompanying materials, such as experimental instructions, are not written in English, then a translation should be provided.
-In the discussion of the experimental design, the submitted manuscript must provide information about subject eligibility or selection, such as exclusions based on past participation in experiments, college major, etc.
-Upon acceptance, authors are expected to provide the following additional information:
+Sometimes exceptions are granted to rules 2-4. The following guidelines clarify and complement the DCAS requirements listed above.
 
-### Computer programs, configuration files, or scripts used to run the experiment and/or to analyse the data
-As with Econometric and Simulation papers, information on operating system-software version combination should be provided.
-### The raw data from the experiment
-Aside from properly summarising those in the submitted manuscript, the data should be provided upon acceptance of the manuscript, with sufficient explanation to make it possible to use the submitted computer programs to replicate the data analysis.
+<div class="dcas-accordion">
 
-As with Econometric and Simulation papers, we understand that there may be a need for exceptions for confidentiality or related reasons.
-In such cases, when the paper is first submitted, authors should clearly state that certain data or other material cannot or will not be made available, and an explanation should be provided.
-In such cases, it is understood that interested investigators may contact the authors to negotiate the use of the data for replication purposes.
+<details class="dcas-panel" markdown="1">
+<summary>You used confidential or proprietary data you cannot share (Rules #2-3)</summary>
+<div class="content" markdown="1">
+The Data Editor acknowledges that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
 
-Requests for exemptions should be clearly stated when the article is first submitted.  
-The article will then be reviewed at the discretion of the Managing Editors and the Data Editor.
-Exceptions will not be considered later in the review and publication process.
+- Requests for exemptions from this policy must be made in a cover letter to the Managing Editor at the time of first submission (see [REStud's submission instructions](https://www.restud.com/submissions/)). The article will then be reviewed at the discretion of the Managing Editors and the Data Editor. Exceptions will not be considered later in the review and publication process.
+- If you cannot include some or all of the data in your package, please check with the data provider about whether the data may be shared with the Data Editor. We are happy to work with you and the data provider to find a solution that allows us to replicate your results, including by signing any necessary agreements. If that is not possible, we will try to obtain access to the data ourselves.
+- For confidential data that you cannot include, provide a data preservation statement. We ask you to commit to preserving the data for at least five years.
+- In rare cases, ***authors are asked not to disclose the identity of the data provider***. This must be disclosed at the time of submission. In these cases, we follow the policy of the [American Economic Association](https://aeadataeditor.github.io/posts/2026-05-08-private-data). Please consult it and contact the Data Editor to arrange an appropriate resolution.
+</div>
+</details>
+
+
+<details class="dcas-panel" markdown="1">
+<summary>You collected primary data (Rules #2, #12)</summary>
+<div class="content" markdown="1">
+Please include all survey or experimental instruments, even if you have already included them in an online appendix of the paper. Online appendices do not have a DOI, so including them in the replication package gives them a permanent home, a DOI, and a reuse license, allowing readers to cite them and access them. You may also consider releasing the data in a separate record. If you do, cite that record using its DOI.
+
+If any accompanying materials, such as experimental instructions, are not written in English, then a translation should be provided. In addition, upon acceptance, authors are expected to provide computer programs, configuration files, or scripts used to run the experiment and/or to analyse the data, and the raw data from the experiment per DCAS rule #2
+
+If applicable, pre-registration of the research project must be documented with a Document Object Identifier for the pre-registration record in the README.
+
+Alternatively, you can publish you data separately and cite it in the README, including its DOI. See [here](https://social-science-data-editors.github.io/guidance/Guidance/depositing-data-for-greater-good.html) for guidance.
+
+</div>
+</details>
+
+<details class="dcas-panel" markdown="1">
+<summary>You cannot reproduce your results (Rule #7)</summary>
+<div class="content" markdown="1">
+In this case, please contact the Managing Editor and describe in detail how you would like to change the manuscript and why. The Managing Editor is the best person to judge whether the changes alter the message of the paper and whether they are acceptable. After the Managing Editor approves the changes, please forward the updated manuscript to the Data Editor.
+</div>
+</details>
+
+<details class="dcas-panel" markdown="1">
+<summary>Our replication does not exactly reproduce your output (Rule #7)</summary>
+<div class="content" markdown="1">
+We will work with you to understand why this happened and how to fix it.
+</div>
+</details>
+
+<details class="dcas-panel" markdown="1">
+<summary>Your paper does not use data or you only simulated data (Rules #7-8)</summary>
+<div class="content" markdown="1">
+Your paper is still subject to the Data and Code Availability Standard if you have code that generates  output. In that case, you must submit a replication package. We do not require a package for figures that could essentially be drawn by hand, or for TikZ diagrams whose coordinates are not computed. If in doubt, please contact the Data Editor for clarification.
+
+If you simulated data, you must include the code that generates it together with the code that analyzes it
+
+State in your Data Availability Statement that you did not use primary or secondary data in your project.
+</div>
+</details>
+
+<details class="dcas-panel" markdown="1">
+<summary>Ethics (IRB) approvals (Rule #11)</summary>
+<div class="content" markdown="1">
+Authors who collect primary data (e.g., via experiment or survey) are required to include the IRB approval documentation (or similar) from their institution.
+</div>
+</details>
+<details class="dcas-panel" markdown="1">
+<summary>Rights to use and distribute the data (Rule #14)</summary>
+<div class="content" markdown="1">
+We ask you to explicitly state the following in your README file:
+
+* I/We certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
+* I/We certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package.
+</div>
+</details>
+
+<details class="dcas-panel" markdown="1">
+<summary>License (Rule #15)</summary>
+<div class="content" markdown="1">
+Authors retain the copyright to their own data and code and convey any permissions or restrictions imposed on secondary data they include in the replication package. The authors must permit others to use all files in the deposit for the purpose of replication and are encouraged to permit unrestricted access for broader uses. These permissions are recorded in a license selected on Zenodo when you create your record. We recommend a "Creative Commons Attribution 4.0 International" license.
+</div>
+</details>
+
+</div>
+
+## Preparing your replication package
+
+Finally, we ask you to follow the [instructions for preparing your replication package and README]({{ site.baseurl }}/readme/) — what to include, how to write the README, and how to upload to Zenodo.
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var panels = document.querySelectorAll('.dcas-accordion .dcas-panel');
+  panels.forEach(function (panel) {
+    panel.addEventListener('toggle', function () {
+      if (panel.open) {
+        panels.forEach(function (other) {
+          if (other !== panel) { other.open = false; }
+        });
+      }
+    });
+  });
+});
+</script>

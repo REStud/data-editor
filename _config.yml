@@ -1,22 +1,20 @@
 # Theme settings
 doks:
     baseurl: https://restud.dataeditor.group
-    color_theme: # Available themes: blue (default), green, purple, red and yellow
+    color_theme: green # Available themes: blue (default), green, purple, red and yellow
     header:
         logo:
             text: The Review of Economic Studies Data Editor
-            image:
+            image: /assets/img/restud.png
     footer:
         content:
             logo:
-                text: The Review of Economic Studies Data Editor
-                image:
+                image: /assets/img/restud.png
+
             copyright: Copyright &copy; 2020-2026. - The Review of Economic Studies. <br>CC-BY-4.0.
         social_list:
-            - network_name: twitter
-              profile_url: 'https://x.com/andreamoro'
-            - network_name: github
-              profile_url: 'https://github.com/restud/'
+            - network_name: X
+              profile_url: 'https://x.com/RevEconStudies'
     google_analytics:
         tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
     comments:
@@ -28,6 +26,8 @@ sass:
     style: :compressed
 
 # Jekyll settings
+plugins:
+    - jekyll-redirect-from
 layouts_dir: ./doks-theme/_layouts
 includes_dir: ./doks-theme/_includes
 exclude: [ 'README.md', 'CHANGELOG.md' ]
