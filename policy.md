@@ -75,7 +75,7 @@ The following guidelines clarify and complement the DCAS requirements listed abo
 The Data Editor acknowledges that practical difficulties in complying with this policy may exist, as with proprietary datasets with limited access or public use data sets that require consent forms to be signed before use.
 
 - Requests for exemptions from this policy must be made in a cover letter to the Managing Editor at the time of first submission (see [REStud's submission instructions](https://www.restud.com/submissions/)). The article will then be reviewed at the discretion of the Managing Editors and the Data Editor. Exceptions will not be considered later in the review and publication process.
-- If you cannot include some or all of the data in your package, please check with the data provider about whether the data may be shared with the Data Editor. We are happy to work with you and the data provider to find a solution that allows us to replicate your results, including by signing any necessary agreements. If that is not possible, we will try to obtain access to the data ourselves.
+- If you cannot include some or all of the data in your package, **please check first with the data provider about whether the data may be shared with the Data Editor**. We are happy to work with you and the data provider to find a solution that allows us to replicate your results, including by signing any necessary agreements. If that is not possible, we will try to obtain access to the data ourselves.
 - For confidential data that you cannot include, provide a data preservation statement. We ask you to commit to preserving the data for at least five years.
 - In rare cases, ***authors are asked not to disclose the identity of the data provider***. This must be disclosed at the time of submission. In these cases, we follow the policy of the [American Economic Association](https://aeadataeditor.github.io/posts/2026-05-08-private-data). Please consult it and contact the Data Editor to arrange an appropriate resolution.
 </div>
@@ -85,13 +85,13 @@ The Data Editor acknowledges that practical difficulties in complying with this 
 <details class="dcas-panel" markdown="1">
 <summary>You collected primary data (Rules #2,12)</summary>
 <div class="dcas-content" markdown="1">
-Please include all survey or experimental instruments, even if you have already included them in an online appendix of the paper. Online appendices do not have a DOI, so including them in the replication package gives them a permanent home, a DOI, and a reuse license, allowing readers to cite them and access them. You may also consider releasing the data in a separate record. If you do, cite that record using its DOI.
+Please include all survey or experimental instruments. A reference to an online appendix of the paper does not suffice: online appendices do not have a DOI. Including them in the replication package gives them a permanent home, a DOI, and a reuse license, allowing readers to cite and access them. You may also consider releasing the data in a separate record. If you do, cite that record using its DOI.
 
 If any accompanying materials, such as experimental instructions, are not written in English, then a translation should be provided. In addition, upon acceptance, authors are expected to provide computer programs, configuration files, or scripts used to run the experiment and/or to analyse the data, and the raw data from the experiment per DCAS rule #2
 
 If applicable, pre-registration of the research project must be documented with a Document Object Identifier for the pre-registration record in the README.
 
-Alternatively, you can publish you data separately and cite it in the README, including its DOI. See [here](https://social-science-data-editors.github.io/guidance/Guidance/depositing-data-for-greater-good.html) for guidance.
+Alternatively, you can publish your data and documentation separately and cite it in the README, adding its DOI. See [here](https://social-science-data-editors.github.io/guidance/Guidance/depositing-data-for-greater-good.html) for guidance.
 
 </div>
 </details>
@@ -99,7 +99,7 @@ Alternatively, you can publish you data separately and cite it in the README, in
 <details class="dcas-panel" markdown="1">
 <summary>Your paper does not use data or you only simulated data (Rule #3)</summary>
 <div class="dcas-content" markdown="1">
-Your paper is still subject to the Data and Code Availability Standard if you have code that generates  output. In that case, you must submit a replication package. We do not require a package for figures that could essentially be drawn by hand, or for TikZ diagrams whose coordinates are not computed. If in doubt, please contact the Data Editor for clarification.
+Your paper is still subject to the Data and Code Availability Standard if you used code to generate output. In that case, you must submit a replication package. If in doubt, please contact the Data Editor for clarification.
 
 If you simulated data, you must include the code that generates it together with the code that analyzes it
 
@@ -117,13 +117,13 @@ In this case, please contact the Managing Editor and describe in detail how you 
 <details class="dcas-panel" markdown="1">
 <summary>Our replication does not exactly reproduce your output (Rule #8)</summary>
 <div class="dcas-content" markdown="1">
-We will work with you to understand why this happened and how to fix it.
+We will work with you to understand why this happened and how to fix it. This may require asking the Managing Editor for approving changes to the accepted manuscript.
 </div>
 </details>
 
 
 <details class="dcas-panel" markdown="1">
-<summary>Your paper received ethics (e.g., IRB) approvals (Rule #11)</summary>
+<summary>Your paper received ethics approvals (e.g., IRB) (Rule #11)</summary>
 <div class="dcas-content" markdown="1">
 Authors who collect primary data (e.g., via experiment or survey) are required to include the IRB approval documentation (or similar) from their institution.
 </div>
