@@ -7,4 +7,16 @@
 	> :first-child {
 		margin-top: 0;
 	}
+
+	/* ----- Links ----- */
+	a {
+		transition: color .2s ease, border-color .2s ease;
+
+		&:hover,
+		&:focus {
+			color: $color-link-hover;
+			border-color: $color-link-hover;
+			border-bottom-style: dashed;
+		}
+	}
 }
