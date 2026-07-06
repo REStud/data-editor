@@ -29,7 +29,7 @@ page_nav:
 .dcas-panel[open] > summary::after { content: "\2212"; }
 /*.dcas-panel[open] > summary { border-bottom: 1px solid #e2e2e2; } */
 .dcas-panel[open] > div.dcas-content {padding: .5rem .5rem 0 1rem; }
-.dcas-table { width: 100%; margin: 0; border-collapse: collapse; }
+.dcas-table { width: 100%; margin: .5rem 0 0 0; border-collapse: collapse; }
 .dcas-table th, .dcas-table td { text-align: left; vertical-align: top; padding: .5rem .75rem; border-bottom: 1px solid #eee; font-size: .92rem; }
 .dcas-table thead th { background: #fafafa; }
 .dcas-table td:first-child, .dcas-table th:first-child { width: 2rem; text-align: center; color: #999; }
