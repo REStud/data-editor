@@ -9,7 +9,7 @@ redirect_from:
 
 # Hero section
 
-title: The Review of Economic Studies Data Editor website
+title: The Review of Economic Studies Data Editor
 description: Information and guidelines about reproducible research from the Data Editor of the Review of Economic Studies.
 
 # Author box

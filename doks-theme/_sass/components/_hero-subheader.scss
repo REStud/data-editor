@@ -54,6 +54,17 @@
 	.btn {
 		margin-bottom: 0;
 	}
+
+	a:not(.btn) {
+		transition: color .2s ease, border-color .2s ease;
+
+		&:hover,
+		&:focus {
+			color: $color-link-hover;
+			border-color: $color-link-hover;
+			border-bottom-style: dashed;
+		}
+	}
 }
 
 .hero-subheader__author-title {

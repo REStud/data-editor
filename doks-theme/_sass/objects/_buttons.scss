@@ -59,6 +59,7 @@
 
 .btn--read-more {
 	text-transform: uppercase;
+	transition: color .2s ease;
 
 	.icon {
 		display: inline-block;
@@ -69,6 +70,8 @@
 	&:hover,
 	&:focus,
 	&:active {
+		color: $color-link-hover;
+
 		.icon {
 			@include translate(.3125rem, 0);
 		}
