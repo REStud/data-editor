@@ -17,7 +17,7 @@ page_nav:
 
 ## Why cite data?
 It is established practice in scientific literature to cite results, but not the data. That makes the actual data harder to find, verify, and credit. We are trying to change this practice.
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="short-explanation" markdown="1">
 
 <summary>A short explanation</summary>
 <div class="dcas-content" markdown="1">
@@ -50,7 +50,7 @@ If a repository provides a suggested citation, use it. Otherwise, at a minimum, 
 
 Do not cite only a paper, appendix, or website when the dataset itself is separately identifiable.
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="good-vs-bad-citation" markdown="1">
 <summary>What is and is not a data citation: a bad example and a better one</summary>
 <div class="dcas-content" markdown="1">
 
@@ -117,7 +117,7 @@ Please note there are two forms of citation you should use, as you do when citin
 
 ### Step 5: Practical checks and considerations before you submit
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="url-doi-license" markdown="1">
 <summary>URL, DOI, access date, and license</summary>
 <div class="dcas-content" markdown="1">
 
@@ -130,17 +130,17 @@ Please note there are two forms of citation you should use, as you do when citin
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="reserving-a-doi" markdown="1">
 <summary>Is the dataset published yet? Reserving and timing a DOI</summary>
 <div class="dcas-content" markdown="1">
 
-**If the data are already published**, the DOI is public and the repository will provide a suggested citation. You can also generate one from the DOI with [doi2bib](https://www.doi2bib.org/) or [Crosscite](https://citation.crosscite.org/) (see [More resources](#more-resources)).
+**If the data are already published**, the DOI is public and the repository will provide a suggested citation. You can also generate one from the DOI with [doi2bib](https://www.doi2bib.org/) or [Crosscite](https://citation.crosscite.org/)1.
 
 **If the data are not yet published**, it is trickier: the dataset may not have a title tied to your paper. Some repositories let you reserve a DOI (Zenodo) or delay publication. For some, the DOI can be derived from information already available (for example openICPSR; something similar may be possible at Dataverse). You can often delay the dataset's release and coordinate it with the publication of the article.
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="provider-terms" markdown="1">
 <summary>Provider terms: required citations, licenses, and software packages</summary>
 <div class="dcas-content" markdown="1">
 
@@ -153,7 +153,7 @@ Please note there are two forms of citation you should use, as you do when citin
 
 ## Examples by scenario
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="data-with-DOI" markdown="1">
 <summary>1. Public dataset with a DOI: Penn World Table</summary>
 <div class="dcas-content" markdown="1">
 
@@ -178,7 +178,7 @@ Use this when:
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="website-no-doi" markdown="1">
 <summary>2. Data downloaded from a website, no DOI: BLS series</summary>
 <div class="dcas-content" markdown="1">
 
@@ -199,7 +199,7 @@ Use this when:
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="github-zenodo" markdown="1">
 <summary>3. GitHub repository, release, or Zenodo archive</summary>
 <div class="dcas-content" markdown="1">
 
@@ -232,7 +232,7 @@ Use this when:
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="distributor-compustat-wrds" markdown="1">
 <summary>4. Database through a distributor: Compustat via WRDS</summary>
 <div class="dcas-content" markdown="1">
 
@@ -262,7 +262,7 @@ Use this when:
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="many-years" markdown="1">
 <summary>5. Many related datasets or many DOIs: ACS PUMS 1997-2009</summary>
 <div class="dcas-content" markdown="1">
 
@@ -281,7 +281,7 @@ Use this when:
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="replication-from-paper" markdown="1">
 <summary>6. Supplementary or replication data attached to a paper: Romer and Romer</summary>
 <div class="dcas-content" markdown="1">
 
@@ -310,7 +310,7 @@ Use this when:
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="confidential-data" markdown="1">
 <summary>7. Restricted or confidential data: IRS or government registers</summary>
 <div class="dcas-content" markdown="1">
 
@@ -339,7 +339,7 @@ In your README or data availability statement, also explain how another qualifie
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="unpublished-anonymous-data" markdown="1">
 <summary>8. Unpublished or anonymous-source data: no formal access mechanism</summary>
 <div class="dcas-content" markdown="1">
 
@@ -364,7 +364,7 @@ Use this when:
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="online-database-no-date" markdown="1">
 <summary>9. Online database or no clear publication date: NASA/IPAC or Compustat n.d.</summary>
 <div class="dcas-content" markdown="1">
 
@@ -381,7 +381,7 @@ Standard and Poor's (S&P). n.d. *Compustat-Capital IQ (1982-2017)*. Wharton Rese
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="offline-archive-access" markdown="1">
 <summary>10. Offline or archive-style access: secure center, archive, or register</summary>
 <div class="dcas-content" markdown="1">
 
@@ -408,7 +408,7 @@ Note the version: the register may now extend further than the extract you actua
 </div>
 </details>
 
-<details class="dcas-panel" markdown="1">
+<details class="dcas-panel" id="citation-formatter" markdown="1">
 <summary>11. Unsure? Try the citation formatter</summary>
 <div class="dcas-content" markdown="1">
 

@@ -25,6 +25,26 @@
 			display: none;
 		}
 
+		/* Header-style hash anchor: a real link (right-click > Copy Link works), revealed on hover */
+		.title-anchor-link {
+			left: .375rem;
+			top: .75rem;
+			padding-right: 0;
+			-webkit-transform: none;
+			-moz-transform: none;
+			transform: none;
+		}
+
+		&:hover .title-anchor-link,
+		&:focus .title-anchor-link {
+			opacity: .4;
+		}
+
+		.title-anchor-link:hover,
+		.title-anchor-link:focus {
+			opacity: 1;
+		}
+
 		&::after {
 			content: "\002B";
 			position: absolute;
