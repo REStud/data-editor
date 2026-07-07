@@ -24,12 +24,13 @@ After your paper has been accepted (or sometimes during the revision process), y
 
 ## What to include in your replication package
 
-Please prepare the replication package and write its README with "computational empathy"; that is, try to make the replicator's job easier by avoiding unnecessary steps. Imagine a trained computational scientist trying to reproduce your work, and give as specific instructions as you can.
+Please prepare the replication package and write its README and the code with **"computational empathy"**; that is, try to make the replicator's job easier by avoiding unnecessary steps. Imagine a trained computational scientist trying to reproduce your work, and give as specific instructions as you can. *Consider that the replicator may not be familiar with your data, your software, and may not use the same hardware or operating system as you.*
 
 The replication package consists of:
 
-1) a README file describing the package's content, the data and how to acquire them, the instructions on how to reproduce the results (details below), and all additional information required by the policy described above.
-2) a ZIP archive of folders and files that essentially includes:
+1) a **README file** describing the package's content, the data and how to acquire them, the instructions on how to reproduce the results (details below), and all additional information required by the policy described above.
+
+2) a **ZIP archive** of folders and files that essentially includes:
 
 - raw data
 - data cleaning and manipulation code
@@ -39,7 +40,7 @@ The replication package consists of:
 
 There are no specific requirements for software use, file names, or folder structure, but the package should enable another trained computational scientist to run the replication code and reproduce the outputs.
 
-We require that you ***upload it as a separate file alongside the .zip archive*** on Zenodo, but you may also include it inside the ZIP archive, as long as it is an identical copy. Keeping the README separate lets editors and readers quickly assess data/code availability, requirements, and run instructions before downloading large archives, improving transparency, accessibility, and screening efficiency.
+We require that you ***upload the README as a separate file alongside the .zip archive*** on Zenodo (you may also include it inside the ZIP archive, as long as it is an identical copy). Keeping the README separate lets editors and readers quickly assess data/code availability, requirements, and run instructions before downloading large archives, improving transparency, accessibility, and screening efficiency.
 
 ## README file
 
@@ -54,7 +55,7 @@ The best approach is to follow the template README from the [social sciences dat
 
 ### Data citations
 
-Citing and describing data sources in the README is the best way to direct readers to them. Each dataset you use should be cited in the README as well as in the manuscript, whether or not you include it in the package. Note that this is also [our publisher's policy](https://academic.oup.com/pages/open-research/research-data).
+Citing and describing data sources in the README is the best way to direct readers to them. Each dataset you use should be cited in the README as well as in the manuscript, whether or not you include it in the package. Note that this is also [our publisher&#39;s policy](https://academic.oup.com/pages/open-research/research-data).
 
 The best way to avoid redundancy and clutter is to place **full citations in a references section at the end of the README** and use **in-text short citations** (for example, `Bureau of the Census (2009)`) in the rest of the document when you need to refer to a dataset. Do the same in the manuscript whenever you cite the data; this is the same practice you use when citing a book or an article.
 
@@ -92,12 +93,13 @@ The DAS section of the README should contain a full description of all data sour
 - You may include the code's output (e.g. tables and figures) with your package. This helps us check that the code produces identical output (we also compare the output with the manuscript exhibits).
 
 ## Code best practices
-These are not strict requirements, but we recommend following them and may occasionally ask for code changes to make replication easier.
+
+These are not strict requirements, but we recommend following them and may ask for code revisions to make replication easier along these lines.
+
 - Write your code to minimize the need for manual intervention. If you have to include manual steps, please be as specific as possible about what these steps are and how to do them. Provide scripts that run the entire analysis with a single or a few commands. If we find that there are too many manual steps, we will ask you to automate them.
 - Use hardware-independent code. In particular, pay attention to filename capitalization and path separators; for example, use "/" rather than "\\". If you used a specific operating system, please specify this in the README.
 - Specify from which working directory the code should be run.
 - There is almost never a good reason to include absolute paths and ask the replicator to change them. Use relative paths instead, and specify the working directory in the README. It's also best practice to avoid changing the working directory in the code itself.
-
 
 ## Upload your replication package to Zenodo
 
