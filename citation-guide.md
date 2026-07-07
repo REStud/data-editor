@@ -433,3 +433,8 @@ Before you submit, check that you can answer yes to each of these.
 - Does each citation include a DOI, stable URL, or clear access path?
 - If the data are restricted, does the README explain how access works?
 - If the provider gives a preferred citation, did you use it?
+
+## Credits
+
+This page summarizes the content of two pages from the [Social Science Data Editors](https://social-science-data-editors.github.io/guidance/) website: the [Data Citation Guide](https://social-science-data-editors.github.io/guidance/Guidance/Data_citation_guide.html) and the [Additional Data Citation Guidance](https://social-science-data-editors.github.io/guidance/Guidance/addtl-data-citation-guidance.html)
+

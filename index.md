@@ -1,5 +1,4 @@
 ---
-
 # Page settings
 
 layout: homepage
@@ -42,20 +41,23 @@ grid_navigation:
       excerpt: Learn what happens after your replication package is accepted.
       cta: Read more
       url: '/after-acceptance/'
+    - title: Data citation guide
+      excerpt: In the README and the manuscript, you should cite data as you cite articles. Learn how to do it properly.
+      cta: Read more
+      url: '/citation-guide/'
     - title: Accepted papers' Replication Packages
       excerpt: Browse replication packages of published papers on Zenodo
-      cta: Read more (external)
+      cta: zenodo.org
       url: 'https://zenodo.org/communities/restud-replication/'
       type: external
     - title: Best practices for reproducible research
       excerpt: Learn about best practices for reproducible research from the Social Science Data Editors website
-      cta: Read more (external)
+      cta: data editors website
       url: 'https://social-science-data-editors.github.io/guidance/'
       type: external
 ---
-
 ## What we do
 
-- We check that you have thoroughly described the data you used, how to obtain it, and that you included it in the package following our Data and Code Availability Policy linked below.
+- We check that you have thoroughly described the data you used, how to obtain it, and that you included it in the package following our [Data and Code Availability Policy](/policy/)
 - We check that your code runs and produces the same output as in the manuscript you submitted. This includes tables, figures, and numerical output reported in the text of the paper, when those numbers do not appear in a table or figure.
-- We then accept your Replication package into our [Zenodo community&#39;s Replication Archive](https://zenodo.org/communities/restud-replication/).
+- We then accept your replication package into our [Zenodo community&#39;s archive](https://zenodo.org/communities/restud-replication/).
