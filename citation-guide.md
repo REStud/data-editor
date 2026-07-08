@@ -107,13 +107,14 @@ Some data providers ask you to cite a related paper. If the dataset also has its
 
 ### Step 4: Put the citation in the right places
 
-Include data citations in the README as well as the Manuscript, in their References Section or, where used by the journal, the README's Data Availability Statement.
+Include data citations in the README as well as the Manuscript, in their References Section, and wherever you need to cite the data.
 
 Please note there are two forms of citation you should use, as you do when citing a paper:
 
 - The **full citation** — all the elements — goes in the **References Section**, once per dataset.
 - The **in-text citation** is only a short pointer, usually author and year, e.g. (BEA, 2016), linking to that reference entry.
-- Practical details about **how to obtain the data** that don't belong in a formal reference — the exact table to select, a download path, a registration step, the access date for a specific extract — go in the text (or the README / data availability statement), not crammed into the reference entry, following the **in-text citation**.
+
+Practical details about **how to obtain the data** that don't belong in a formal reference — the exact table to select, a download path, a registration step, the access date for a specific extract, etc... — go in the text of the README / Data Availability Statement, not crammed into the reference entry, following the **in-text citation**. Similarly, if you include in the README a list of table of datasets, or data files, reference the corresponding dataset using the in-text short citation.
 
 ### Step 5: Practical checks and considerations before you submit
 
