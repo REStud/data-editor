@@ -107,14 +107,14 @@ Some data providers ask you to cite a related paper. If the dataset also has its
 
 ### Step 4: Put the citation in the right places
 
-Include data citations in the README as well as the Manuscript, in their References Section, and wherever you need to cite the data.
+Describe all datasets in the README as well as the Manuscript, listing them in the References Section, and cite them wherever you need to refer to them in the rest of the document. The best approach to avoid duplication is the same as the one you use when citing an article or book in your paper:
 
-Please note there are two forms of citation you should use, as you do when citing a paper:
+- Place a **reference entry** — with all the elements — in the **References Section**, one per dataset.
+- Use an **in-text citation**, that is, a short pointer, usually author and year, e.g. (BEA, 2016), linking to that reference entry, elsewhere in the document.
 
-- The **full citation** — all the elements — goes in the **References Section**, once per dataset.
-- The **in-text citation** is only a short pointer, usually author and year, e.g. (BEA, 2016), linking to that reference entry.
+Our publisher has specific requirements about each element's format for the manuscript, but we allow some flexibility in the README.
 
-Practical details about **how to obtain the data** that don't belong in a formal reference — the exact table to select, a download path, a registration step, the access date for a specific extract, etc... — go in the text of the README / Data Availability Statement, not crammed into the reference entry, following the **in-text citation**. Similarly, if you include in the README a list of table of datasets, or data files, reference the corresponding dataset using the in-text short citation.
+Practical details about **how to obtain the data** that don't belong in a formal reference — the exact table to select, a download path, a registration step, the access date for a specific extract, etc... — go in the text of the README .e.g. the Data Availability Statement, following the **in-text citation**, not crammed into the reference entry. Similarly, if you include in the README a list or table of datasets/data files, reference the corresponding dataset using the **in-text citation**.
 
 ### Step 5: Practical checks and considerations before you submit
 
