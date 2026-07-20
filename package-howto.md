@@ -57,9 +57,9 @@ The best approach is to follow the template README from the [social sciences dat
 
 Citing and describing data sources in the README is the best way to direct readers to them. Each dataset you use should be cited in the README as well as in the manuscript, whether or not you include it in the package. Note that this is also [our publisher&#39;s policy](https://academic.oup.com/pages/open-research/research-data).
 
-The best way to avoid redundancy and clutter is to place **full citations in a references section at the end of the README** and use **in-text short citations** (for example, `Bureau of the Census (2009)`) in the rest of the document when you need to refer to a dataset. Do the same in the manuscript whenever you cite the data; this is the same practice you use when citing a book or an article.
+The best way to avoid redundancy and clutter is to place **full reference entries in the References section at the end of the README** and use **in-text short citations** (for example, `Bureau of the Census (2009)`) in the rest of the document when you need to refer to a dataset. Do the same in the manuscript whenever you cite the data; this is the same practice you use when citing a book or an article.
 
-If the dataset has a DOI, please include it in the full citation. Verify whether your data provider recommends a "suggested citation." If so, use it; if not, please see the **[Data Citation Guide](/citation-guide/)** for guidance and examples. The Data Citation Guide also includes a tool that may help you cite datasets that do not have a DOI or a suggested citation format.
+Verify whether your data provider recommends a "suggested citation." If so, use it; if not, please see the **[Data Citation Guide](/citation-guide/)** for guidance and examples. If the dataset has a DOI, please include it in the full reference entry. The Data Citation Guide also includes a tool that may help you cite datasets that do not have a DOI or a suggested citation format.
 
 ### Data Availability Statement (DAS) and data description
 
@@ -73,7 +73,7 @@ The DAS section of the README should contain a full description of all data sour
 
 ### Statement about Rights
 
-- Verify that you have the right to share any data you include, and make sure you comply with the data license, which may differ from the license you choose for the package. Note that some licenses require the license text to be distributed together with the data. Include it in the data folder.
+Verify that you have the right to share any data you include, and make sure you comply with the data license, which may differ from the license you choose for the package. Note that some licenses require the license text to be distributed together with the data. Include it in the data folder.
 
 ***Include the following Statement about Rights in the README:***
 

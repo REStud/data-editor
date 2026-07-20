@@ -18,7 +18,7 @@ page_nav:
         url: '/after-acceptance/'
 ---
 
-The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?page=1&size=20), a research data repository maintained by CERN, to store and share replication materials. This page explains how to upload and submit your replication package. For what the package and README must contain, see the [Data and Code Availability Policy and Guidance]({{ site.baseurl }}/guidance/) page.
+The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?page=1&size=20), a research data repository maintained by CERN, to store and share replication materials. This page explains how to upload and submit your replication package. For what the package and README must contain, see the [guidance]({{ site.baseurl }}/package-howto/) page.
 
 # Uploading the first version of your replication package
 
