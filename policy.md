@@ -102,7 +102,7 @@ In this case, please contact the Managing Editor and describe in detail how you 
 <details class="dcas-panel" markdown="1">
 <summary>Our replication does not exactly reproduce your output (Rule #8)</summary>
 <div class="dcas-content" markdown="1">
-We will work with you to understand why this happened and how to fix it. This may require asking the Managing Editor for approving changes to the accepted manuscript.
+We will work with you to understand why this happened and how to fix it. This may require asking the Managing Editor to approve changes to the accepted manuscript.
 </div>
 </details>
 
@@ -118,8 +118,8 @@ Authors who collect primary data (e.g., via experiment or survey) are required t
 <div class="dcas-content" markdown="1">
 We ask you to explicitly state the following in your README file:
 
-* I/We certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
-* I/We certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package.
+* I certify that the author(s) of the manuscript have legitimate access to and permission to use the data used in this manuscript.
+* I certify that the author(s) of the manuscript have documented permission to redistribute/publish the data contained within this replication package.
 </div>
 </details>
 
@@ -135,19 +135,3 @@ Authors retain the copyright to their own data and code and convey any permissio
 ## Preparing your replication package
 
 Finally, we ask you to follow the [instructions for preparing your replication package and README](/package-howto/) — what to include, how to write the README, and how to upload to Zenodo.
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var panels = document.querySelectorAll('.dcas-accordion .dcas-panel');
-  panels.forEach(function (panel) {
-    panel.addEventListener('toggle', function () {
-      if (panel.open) {
-        panels.forEach(function (other) {
-          if (other !== panel) { other.open = false; }
-        });
-      }
-    });
-  });
-});
-</script>
