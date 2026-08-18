@@ -77,7 +77,13 @@ If any accompanying materials, such as experimental instructions, are not writte
 If applicable, pre-registration of the research project must be documented with a Document Object Identifier for the pre-registration record in the README.
 
 Alternatively, you can publish your data and documentation separately and cite it in the README, adding its DOI. See [here](https://social-science-data-editors.github.io/guidance/Guidance/depositing-data-for-greater-good.html) for guidance.
+</div>
+</details>
 
+<details class="dcas-panel" markdown="1">
+<summary>You collected primary data containing Personally Identifiable Information (PII) (Rules #2,12)</summary>
+<div class="dcas-content" markdown="1">
+No data with PII that needs to remain private should be published in the main replication package. If you have such PII in your dataset, and are allowed to publish it with restrictions, please contact us for the best solution.
 </div>
 </details>
 
