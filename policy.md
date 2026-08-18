@@ -83,7 +83,7 @@ Alternatively, you can publish your data and documentation separately and cite i
 <details class="dcas-panel" markdown="1">
 <summary>Your data contains Personally Identifiable Information (PII) (Rule #2)</summary>
 <div class="dcas-content" markdown="1">
-No data with PII that needs to remain private should be published in the main replication package. If you have such PII in your dataset, and are allowed to publish it with restrictions, please contact us for the best solution.
+No data with PII that needs to remain private should be published in the main replication package. If you have such PII in your dataset, and you can share it with the Data Editor for reproducibility purposes, or are allowed to publish it with restrictions, please contact us for the best solution.
 </div>
 </details>
 
