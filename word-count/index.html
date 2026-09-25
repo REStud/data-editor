@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Word Count Ledger | REStud Data Editor</title>
+<style>
+  html{ font-size:14px; }
+  body{ margin:0; }
+  img{ max-width:100%; }
+  [hidden]{ display:none !important; }
+</style>
+<style>
+  :root{
+    --paper:#EEF1F3;
+    --paper-raised:#FFFFFF;
+    --paper-sunken:#E3E8EB;
+    --ink:#1B2430;
+    --ink-soft:#57626F;
+    --ink-faint:#8A95A1;
+    --rule:#D7DCE2;
+    --accent:#2B5B76;
+    --accent-ink:#1D4359;
+    --accent-soft:#E1EBEF;
+    --success:#2A7A50;
+    --success-soft:#E3F3E8;
+    --warning:#8F5E10;
+    --warning-soft:#FAEFDA;
+    --danger:#AC3A3A;
+    --danger-soft:#FBE7E6;
+    --font-display:'Fraunces', ui-serif, Georgia, serif;
+    --font-body:'Source Sans 3', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#141A20;
+      --paper-raised:#1B2229;
+      --paper-sunken:#10151A;
+      --ink:#E8ECEF;
+      --ink-soft:#9FAAB4;
+      --ink-faint:#69737C;
+      --rule:#2B333B;
+      --accent:#82B4CB;
+      --accent-ink:#C4E1EA;
+      --accent-soft:#1E2C33;
+      --success:#72C69A;
+      --success-soft:#17281F;
+      --warning:#E3B45C;
+      --warning-soft:#2E2415;
+      --danger:#E58F85;
+      --danger-soft:#301D1B;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#141A20;
+    --paper-raised:#1B2229;
+    --paper-sunken:#10151A;
+    --ink:#E8ECEF;
+    --ink-soft:#9FAAB4;
+    --ink-faint:#69737C;
+    --rule:#2B333B;
+    --accent:#82B4CB;
+    --accent-ink:#C4E1EA;
+    --accent-soft:#1E2C33;
+    --success:#72C69A;
+    --success-soft:#17281F;
+    --warning:#E3B45C;
+    --warning-soft:#2E2415;
+    --danger:#E58F85;
+    --danger-soft:#301D1B;
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{
+    max-width:760px;
+    margin:0 auto;
+    padding:48px 24px 72px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+  }
+  @media (max-width:560px){
+    .page{ padding:32px 16px 56px; gap:22px; }
+  }
+
+  /* ---------- Masthead ---------- */
+  .masthead{ animation: rise .5s ease-out both; }
+  .back{
+    display:inline-block;
+    margin:0 0 18px;
+    font-size:13px;
+    font-weight:600;
+    color:var(--accent-ink);
+    text-decoration:none;
+  }
+  .back:hover{ text-decoration:underline; }
+  .back:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .eyebrow{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:12px;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:var(--font-display);
+    font-weight:600;
+    font-size:clamp(32px,5vw,42px);
+    line-height:1.05;
+    margin:0 0 12px;
+    text-wrap:balance;
+    color:var(--ink);
+  }
+  .lede{
+    font-size:16px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin:0;
+  }
+
+  /* ---------- Cards ---------- */
+  .card{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    padding:22px 24px;
+  }
+  .card + .card{ margin-top:0; }
+  .card-label{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    margin:0 0 12px;
+  }
+
+  /* ---------- Controls row ---------- */
+  .controls{ display:flex; flex-direction:column; gap:20px; }
+  .controls-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:24px; align-items:start; }
+  @media (max-width:560px){ .controls-grid{ grid-template-columns:1fr; } }
+
+  .segmented{
+    display:flex;
+    border:1px solid var(--rule);
+    border-radius:6px;
+    overflow:hidden;
+  }
+  .segmented button{
+    flex:1;
+    text-align:left;
+    padding:11px 14px;
+    background:var(--paper-raised);
+    border:none;
+    border-left:1px solid var(--rule);
+    color:var(--ink);
+    font-family:var(--font-body);
+    cursor:pointer;
+    font-size:14px;
+  }
+  .segmented button:first-child{ border-left:none; }
+  .segmented button .type-name{ font-weight:600; display:block; }
+  .segmented button .type-limits{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-top:2px;
+    font-variant-numeric:tabular-nums;
+  }
+  .segmented button[aria-pressed="true"]{ background:var(--accent-soft); }
+  .segmented button[aria-pressed="true"] .type-name{ color:var(--accent-ink); }
+  .segmented button:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
+
+  .field{ display:flex; flex-direction:column; gap:6px; }
+  .field label{ font-size:14px; font-weight:600; color:var(--ink); }
+  .field .hint{ font-size:12.5px; color:var(--ink-faint); line-height:1.4; }
+  .num-input{
+    width:100%;
+    font-family:var(--font-mono);
+    font-size:18px;
+    font-variant-numeric:tabular-nums;
+    padding:8px 10px;
+    border:1px solid var(--rule);
+    border-radius:6px;
+    background:var(--paper-sunken);
+    color:var(--ink);
+  }
+  .num-input:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+
+  /* ---------- Upload ---------- */
+  .dropzone{
+    border:1.5px dashed var(--rule);
+    border-radius:8px;
+    padding:26px 20px;
+    text-align:center;
+    background:var(--paper-sunken);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .dropzone.drag{ border-color:var(--accent); background:var(--accent-soft); }
+  .dropzone p{ margin:0 0 12px; color:var(--ink-soft); font-size:14.5px; }
+  .dropzone .filename{
+    font-family:var(--font-mono);
+    color:var(--ink);
+    font-weight:500;
+  }
+  .btn{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:14px;
+    padding:9px 18px;
+    border-radius:6px;
+    border:1px solid var(--accent);
+    background:var(--accent);
+    color:var(--paper-raised);
+    cursor:pointer;
+  }
+  .btn:hover{ opacity:.92; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .btn-ghost{
+    background:transparent;
+    color:var(--accent-ink);
+    border:1px solid var(--rule);
+    font-weight:600;
+    font-size:13px;
+    padding:6px 12px;
+    border-radius:6px;
+    cursor:pointer;
+  }
+  .btn-ghost:hover{ background:var(--accent-soft); }
+  .upload-meta{
+    display:flex; align-items:center; justify-content:center; gap:14px;
+    margin-top:12px; flex-wrap:wrap;
+  }
+  .privacy-note{
+    font-size:12.5px; color:var(--ink-faint); margin-top:14px;
+  }
+  .upload-error{
+    font-size:13px; color:var(--danger); margin-top:12px; display:none;
+  }
+  .upload-error.show{ display:block; }
+
+  /* ---------- Example banner ---------- */
+  .banner{
+    display:flex; align-items:baseline; gap:8px;
+    background:var(--accent-soft);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    padding:12px 16px;
+    font-size:13.5px;
+    color:var(--accent-ink);
+  }
+  .banner strong{ font-weight:700; }
+
+  /* ---------- Hero stats ---------- */
+  .hero{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:560px){ .hero{ grid-template-columns:1fr; } }
+  .stat{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    padding:20px 22px;
+    display:flex; flex-direction:column; gap:6px;
+  }
+  .stat-label{
+    font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .stat-number{
+    font-family:var(--font-mono);
+    font-weight:600;
+    font-size:38px;
+    line-height:1;
+    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+  }
+  .stat-of{
+    font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums;
+  }
+  .pill{
+    display:inline-flex; align-self:flex-start;
+    margin-top:4px;
+    font-size:12.5px; font-weight:600;
+    padding:4px 10px; border-radius:20px;
+    font-variant-numeric:tabular-nums;
+  }
+  .pill.success{ background:var(--success-soft); color:var(--success); }
+  .pill.warning{ background:var(--warning-soft); color:var(--warning); }
+  .pill.danger{ background:var(--danger-soft); color:var(--danger); }
+
+  /* ---------- Ledger table ---------- */
+  .ledger-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    margin-bottom:14px;
+  }
+  .ledger-actions{ display:flex; gap:8px; }
+  .table-scroll{ overflow-x:auto; }
+  table.ledger{
+    width:100%; border-collapse:collapse; font-size:14px; min-width:480px;
+  }
+  table.ledger th{
+    text-align:left;
+    font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--ink-faint);
+    padding:0 10px 8px;
+    border-bottom:1px solid var(--rule);
+  }
+  table.ledger td{
+    padding:9px 10px;
+    border-bottom:1px solid var(--rule);
+    vertical-align:middle;
+  }
+  table.ledger tr.excluded td{ color:var(--ink-faint); }
+  table.ledger tr.excluded .badge{ opacity:.7; }
+  td.num, th.num{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; text-align:right; }
+  td.check, th.check{ text-align:center; width:64px; }
+  td.page-no{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; color:var(--ink-soft); }
+  .badge{
+    display:inline-block;
+    font-family:var(--font-body);
+    font-size:11.5px; font-weight:600;
+    background:var(--accent-soft); color:var(--accent-ink);
+    border-radius:3px; padding:2px 7px;
+    margin:2px 4px 2px 0;
+    letter-spacing:.01em;
+  }
+  input[type="checkbox"]{
+    width:16px; height:16px; accent-color:var(--accent); cursor:pointer;
+  }
+  tfoot td{
+    font-weight:700; font-family:var(--font-mono); font-variant-numeric:tabular-nums;
+    border-bottom:none; border-top:1.5px solid var(--ink-faint);
+    padding-top:12px;
+  }
+
+  /* ---------- Methodology / footer ---------- */
+  .note{
+    font-size:13px; line-height:1.6; color:var(--ink-soft);
+    border-top:1px solid var(--rule);
+    padding-top:18px;
+  }
+  .note strong{ color:var(--ink); }
+  footer{
+    font-size:12.5px; color:var(--ink-faint);
+    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  footer a{ color:var(--accent-ink); text-decoration:underline; }
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);
+  }
+
+  @keyframes rise{
+    from{ opacity:0; transform:translateY(6px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .masthead{ animation:none; }
+  }
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+</head>
+<body>
+
+<div class="page">
+
+  <div class="masthead">
+    <a class="back" href="/">&larr; REStud Data Editor</a>
+    <p class="eyebrow">Review of Economic Studies &middot; Insights &amp; Communications</p>
+    <h1>Word Count Ledger</h1>
+    <p class="lede">Count a manuscript PDF the way AEA's own checker counts AER: Insights submissions &mdash; a plain tally of white-space-delimited words &mdash; then decide, page by page, what belongs in the total before you submit.</p>
+  </div>
+
+  <div class="card controls">
+    <div class="controls-grid">
+      <div>
+        <p class="card-label">Manuscript type</p>
+        <div class="segmented" role="group" aria-label="Manuscript type">
+          <button type="button" data-type="insights" aria-pressed="false">
+            <span class="type-name">Insights</span>
+            <span class="type-limits">6,000 words &middot; 5 exhibits</span>
+          </button>
+          <button type="button" data-type="communications" aria-pressed="false">
+            <span class="type-name">Communications</span>
+            <span class="type-limits">2,000 words &middot; 2 exhibits</span>
+          </button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="exhibitInput">Exhibits (tables + figures)</label>
+        <input class="num-input" type="number" min="0" step="1" id="exhibitInput" value="0">
+        <p class="hint" id="exhibitHint">We flag likely captions on the pages below &mdash; confirm the count yourself.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Manuscript PDF</p>
+    <div class="dropzone" id="dropzone">
+      <p id="dropzoneText">Drop a manuscript PDF here, or choose a file.</p>
+      <div class="upload-meta">
+        <button class="btn" type="button" id="chooseBtn">Choose PDF&hellip;</button>
+        <button class="btn-ghost" type="button" id="exampleBtn" hidden>Use example instead</button>
+      </div>
+      <input type="file" accept="application/pdf" id="fileInput" class="visually-hidden">
+      <p class="upload-error" id="uploadError"></p>
+    </div>
+    <p class="privacy-note">Processing happens entirely in your browser &mdash; the PDF is parsed locally and never uploaded anywhere.</p>
+  </div>
+
+  <div class="banner" id="exampleBanner">
+    <span>&#128196;</span>
+    <span><strong>Showing a sample manuscript</strong> so you can see how the ledger works &mdash; drop in your own PDF above to replace it.</span>
+  </div>
+
+  <div class="hero" id="hero"></div>
+
+  <div class="card">
+    <div class="ledger-head">
+      <p class="card-label" style="margin-bottom:0;">Page-by-page ledger</p>
+      <div class="ledger-actions">
+        <button class="btn-ghost" type="button" id="includeAllBtn">Include all</button>
+        <button class="btn-ghost" type="button" id="excludeFlaggedBtn">Exclude flagged pages</button>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table class="ledger">
+        <thead>
+          <tr>
+            <th>Page</th>
+            <th class="num">Words</th>
+            <th>Notes</th>
+            <th class="check">Include</th>
+          </tr>
+        </thead>
+        <tbody id="ledgerBody"></tbody>
+        <tfoot>
+          <tr>
+            <td>Total counted</td>
+            <td class="num" id="ledgerTotal">0</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+
+  <p class="note">
+    <strong>How this counts.</strong> A word is any run of characters separated by white space &mdash; the same definition AEA applies when it counts equations, footnotes, and endnotes as part of the body text. Two text runs with no real gap between them (a kerned heading, a logo) are treated as one word rather than split apart, which is where a naive PDF text count tends to inflate. Even so, expect this to land within about a percentage point of AEA's own tool, not match it exactly &mdash; their converter has internal normalization this can't see. REStud has not published its own counting rule, so treat the limits above as guidance, not a guarantee the editorial office will count identically. Title, author names, abstract, acknowledgement footnote, references, and exhibits are conventionally excluded from AEA-style counts. The notes column is a hint from a keyword search, not a determination &mdash; the checkbox decides what is actually counted.
+  </p>
+
+  <footer>
+    <span>Insights: 6,000 words / 5 exhibits &middot; Communications: 2,000 words / 2 exhibits, per restud.com.</span>
+    <span>Modeled on the <a href="https://www.aeaweb.org/journals/word-count" target="_blank" rel="noopener">AEA word-count tool</a>.</span>
+  </footer>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
+<script>
+(function(){
+  "use strict";
+
+  var ARTICLE_TYPES = {
+    insights: { label:'Insights', words:6000, exhibits:5 },
+    communications: { label:'Communications', words:2000, exhibits:2 }
+  };
+
+  var EXAMPLE_PAGES = [
+    {n:1, words:255, badges:['Title & abstract'], included:false},
+    {n:2, words:810, badges:[], included:true},
+    {n:3, words:845, badges:[], included:true},
+    {n:4, words:830, badges:['Table 1'], included:true},
+    {n:5, words:790, badges:['Figure 1'], included:true},
+    {n:6, words:865, badges:[], included:true},
+    {n:7, words:900, badges:['Table 2'], included:true},
+    {n:8, words:720, badges:[], included:true},
+    {n:9, words:540, badges:['References'], included:false},
+    {n:10, words:610, badges:['Appendix'], included:false}
+  ];
+
+  function lsGet(key, fallback){
+    try { var v = localStorage.getItem(key); return v===null ? fallback : v; }
+    catch(e){ return fallback; }
+  }
+  function lsSet(key, val){
+    try { localStorage.setItem(key, val); } catch(e){}
+  }
+
+  var state = {
+    pages: EXAMPLE_PAGES.map(function(p){ return { n:p.n, words:p.words, badges:p.badges.slice(), included:p.included }; }),
+    isExample: true,
+    articleType: (ARTICLE_TYPES[lsGet('wcl-article-type','insights')] ? lsGet('wcl-article-type','insights') : 'insights'),
+    exhibitCount: 3,
+    exhibitAuto: true
+  };
+
+  function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
+
+  function statusFor(remaining, limit, unit, granular){
+    if (remaining < 0){
+      return { tier:'danger', text: fmt(-remaining) + ' ' + unit + ' over the ' + fmt(limit) + ' limit' };
+    }
+    var closeCall = granular ? (remaining <= Math.max(limit*0.05, 100)) : (remaining === 0);
+    if (closeCall){
+      return { tier:'warning', text: fmt(remaining) + ' ' + unit + ' to spare — cutting it close' };
+    }
+    return { tier:'success', text: fmt(remaining) + ' ' + unit + ' to spare' };
+  }
+
+  function includedWordTotal(){
+    return state.pages.reduce(function(s,p){ return s + (p.included ? p.words : 0); }, 0);
+  }
+
+  function render(){
+    renderControls();
+    renderUpload();
+    renderHero();
+    renderTable();
+  }
+
+  function renderControls(){
+    var buttons = document.querySelectorAll('.segmented button');
+    buttons.forEach(function(btn){
+      btn.setAttribute('aria-pressed', btn.dataset.type === state.articleType ? 'true' : 'false');
+    });
+    document.getElementById('exhibitInput').value = state.exhibitCount;
+    document.getElementById('exhibitHint').textContent = state.exhibitAuto
+      ? 'Auto-detected from Table / Figure captions in the PDF — confirm the count yourself.'
+      : 'Entered manually.';
+  }
+
+  function renderUpload(){
+    document.getElementById('exampleBtn').hidden = state.isExample;
+    document.getElementById('exampleBanner').style.display = state.isExample ? 'flex' : 'none';
+    var text = document.getElementById('dropzoneText');
+    if (state.isExample){
+      text.innerHTML = 'Drop a manuscript PDF here, or choose a file.';
+    } else {
+      text.innerHTML = 'Loaded <span class="filename">' + escapeHtml(state.fileName || 'manuscript.pdf') + '</span> &mdash; drop another PDF to replace it.';
+    }
+  }
+
+  function renderHero(){
+    var type = ARTICLE_TYPES[state.articleType];
+    var words = includedWordTotal();
+    var wordStatus = statusFor(type.words - words, type.words, 'words', true);
+    var exhibitStatus = statusFor(type.exhibits - state.exhibitCount, type.exhibits, 'exhibits', false);
+
+    var hero = document.getElementById('hero');
+    hero.innerHTML =
+      '<div class="stat">' +
+        '<p class="stat-label">Words counted</p>' +
+        '<p class="stat-number">' + fmt(words) + '</p>' +
+        '<p class="stat-of">of ' + fmt(type.words) + ' word limit (' + type.label + ')</p>' +
+        '<span class="pill ' + wordStatus.tier + '">' + wordStatus.text + '</span>' +
+      '</div>' +
+      '<div class="stat">' +
+        '<p class="stat-label">Exhibits</p>' +
+        '<p class="stat-number">' + fmt(state.exhibitCount) + '</p>' +
+        '<p class="stat-of">of ' + fmt(type.exhibits) + ' exhibit limit (' + type.label + ')</p>' +
+        '<span class="pill ' + exhibitStatus.tier + '">' + exhibitStatus.text + '</span>' +
+      '</div>';
+  }
+
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function renderTable(){
+    var body = document.getElementById('ledgerBody');
+    body.innerHTML = state.pages.map(function(p, idx){
+      var badges = p.badges.map(function(b){ return '<span class="badge">' + escapeHtml(b) + '</span>'; }).join('');
+      return '<tr class="' + (p.included ? '' : 'excluded') + '" data-idx="' + idx + '">' +
+        '<td class="page-no">' + p.n + '</td>' +
+        '<td class="num">' + fmt(p.words) + '</td>' +
+        '<td>' + badges + '</td>' +
+        '<td class="check"><input type="checkbox" data-idx="' + idx + '" ' + (p.included ? 'checked' : '') + ' aria-label="Include page ' + p.n + ' in word count"></td>' +
+      '</tr>';
+    }).join('');
+    document.getElementById('ledgerTotal').textContent = fmt(includedWordTotal());
+  }
+
+  // ---- events: controls ----
+  document.querySelectorAll('.segmented button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      state.articleType = btn.dataset.type;
+      lsSet('wcl-article-type', state.articleType);
+      renderControls();
+      renderHero();
+    });
+  });
+
+  document.getElementById('exhibitInput').addEventListener('input', function(e){
+    var v = parseInt(e.target.value, 10);
+    state.exhibitCount = isNaN(v) || v < 0 ? 0 : v;
+    state.exhibitAuto = false;
+    renderControls();
+    renderHero();
+  });
+
+  // ---- events: ledger checkboxes + quick actions ----
+  document.getElementById('ledgerBody').addEventListener('change', function(e){
+    if (e.target.matches('input[type="checkbox"]')){
+      var idx = parseInt(e.target.dataset.idx, 10);
+      state.pages[idx].included = e.target.checked;
+      e.target.closest('tr').classList.toggle('excluded', !e.target.checked);
+      document.getElementById('ledgerTotal').textContent = fmt(includedWordTotal());
+      renderHero();
+    }
+  });
+
+  document.getElementById('includeAllBtn').addEventListener('click', function(){
+    state.pages.forEach(function(p){ p.included = true; });
+    renderTable();
+    renderHero();
+  });
+
+  document.getElementById('excludeFlaggedBtn').addEventListener('click', function(){
+    state.pages.forEach(function(p){ if (p.badges.length){ p.included = false; } });
+    renderTable();
+    renderHero();
+  });
+
+  // ---- events: upload ----
+  var dropzone = document.getElementById('dropzone');
+  var fileInput = document.getElementById('fileInput');
+
+  document.getElementById('chooseBtn').addEventListener('click', function(){ fileInput.click(); });
+  document.getElementById('exampleBtn').addEventListener('click', function(){
+    state.pages = EXAMPLE_PAGES.map(function(p){ return { n:p.n, words:p.words, badges:p.badges.slice(), included:p.included }; });
+    state.isExample = true;
+    state.exhibitCount = 3;
+    state.exhibitAuto = true;
+    fileInput.value = '';
+    setUploadError('');
+    render();
+  });
+
+  fileInput.addEventListener('change', function(e){
+    if (e.target.files && e.target.files[0]) handleFile(e.target.files[0]);
+  });
+
+  ['dragenter','dragover'].forEach(function(evt){
+    dropzone.addEventListener(evt, function(e){
+      e.preventDefault(); e.stopPropagation();
+      dropzone.classList.add('drag');
+    });
+  });
+  ['dragleave','dragend'].forEach(function(evt){
+    dropzone.addEventListener(evt, function(e){
+      dropzone.classList.remove('drag');
+    });
+  });
+  dropzone.addEventListener('drop', function(e){
+    e.preventDefault(); e.stopPropagation();
+    dropzone.classList.remove('drag');
+    var files = e.dataTransfer && e.dataTransfer.files;
+    if (files && files[0]) handleFile(files[0]);
+  });
+
+  function setUploadError(msg){
+    var el = document.getElementById('uploadError');
+    el.textContent = msg || '';
+    el.classList.toggle('show', !!msg);
+  }
+
+  function setLoading(isLoading){
+    document.getElementById('dropzoneText').textContent = isLoading ? 'Reading PDF…' : document.getElementById('dropzoneText').textContent;
+    document.getElementById('chooseBtn').disabled = isLoading;
+  }
+
+  // pdf.js hands back text in small positioned runs (letters of a logo, kerned
+  // headings, anywhere the PDF's own layout leaves near-zero gap between runs).
+  // Always inserting a space between runs turns those into spurious extra words
+  // (a stylised "MPRA" wordmark becomes four one-letter "words"). Instead, only
+  // treat a run boundary as a word break when the horizontal gap between runs is
+  // wide enough, relative to text height, to be an actual space; a new baseline
+  // always counts as a break.
+  function joinItemsByProximity(items){
+    var parts = [], prevEndX = null, prevY = null, prevHeight = 12;
+    for (var i = 0; i < items.length; i++){
+      var item = items[i];
+      var str = item.str;
+      var x = item.transform[4];
+      var y = item.transform[5];
+      var height = Math.hypot(item.transform[2], item.transform[3]) || item.height || prevHeight;
+      if (prevY === null){
+        parts.push(str);
+      } else if (Math.abs(y - prevY) > height * 0.4){
+        parts.push(' ' + str);
+      } else {
+        var gap = x - prevEndX;
+        parts.push((gap > height * 0.12 ? ' ' : '') + str);
+      }
+      prevEndX = x + (item.width || 0);
+      prevY = y;
+      if (height) prevHeight = height;
+    }
+    return parts.join('').replace(/\s+/g,' ').trim();
+  }
+
+  function detectBadges(pageIndex, text){
+    var badges = [];
+    if (pageIndex === 0) badges.push('Title page');
+    if (pageIndex <= 1 && /\babstract\b/i.test(text)) badges.push('Abstract');
+    if (/\breferences\b/i.test(text) || /\bbibliography\b/i.test(text)) badges.push('References');
+    if (/\bappendix\b/i.test(text)) badges.push('Appendix');
+    return badges;
+  }
+
+  function extractPages(file){
+    return file.arrayBuffer().then(function(buf){
+      return window.pdfjsLib.getDocument({ data: buf }).promise;
+    }).then(function(pdf){
+      var captions = new Set();
+      var pagesOut = [];
+
+      function next(i){
+        if (i > pdf.numPages) return Promise.resolve();
+        return pdf.getPage(i).then(function(page){
+          return page.getTextContent();
+        }).then(function(content){
+          var text = joinItemsByProximity(content.items);
+          var words = text.length ? text.split(' ').filter(Boolean).length : 0;
+          var re = /\b(Table|Figure)\s+([0-9]+|[IVXLC]+)\b/gi;
+          var m;
+          while ((m = re.exec(text))){
+            var word = m[1];
+            captions.add(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() + ' ' + m[2]);
+          }
+          pagesOut.push({ n:i, words:words, badges: detectBadges(i-1, text), included:true });
+          return next(i+1);
+        });
+      }
+      return next(1).then(function(){
+        return { pages: pagesOut, exhibitGuess: captions.size };
+      });
+    });
+  }
+
+  function handleFile(file){
+    var isPdf = file.type === 'application/pdf' || /\.pdf$/i.test(file.name);
+    if (!isPdf){
+      setUploadError('That file is not a PDF. Choose a manuscript PDF to continue.');
+      return;
+    }
+    setUploadError('');
+    setLoading(true);
+    extractPages(file).then(function(result){
+      if (!result.pages.length || result.pages.every(function(p){ return p.words === 0; })){
+        setUploadError('No extractable text was found. The PDF may be scanned or image-based — export a text-based PDF and try again.');
+      }
+      state.pages = result.pages;
+      state.isExample = false;
+      state.fileName = file.name;
+      state.exhibitCount = result.exhibitGuess;
+      state.exhibitAuto = true;
+      setLoading(false);
+      render();
+    }).catch(function(err){
+      console.error(err);
+      setLoading(false);
+      setUploadError('Could not read that PDF — it may be encrypted or corrupted. Try re-exporting it and upload again.');
+    });
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
