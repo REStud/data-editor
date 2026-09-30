@@ -21,3 +21,6 @@ Thumbs.db
 # ---------------
 .sass-cache
 _site
+
+# Test counter
+word-count/tests/
