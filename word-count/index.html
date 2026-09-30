@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex, nofollow">
-<title>Word Count Ledger | REStud Data Editor</title>
+<title>PDF Word Counter | REStud Data Editor</title>
 <style>
   html{ font-size:14px; }
   body{ margin:0; }
@@ -14,63 +14,81 @@
 </style>
 <style>
   :root{
-    --paper:#EEF1F3;
+    --paper:#FFFFFF;
     --paper-raised:#FFFFFF;
-    --paper-sunken:#E3E8EB;
-    --ink:#1B2430;
-    --ink-soft:#57626F;
-    --ink-faint:#8A95A1;
-    --rule:#D7DCE2;
-    --accent:#2B5B76;
-    --accent-ink:#1D4359;
-    --accent-soft:#E1EBEF;
-    --success:#2A7A50;
-    --success-soft:#E3F3E8;
-    --warning:#8F5E10;
-    --warning-soft:#FAEFDA;
-    --danger:#AC3A3A;
-    --danger-soft:#FBE7E6;
+    --paper-sunken:#EAF4F2;
+    --band:#B9D7D3;
+    --field:#B9D7D3;
+    --band-ink:#0F2B27;
+    --band-soft:#2F5A54;
+    --band-rule:#7CA9A3;
+    --ink:#11201E;
+    --ink-soft:#44605C;
+    --ink-faint:#6E8783;
+    --rule:#D3E4E1;
+    --rule-strong:#AFCCC7;
+    --accent:#1C5B55;
+    --accent-ink:#12403B;
+    --accent-soft:#DCEDEA;
+    --success:#1F6B52;
+    --success-soft:#DFF0E8;
+    --warning:#8A5A0B;
+    --warning-soft:#F8EBD5;
+    --danger:#A8362F;
+    --danger-soft:#FAE4E1;
     --font-display:'Fraunces', ui-serif, Georgia, serif;
     --font-body:'Source Sans 3', ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono:'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --paper:#141A20;
-      --paper-raised:#1B2229;
-      --paper-sunken:#10151A;
-      --ink:#E8ECEF;
-      --ink-soft:#9FAAB4;
-      --ink-faint:#69737C;
-      --rule:#2B333B;
-      --accent:#82B4CB;
-      --accent-ink:#C4E1EA;
-      --accent-soft:#1E2C33;
-      --success:#72C69A;
-      --success-soft:#17281F;
-      --warning:#E3B45C;
-      --warning-soft:#2E2415;
-      --danger:#E58F85;
-      --danger-soft:#301D1B;
+      --paper:#0E1A18;
+      --paper-raised:#162422;
+      --paper-sunken:#0A1413;
+      --band:#12302C;
+      --field:#12302C;
+      --band-ink:#DCEDEA;
+      --band-soft:#9BBCB7;
+      --band-rule:#3E635D;
+      --ink:#E4EEEC;
+      --ink-soft:#9BB3AF;
+      --ink-faint:#6B837F;
+      --rule:#273A37;
+      --rule-strong:#3C5450;
+      --accent:#7FC2BA;
+      --accent-ink:#B9D7D3;
+      --accent-soft:#182D2A;
+      --success:#6FC79C;
+      --success-soft:#142720;
+      --warning:#E0B15C;
+      --warning-soft:#2C2314;
+      --danger:#E58C82;
+      --danger-soft:#2F1C1A;
     }
   }
   :root[data-theme="dark"]{
-    --paper:#141A20;
-    --paper-raised:#1B2229;
-    --paper-sunken:#10151A;
-    --ink:#E8ECEF;
-    --ink-soft:#9FAAB4;
-    --ink-faint:#69737C;
-    --rule:#2B333B;
-    --accent:#82B4CB;
-    --accent-ink:#C4E1EA;
-    --accent-soft:#1E2C33;
-    --success:#72C69A;
-    --success-soft:#17281F;
-    --warning:#E3B45C;
-    --warning-soft:#2E2415;
-    --danger:#E58F85;
-    --danger-soft:#301D1B;
+    --paper:#0E1A18;
+    --paper-raised:#162422;
+    --paper-sunken:#0A1413;
+    --band:#12302C;
+    --field:#12302C;
+    --band-ink:#DCEDEA;
+    --band-soft:#9BBCB7;
+    --band-rule:#3E635D;
+    --ink:#E4EEEC;
+    --ink-soft:#9BB3AF;
+    --ink-faint:#6B837F;
+    --rule:#273A37;
+    --rule-strong:#3C5450;
+    --accent:#7FC2BA;
+    --accent-ink:#B9D7D3;
+    --accent-soft:#182D2A;
+    --success:#6FC79C;
+    --success-soft:#142720;
+    --warning:#E0B15C;
+    --warning-soft:#2C2314;
+    --danger:#E58C82;
+    --danger-soft:#2F1C1A;
   }
 
   *{ box-sizing:border-box; }
@@ -92,52 +110,56 @@
     .page{ padding:32px 16px 56px; gap:22px; }
   }
 
-  /* ---------- Masthead ---------- */
-  .masthead{ animation: rise .5s ease-out both; }
-  .back{
-    display:inline-block;
-    margin:0 0 18px;
-    font-size:13px;
-    font-weight:600;
-    color:var(--accent-ink);
-    text-decoration:none;
+  /* ---------- Masthead band ---------- */
+  .band{
+    background:var(--band);
+    border-bottom:1px solid var(--band-rule);
+    padding:44px 24px 34px;
+    animation: rise .5s ease-out both;
   }
-  .back:hover{ text-decoration:underline; }
-  .back:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
-  .eyebrow{
-    font-family:var(--font-body);
-    font-weight:600;
-    font-size:12px;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    color:var(--accent);
-    margin:0 0 10px;
-  }
-  h1{
+  @media (max-width:560px){ .band{ padding:32px 16px 26px; } }
+  .band-inner{ max-width:760px; margin:0 auto; }
+  .journal{
     font-family:var(--font-display);
     font-weight:600;
-    font-size:clamp(32px,5vw,42px);
-    line-height:1.05;
-    margin:0 0 12px;
-    text-wrap:balance;
-    color:var(--ink);
-  }
-  .lede{
-    font-size:16px;
-    line-height:1.55;
-    color:var(--ink-soft);
-    max-width:60ch;
+    font-size:clamp(26px,4.4vw,34px);
+    line-height:1.08;
+    letter-spacing:.005em;
+    color:var(--band-ink);
     margin:0;
+    text-wrap:balance;
+  }
+  .journal-sub{
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--band-soft);
+    margin:8px 0 0;
+  }
+  .journal-rule{
+    border:none;
+    border-top:1.5px solid var(--band-rule);
+    margin:16px 0 14px;
+  }
+  h1{
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:20px;
+    letter-spacing:.01em;
+    line-height:1.2;
+    margin:0;
+    color:var(--band-ink);
   }
 
   /* ---------- Cards ---------- */
   .card{
     background:var(--paper-raised);
-    border:1px solid var(--rule);
+    border:1px solid var(--rule-strong);
     border-radius:8px;
     padding:22px 24px;
   }
-  .card + .card{ margin-top:0; }
   .card-label{
     font-size:12px;
     font-weight:600;
@@ -154,7 +176,7 @@
 
   .segmented{
     display:flex;
-    border:1px solid var(--rule);
+    border:1px solid var(--band-rule);
     border-radius:6px;
     overflow:hidden;
   }
@@ -164,7 +186,7 @@
     padding:11px 14px;
     background:var(--paper-raised);
     border:none;
-    border-left:1px solid var(--rule);
+    border-left:1px solid var(--band-rule);
     color:var(--ink);
     font-family:var(--font-body);
     cursor:pointer;
@@ -180,37 +202,47 @@
     margin-top:2px;
     font-variant-numeric:tabular-nums;
   }
-  .segmented button[aria-pressed="true"]{ background:var(--accent-soft); }
+  .segmented button[aria-pressed="true"]{
+    background:var(--field);
+    box-shadow:inset 0 -3px 0 var(--accent);
+  }
   .segmented button[aria-pressed="true"] .type-name{ color:var(--accent-ink); }
   .segmented button:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
 
   .field{ display:flex; flex-direction:column; gap:6px; }
   .field label{ font-size:14px; font-weight:600; color:var(--ink); }
-  .field .hint{ font-size:12.5px; color:var(--ink-faint); line-height:1.4; }
+  .field .hint{ font-size:12.5px; color:var(--ink-faint); line-height:1.4; margin:0; }
   .num-input{
     width:100%;
     font-family:var(--font-mono);
     font-size:18px;
     font-variant-numeric:tabular-nums;
     padding:8px 10px;
-    border:1px solid var(--rule);
+    border:1px solid var(--band-rule);
     border-radius:6px;
-    background:var(--paper-sunken);
+    background:var(--field);
     color:var(--ink);
   }
   .num-input:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
 
   /* ---------- Upload ---------- */
+  .prep{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+  .prep strong{ color:var(--ink); font-weight:600; }
   .dropzone{
-    border:1.5px dashed var(--rule);
+    border:1.5px dashed var(--band-rule);
     border-radius:8px;
     padding:26px 20px;
     text-align:center;
-    background:var(--paper-sunken);
+    background:var(--field);
     transition:border-color .15s ease, background .15s ease;
   }
-  .dropzone.drag{ border-color:var(--accent); background:var(--accent-soft); }
-  .dropzone p{ margin:0 0 12px; color:var(--ink-soft); font-size:14.5px; }
+  .dropzone.drag{ border-color:var(--accent); border-style:solid; }
+  #dropzoneText{ margin:0 0 12px; color:var(--ink-soft); font-size:14.5px; }
   .dropzone .filename{
     font-family:var(--font-mono);
     color:var(--ink);
@@ -228,6 +260,7 @@
     cursor:pointer;
   }
   .btn:hover{ opacity:.92; }
+  .btn:disabled{ opacity:.55; cursor:default; }
   .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
   .btn-ghost{
     background:transparent;
@@ -239,37 +272,33 @@
     border-radius:6px;
     cursor:pointer;
   }
-  .btn-ghost:hover{ background:var(--accent-soft); }
+  #clearBtn{ font-size:14px; padding:9px 18px; }
+  .btn-ghost:hover{ background:var(--field); }
+  .btn-ghost:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
   .upload-meta{
     display:flex; align-items:center; justify-content:center; gap:14px;
     margin-top:12px; flex-wrap:wrap;
   }
-  .privacy-note{
-    font-size:12.5px; color:var(--ink-faint); margin-top:14px;
+  /* Reads as the second half of the instructions above the drop zone, so it
+     matches .prep's type and rhythm rather than sitting apart as a note. */
+  .local-note{
+    margin:0 0 16px;
+    font-size:14px;
+    line-height:1.6;
+    color:var(--ink-soft);
   }
+  .local-note strong{ color:var(--ink); font-weight:600; }
   .upload-error{
-    font-size:13px; color:var(--danger); margin-top:12px; display:none;
+    font-size:13px; color:var(--danger); margin:12px 0 0; display:none;
   }
   .upload-error.show{ display:block; }
-
-  /* ---------- Example banner ---------- */
-  .banner{
-    display:flex; align-items:baseline; gap:8px;
-    background:var(--accent-soft);
-    border:1px solid var(--rule);
-    border-radius:8px;
-    padding:12px 16px;
-    font-size:13.5px;
-    color:var(--accent-ink);
-  }
-  .banner strong{ font-weight:700; }
 
   /* ---------- Hero stats ---------- */
   .hero{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
   @media (max-width:560px){ .hero{ grid-template-columns:1fr; } }
   .stat{
     background:var(--paper-raised);
-    border:1px solid var(--rule);
+    border:1px solid var(--rule-strong);
     border-radius:8px;
     padding:20px 22px;
     display:flex; flex-direction:column; gap:6px;
@@ -277,6 +306,7 @@
   .stat-label{
     font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase;
     color:var(--ink-faint);
+    margin:0;
   }
   .stat-number{
     font-family:var(--font-mono);
@@ -285,9 +315,13 @@
     line-height:1;
     font-variant-numeric:tabular-nums;
     color:var(--ink);
+    margin:0;
   }
   .stat-of{
-    font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums;
+    font-size:13px; color:var(--ink-soft); font-variant-numeric:tabular-nums; margin:0;
+  }
+  .stat-note{
+    font-size:12px; color:var(--ink-faint); font-variant-numeric:tabular-nums; margin:0;
   }
   .pill{
     display:inline-flex; align-self:flex-start;
@@ -300,15 +334,65 @@
   .pill.warning{ background:var(--warning-soft); color:var(--warning); }
   .pill.danger{ background:var(--danger-soft); color:var(--danger); }
 
+  /* ---------- Disclosure (collapsible cards) ---------- */
+  .disclosure{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    flex:1;
+    min-width:0;
+    padding:0;
+    border:none;
+    background:transparent;
+    font-family:var(--font-body);
+    color:var(--ink);
+    text-align:left;
+    cursor:pointer;
+  }
+  .disclosure .card-label{ margin:0; }
+  .disclosure:hover .card-label{ color:var(--ink); }
+  .disclosure:focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+  .chevron{
+    flex:none;
+    width:7px; height:7px;
+    margin-top:-2px;
+    border-right:1.5px solid var(--ink-faint);
+    border-bottom:1.5px solid var(--ink-faint);
+    transform:rotate(-45deg);
+    transition:transform .18s ease, border-color .18s ease;
+  }
+  .disclosure[aria-expanded="true"] .chevron{ transform:rotate(45deg); }
+  .disclosure:hover .chevron{ border-color:var(--accent); }
+  .head-meta{
+    font-size:12px;
+    color:var(--ink-faint);
+    font-variant-numeric:tabular-nums;
+  }
+  /* no stranded gap under the header once the body is closed */
+  .card.is-collapsed .ledger-head,
+  .card.is-collapsed .transcript-head{ margin-bottom:0; }
+  /* a collapsed card is one big button; once open only its header row closes it,
+     so the table, the checkboxes and the selectable transcript stay usable */
+  .card.is-collapsed{ cursor:pointer; transition:border-color .18s ease; }
+  .card.is-collapsed:hover{ border-color:var(--band-rule); }
+  .card.is-collapsed:hover .chevron{ border-color:var(--accent); }
+  .card.is-collapsed:hover .card-label{ color:var(--ink); }
+  .ledger-head,
+  .transcript-head{ cursor:pointer; }
+
   /* ---------- Ledger table ---------- */
   .ledger-head{
-    display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
     margin-bottom:14px;
   }
   .ledger-actions{ display:flex; gap:8px; }
   .table-scroll{ overflow-x:auto; }
   table.ledger{
-    width:100%; border-collapse:collapse; font-size:14px; min-width:480px;
+    width:100%; border-collapse:collapse; font-size:14px; min-width:360px;
   }
   table.ledger th{
     text-align:left;
@@ -323,19 +407,11 @@
     vertical-align:middle;
   }
   table.ledger tr.excluded td{ color:var(--ink-faint); }
-  table.ledger tr.excluded .badge{ opacity:.7; }
-  td.num, th.num{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; text-align:right; }
-  td.check, th.check{ text-align:center; width:64px; }
+  table.ledger td.num{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; }
+  table.ledger th.num, table.ledger td.num{ text-align:right; }
+  table.ledger th.check, table.ledger td.check{ text-align:center; width:74px; }
   td.page-no{ font-family:var(--font-mono); font-variant-numeric:tabular-nums; color:var(--ink-soft); }
-  .badge{
-    display:inline-block;
-    font-family:var(--font-body);
-    font-size:11.5px; font-weight:600;
-    background:var(--accent-soft); color:var(--accent-ink);
-    border-radius:3px; padding:2px 7px;
-    margin:2px 4px 2px 0;
-    letter-spacing:.01em;
-  }
+  td.empty{ color:var(--ink-faint); font-size:13.5px; padding:18px 10px; }
   input[type="checkbox"]{
     width:16px; height:16px; accent-color:var(--accent); cursor:pointer;
   }
@@ -344,16 +420,40 @@
     border-bottom:none; border-top:1.5px solid var(--ink-faint);
     padding-top:12px;
   }
+  tfoot td:first-child{ font-family:var(--font-body); }
+
+  /* ---------- Counted text ---------- */
+  .transcript-head{
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    margin-bottom:12px;
+  }
+  .transcript{
+    background:var(--paper-sunken);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:16px 18px;
+    max-height:420px;
+    overflow:auto;
+    font-family:var(--font-mono);
+    font-size:12.5px;
+    line-height:1.7;
+    color:var(--ink);
+    white-space:pre-wrap;
+    overflow-wrap:break-word;
+  }
 
   /* ---------- Methodology / footer ---------- */
   .note{
-    font-size:13px; line-height:1.6; color:var(--ink-soft);
-    border-top:1px solid var(--rule);
+    font-size:13px; line-height:1.65; color:var(--ink-soft);
+    border-top:1px solid var(--rule-strong);
     padding-top:18px;
+    margin:0;
   }
   .note strong{ color:var(--ink); }
+  /* Not flex + gap here: a flex item is blockified and loses its ::marker,
+     so list spacing has to come from margins. */
   footer{
-    font-size:12.5px; color:var(--ink-faint);
+    font-size:12.5px; color:var(--ink-soft);
     display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
   }
   footer a{ color:var(--accent-ink); text-decoration:underline; }
@@ -366,21 +466,25 @@
     to{ opacity:1; transform:translateY(0); }
   }
   @media (prefers-reduced-motion: reduce){
-    .masthead{ animation:none; }
+    .band{ animation:none; }
+    .chevron{ transition:none; }
+    .card.is-collapsed{ transition:none; }
   }
 </style>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 </head>
 <body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<header class="band">
+  <div class="band-inner">
+    <p class="journal">The Review of Economic Studies</p>
+    <p class="journal-sub">Insights &amp; Communications</p>
+    <hr class="journal-rule">
+    <h1>PDF Word Counter</h1>
+  </div>
+</header>
 
 <div class="page">
-
-  <div class="masthead">
-    <a class="back" href="/">&larr; REStud Data Editor</a>
-    <p class="eyebrow">Review of Economic Studies &middot; Insights &amp; Communications</p>
-    <h1>Word Count Ledger</h1>
-    <p class="lede">Count a manuscript PDF the way AEA's own checker counts AER: Insights submissions &mdash; a plain tally of white-space-delimited words &mdash; then decide, page by page, what belongs in the total before you submit.</p>
-  </div>
 
   <div class="card controls">
     <div class="controls-grid">
@@ -399,71 +503,83 @@
       </div>
       <div class="field">
         <label for="exhibitInput">Exhibits (tables + figures)</label>
-        <input class="num-input" type="number" min="0" step="1" id="exhibitInput" value="0">
-        <p class="hint" id="exhibitHint">We flag likely captions on the pages below &mdash; confirm the count yourself.</p>
+        <input class="num-input" type="number" min="0" max="5" step="1" id="exhibitInput" value="5">
+        <p class="hint">Count your tables and figures and enter the total.</p>
       </div>
     </div>
   </div>
 
   <div class="card">
     <p class="card-label">Manuscript PDF</p>
+    <p class="prep">Upload a PDF containing <strong>only the main body of your manuscript</strong> &mdash; including any equations &mdash; plus footnotes and endnotes. Leave out the title page, author names, abstract, acknowledgement footnote, reference list, and all exhibits. In every other respect it should be identical to the manuscript you submitted.</p>
+    <p class="local-note"><strong>Your manuscript stays on this computer.</strong> The PDF is read and counted in your browser. Nothing is uploaded, stored, or sent anywhere.</p>
     <div class="dropzone" id="dropzone">
-      <p id="dropzoneText">Drop a manuscript PDF here, or choose a file.</p>
+      <p id="dropzoneText">Drop your manuscript PDF here, or choose a file.</p>
       <div class="upload-meta">
         <button class="btn" type="button" id="chooseBtn">Choose PDF&hellip;</button>
-        <button class="btn-ghost" type="button" id="exampleBtn" hidden>Use example instead</button>
+        <button class="btn-ghost" type="button" id="clearBtn" hidden>Start over</button>
       </div>
       <input type="file" accept="application/pdf" id="fileInput" class="visually-hidden">
       <p class="upload-error" id="uploadError"></p>
     </div>
-    <p class="privacy-note">Processing happens entirely in your browser &mdash; the PDF is parsed locally and never uploaded anywhere.</p>
   </div>
 
-  <div class="banner" id="exampleBanner">
-    <span>&#128196;</span>
-    <span><strong>Showing a sample manuscript</strong> so you can see how the ledger works &mdash; drop in your own PDF above to replace it.</span>
-  </div>
+  <div class="hero" id="hero" hidden></div>
 
-  <div class="hero" id="hero"></div>
-
-  <div class="card">
+  <div class="card is-collapsed" id="ledgerCard" hidden>
     <div class="ledger-head">
-      <p class="card-label" style="margin-bottom:0;">Page-by-page ledger</p>
+      <button class="disclosure" type="button" id="ledgerToggle" aria-expanded="false" aria-controls="ledgerRegion">
+        <span class="chevron" aria-hidden="true"></span>
+        <span class="card-label">Page-by-page counts</span>
+        <span class="head-meta" id="ledgerMeta"></span>
+      </button>
       <div class="ledger-actions">
-        <button class="btn-ghost" type="button" id="includeAllBtn">Include all</button>
-        <button class="btn-ghost" type="button" id="excludeFlaggedBtn">Exclude flagged pages</button>
+        <button class="btn-ghost" type="button" id="includeAllBtn">Include all pages</button>
+        <button class="btn-ghost" type="button" id="excludeAllBtn">Exclude all pages</button>
       </div>
     </div>
-    <div class="table-scroll">
-      <table class="ledger">
-        <thead>
-          <tr>
-            <th>Page</th>
-            <th class="num">Words</th>
-            <th>Notes</th>
-            <th class="check">Include</th>
-          </tr>
-        </thead>
-        <tbody id="ledgerBody"></tbody>
-        <tfoot>
-          <tr>
-            <td>Total counted</td>
-            <td class="num" id="ledgerTotal">0</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tfoot>
-      </table>
+    <div id="ledgerRegion" hidden>
+      <div class="table-scroll">
+        <table class="ledger">
+          <thead>
+            <tr>
+              <th>Page</th>
+              <th class="num">Words</th>
+              <th class="check">Include</th>
+            </tr>
+          </thead>
+          <tbody id="ledgerBody"></tbody>
+          <tfoot>
+            <tr>
+              <td>Total counted</td>
+              <td class="num" id="ledgerTotal">0</td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="card is-collapsed" id="transcriptCard" hidden>
+    <div class="transcript-head">
+      <button class="disclosure" type="button" id="transcriptToggle" aria-expanded="false" aria-controls="transcriptRegion">
+        <span class="chevron" aria-hidden="true"></span>
+        <span class="card-label">Text counted</span>
+      </button>
+      <p class="hint" id="transcriptMeta"></p>
+    </div>
+    <div id="transcriptRegion" hidden>
+      <div class="transcript" id="transcript" tabindex="0" role="region" aria-label="Text the word count was based on"></div>
     </div>
   </div>
 
   <p class="note">
-    <strong>How this counts.</strong> A word is any run of characters separated by white space &mdash; the same definition AEA applies when it counts equations, footnotes, and endnotes as part of the body text. Two text runs with no real gap between them (a kerned heading, a logo) are treated as one word rather than split apart, which is where a naive PDF text count tends to inflate. Even so, expect this to land within about a percentage point of AEA's own tool, not match it exactly &mdash; their converter has internal normalization this can't see. REStud has not published its own counting rule, so treat the limits above as guidance, not a guarantee the editorial office will count identically. Title, author names, abstract, acknowledgement footnote, references, and exhibits are conventionally excluded from AEA-style counts. The notes column is a hint from a keyword search, not a determination &mdash; the checkbox decides what is actually counted.
+    <strong>How this counts.</strong> A word is any run of characters separated by white space; equations, footnotes, and endnotes all count as body text. Expect this to land within about a percentage point of other word counts of the same PDF rather than match it exactly &mdash; mathematics, hyphenation, font encoding and other details of how a PDF stores text can all generate small discrepancies.
   </p>
 
   <footer>
     <span>Insights: 6,000 words / 5 exhibits &middot; Communications: 2,000 words / 2 exhibits, per restud.com.</span>
-    <span>Modeled on the <a href="https://www.aeaweb.org/journals/word-count" target="_blank" rel="noopener">AEA word-count tool</a>.</span>
   </footer>
 
 </div>
@@ -471,6 +587,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"></script>
 <script>
+/*!
+ * PDF Word Counter — counts a manuscript PDF against the Review of Economic
+ * Studies Insights and Communications limits, entirely in the browser.
+ *
+ * Copyright (c) 2026 Andrea Moro
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ *
+ * Uses PDF.js (https://mozilla.github.io/pdf.js/), Apache License 2.0.
+ */
 (function(){
   "use strict";
 
@@ -479,18 +621,9 @@
     communications: { label:'Communications', words:2000, exhibits:2 }
   };
 
-  var EXAMPLE_PAGES = [
-    {n:1, words:255, badges:['Title & abstract'], included:false},
-    {n:2, words:810, badges:[], included:true},
-    {n:3, words:845, badges:[], included:true},
-    {n:4, words:830, badges:['Table 1'], included:true},
-    {n:5, words:790, badges:['Figure 1'], included:true},
-    {n:6, words:865, badges:[], included:true},
-    {n:7, words:900, badges:['Table 2'], included:true},
-    {n:8, words:720, badges:[], included:true},
-    {n:9, words:540, badges:['References'], included:false},
-    {n:10, words:610, badges:['Appendix'], included:false}
-  ];
+  var MAX_EXHIBITS = 5;
+  var DEFAULT_EXHIBITS = 5;
+  var WORDS_PER_UNUSED_EXHIBIT = 200;
 
   function lsGet(key, fallback){
     try { var v = localStorage.getItem(key); return v===null ? fallback : v; }
@@ -500,12 +633,15 @@
     try { localStorage.setItem(key, val); } catch(e){}
   }
 
+  var storedType = lsGet('wcl-article-type','insights');
+
   var state = {
-    pages: EXAMPLE_PAGES.map(function(p){ return { n:p.n, words:p.words, badges:p.badges.slice(), included:p.included }; }),
-    isExample: true,
-    articleType: (ARTICLE_TYPES[lsGet('wcl-article-type','insights')] ? lsGet('wcl-article-type','insights') : 'insights'),
-    exhibitCount: 3,
-    exhibitAuto: true
+    pages: [],
+    fileName: '',
+    articleType: ARTICLE_TYPES[storedType] ? storedType : 'insights',
+    exhibitCount: DEFAULT_EXHIBITS,
+    ledgerOpen: false,
+    transcriptOpen: false
   };
 
   function fmt(n){ return Math.round(n).toLocaleString('en-US'); }
@@ -514,66 +650,28 @@
     if (remaining < 0){
       return { tier:'danger', text: fmt(-remaining) + ' ' + unit + ' over the ' + fmt(limit) + ' limit' };
     }
-    var closeCall = granular ? (remaining <= Math.max(limit*0.05, 100)) : (remaining === 0);
-    if (closeCall){
-      return { tier:'warning', text: fmt(remaining) + ' ' + unit + ' to spare — cutting it close' };
+    if (remaining === 0){
+      return { tier:'warning', text: 'Exactly at the ' + fmt(limit) + '-' + unit.replace(/s$/,'') + ' limit' };
     }
-    return { tier:'success', text: fmt(remaining) + ' ' + unit + ' to spare' };
+    if (granular && remaining <= Math.max(limit*0.05, 100)){
+      return { tier:'warning', text: fmt(remaining) + ' ' + unit + ' left — close to the limit' };
+    }
+    return { tier:'success', text: fmt(remaining) + ' ' + unit + ' left' };
+  }
+
+  // Each exhibit you leave unused buys more words, following the AER: Insights
+  // rule. Only unused ones earn it — running over the exhibit cap never takes
+  // words away, which is what the exhibit tile is for.
+  function unusedExhibits(type){
+    return Math.max(0, type.exhibits - state.exhibitCount);
+  }
+
+  function includedPages(){
+    return state.pages.filter(function(p){ return p.included; });
   }
 
   function includedWordTotal(){
-    return state.pages.reduce(function(s,p){ return s + (p.included ? p.words : 0); }, 0);
-  }
-
-  function render(){
-    renderControls();
-    renderUpload();
-    renderHero();
-    renderTable();
-  }
-
-  function renderControls(){
-    var buttons = document.querySelectorAll('.segmented button');
-    buttons.forEach(function(btn){
-      btn.setAttribute('aria-pressed', btn.dataset.type === state.articleType ? 'true' : 'false');
-    });
-    document.getElementById('exhibitInput').value = state.exhibitCount;
-    document.getElementById('exhibitHint').textContent = state.exhibitAuto
-      ? 'Auto-detected from Table / Figure captions in the PDF — confirm the count yourself.'
-      : 'Entered manually.';
-  }
-
-  function renderUpload(){
-    document.getElementById('exampleBtn').hidden = state.isExample;
-    document.getElementById('exampleBanner').style.display = state.isExample ? 'flex' : 'none';
-    var text = document.getElementById('dropzoneText');
-    if (state.isExample){
-      text.innerHTML = 'Drop a manuscript PDF here, or choose a file.';
-    } else {
-      text.innerHTML = 'Loaded <span class="filename">' + escapeHtml(state.fileName || 'manuscript.pdf') + '</span> &mdash; drop another PDF to replace it.';
-    }
-  }
-
-  function renderHero(){
-    var type = ARTICLE_TYPES[state.articleType];
-    var words = includedWordTotal();
-    var wordStatus = statusFor(type.words - words, type.words, 'words', true);
-    var exhibitStatus = statusFor(type.exhibits - state.exhibitCount, type.exhibits, 'exhibits', false);
-
-    var hero = document.getElementById('hero');
-    hero.innerHTML =
-      '<div class="stat">' +
-        '<p class="stat-label">Words counted</p>' +
-        '<p class="stat-number">' + fmt(words) + '</p>' +
-        '<p class="stat-of">of ' + fmt(type.words) + ' word limit (' + type.label + ')</p>' +
-        '<span class="pill ' + wordStatus.tier + '">' + wordStatus.text + '</span>' +
-      '</div>' +
-      '<div class="stat">' +
-        '<p class="stat-label">Exhibits</p>' +
-        '<p class="stat-number">' + fmt(state.exhibitCount) + '</p>' +
-        '<p class="stat-of">of ' + fmt(type.exhibits) + ' exhibit limit (' + type.label + ')</p>' +
-        '<span class="pill ' + exhibitStatus.tier + '">' + exhibitStatus.text + '</span>' +
-      '</div>';
+    return includedPages().reduce(function(s,p){ return s + p.words; }, 0);
   }
 
   function escapeHtml(s){
@@ -582,18 +680,116 @@
     });
   }
 
+  function render(){
+    renderControls();
+    renderUpload();
+    renderHero();
+    renderTable();
+    renderTranscript();
+  }
+
+  function renderControls(){
+    document.querySelectorAll('.segmented button').forEach(function(btn){
+      btn.setAttribute('aria-pressed', btn.dataset.type === state.articleType ? 'true' : 'false');
+    });
+    document.getElementById('exhibitInput').value = state.exhibitCount;
+  }
+
+  function renderUpload(){
+    var loaded = state.pages.length > 0;
+    document.getElementById('clearBtn').hidden = !loaded;
+    var text = document.getElementById('dropzoneText');
+    if (loaded){
+      text.innerHTML = 'Counted <span class="filename">' + escapeHtml(state.fileName) +
+        '</span> &mdash; drop another PDF to replace it.';
+    } else {
+      text.textContent = 'Drop your manuscript PDF here, or choose a file.';
+    }
+  }
+
+  function renderHero(){
+    var loaded = state.pages.length > 0;
+    document.getElementById('hero').hidden = !loaded;
+    document.getElementById('ledgerCard').hidden = !loaded;
+    if (!loaded) return;
+    var type = ARTICLE_TYPES[state.articleType];
+    var words = includedWordTotal();
+    var unused = unusedExhibits(type);
+    var allowance = unused * WORDS_PER_UNUSED_EXHIBIT;
+    var limit = type.words + allowance;
+    var wordStatus = statusFor(limit - words, limit, 'words', true);
+    var exhibitStatus = statusFor(type.exhibits - state.exhibitCount, type.exhibits, 'exhibits', false);
+
+    document.getElementById('hero').innerHTML =
+      '<div class="stat">' +
+        '<p class="stat-label">Words counted</p>' +
+        '<p class="stat-number">' + fmt(words) + '</p>' +
+        '<p class="stat-of">of ' + fmt(limit) + ' allowed (' + type.label + ')</p>' +
+        (allowance
+          ? '<p class="stat-note">' + fmt(type.words) + ' base + ' + fmt(allowance) +
+            ' for ' + unused + (unused === 1 ? ' unused exhibit' : ' unused exhibits') + '</p>'
+          : '') +
+        '<span class="pill ' + wordStatus.tier + '">' + wordStatus.text + '</span>' +
+      '</div>' +
+      '<div class="stat">' +
+        '<p class="stat-label">Exhibits</p>' +
+        '<p class="stat-number">' + fmt(state.exhibitCount) + '</p>' +
+        '<p class="stat-of">of ' + fmt(type.exhibits) + ' allowed (' + type.label + ')</p>' +
+        '<span class="pill ' + exhibitStatus.tier + '">' + exhibitStatus.text + '</span>' +
+      '</div>';
+  }
+
+  function applyDisclosure(cardId, toggleId, regionId, open){
+    document.getElementById(toggleId).setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.getElementById(regionId).hidden = !open;
+    document.getElementById(cardId).classList.toggle('is-collapsed', !open);
+  }
+
+  function renderLedgerHead(){
+    if (!state.pages.length) return;
+    var n = state.pages.length;
+    document.getElementById('ledgerMeta').textContent = n
+      ? n + (n === 1 ? ' page' : ' pages') + ' \u00b7 ' + fmt(includedWordTotal()) + ' counted'
+      : 'No manuscript loaded';
+    applyDisclosure('ledgerCard', 'ledgerToggle', 'ledgerRegion', state.ledgerOpen);
+  }
+
   function renderTable(){
     var body = document.getElementById('ledgerBody');
-    body.innerHTML = state.pages.map(function(p, idx){
-      var badges = p.badges.map(function(b){ return '<span class="badge">' + escapeHtml(b) + '</span>'; }).join('');
-      return '<tr class="' + (p.included ? '' : 'excluded') + '" data-idx="' + idx + '">' +
-        '<td class="page-no">' + p.n + '</td>' +
-        '<td class="num">' + fmt(p.words) + '</td>' +
-        '<td>' + badges + '</td>' +
-        '<td class="check"><input type="checkbox" data-idx="' + idx + '" ' + (p.included ? 'checked' : '') + ' aria-label="Include page ' + p.n + ' in word count"></td>' +
-      '</tr>';
-    }).join('');
+    if (!state.pages.length){
+      body.innerHTML = '<tr><td class="empty" colspan="3">No manuscript loaded yet. Choose a PDF above to fill this table.</td></tr>';
+    } else {
+      body.innerHTML = state.pages.map(function(p, idx){
+        return '<tr class="' + (p.included ? '' : 'excluded') + '">' +
+          '<td class="page-no">' + p.n + '</td>' +
+          '<td class="num">' + fmt(p.words) + '</td>' +
+          '<td class="check"><input type="checkbox" data-idx="' + idx + '" ' + (p.included ? 'checked' : '') +
+            ' aria-label="Include page ' + p.n + ' in the word count"></td>' +
+        '</tr>';
+      }).join('');
+    }
     document.getElementById('ledgerTotal').textContent = fmt(includedWordTotal());
+    renderLedgerHead();
+  }
+
+  function renderTranscript(){
+    var card = document.getElementById('transcriptCard');
+    if (!state.pages.length){
+      card.hidden = true;
+      return;
+    }
+    card.hidden = false;
+    var pages = includedPages();
+    var total = includedWordTotal();
+    document.getElementById('transcriptMeta').textContent = pages.length
+      ? fmt(total) + ' words across ' + pages.length + (pages.length === 1 ? ' page' : ' pages')
+      : 'No pages included.';
+    // plain text only — the panel is here to be selected and pasted elsewhere,
+    // so no page markers to strip back out afterwards.
+    document.getElementById('transcript').textContent = pages.length
+      ? pages.map(function(p){ return p.text; }).filter(Boolean).join('\n\n')
+      : 'Tick a page above to include its text.';
+    applyDisclosure('transcriptCard', 'transcriptToggle', 'transcriptRegion', state.transcriptOpen);
   }
 
   // ---- events: controls ----
@@ -608,33 +804,65 @@
 
   document.getElementById('exhibitInput').addEventListener('input', function(e){
     var v = parseInt(e.target.value, 10);
-    state.exhibitCount = isNaN(v) || v < 0 ? 0 : v;
-    state.exhibitAuto = false;
-    renderControls();
+    if (isNaN(v) || v < 0) v = 0;
+    if (v > MAX_EXHIBITS) { v = MAX_EXHIBITS; e.target.value = MAX_EXHIBITS; }
+    state.exhibitCount = v;
     renderHero();
   });
 
-  // ---- events: ledger checkboxes + quick actions ----
+  // ---- events: disclosure ----
+  function toggleLedger(){
+    state.ledgerOpen = !state.ledgerOpen;
+    renderLedgerHead();
+  }
+
+  function toggleTranscript(){
+    state.transcriptOpen = !state.transcriptOpen;
+    applyDisclosure('transcriptCard', 'transcriptToggle', 'transcriptRegion', state.transcriptOpen);
+  }
+
+  document.getElementById('ledgerToggle').addEventListener('click', toggleLedger);
+  document.getElementById('transcriptToggle').addEventListener('click', toggleTranscript);
+
+  // A click anywhere on a collapsed card opens it. Once open, only the header
+  // row closes it again — a single handler per card, so a click on the toggle
+  // button itself can't also bubble through and undo its own work.
+  function wireCardClick(cardId, headSelector, toggle){
+    document.getElementById(cardId).addEventListener('click', function(e){
+      // real controls handle their own clicks; the Include/Exclude buttons and
+      // the page checkboxes land here first and must pass straight through
+      if (e.target.closest('button, input, label, a, .transcript')) return;
+      // a drag that selected text is not a click on the card
+      var sel = window.getSelection ? window.getSelection() : null;
+      if (sel && String(sel)) return;
+      if (this.classList.contains('is-collapsed') || e.target.closest(headSelector)) toggle();
+    });
+  }
+
+  wireCardClick('ledgerCard', '.ledger-head', toggleLedger);
+  wireCardClick('transcriptCard', '.transcript-head', toggleTranscript);
+
+  // ---- events: ledger ----
   document.getElementById('ledgerBody').addEventListener('change', function(e){
     if (e.target.matches('input[type="checkbox"]')){
       var idx = parseInt(e.target.dataset.idx, 10);
       state.pages[idx].included = e.target.checked;
       e.target.closest('tr').classList.toggle('excluded', !e.target.checked);
       document.getElementById('ledgerTotal').textContent = fmt(includedWordTotal());
+      renderLedgerHead();
       renderHero();
+      renderTranscript();
     }
   });
 
   document.getElementById('includeAllBtn').addEventListener('click', function(){
     state.pages.forEach(function(p){ p.included = true; });
-    renderTable();
-    renderHero();
+    renderTable(); renderHero(); renderTranscript();
   });
 
-  document.getElementById('excludeFlaggedBtn').addEventListener('click', function(){
-    state.pages.forEach(function(p){ if (p.badges.length){ p.included = false; } });
-    renderTable();
-    renderHero();
+  document.getElementById('excludeAllBtn').addEventListener('click', function(){
+    state.pages.forEach(function(p){ p.included = false; });
+    renderTable(); renderHero(); renderTranscript();
   });
 
   // ---- events: upload ----
@@ -642,11 +870,10 @@
   var fileInput = document.getElementById('fileInput');
 
   document.getElementById('chooseBtn').addEventListener('click', function(){ fileInput.click(); });
-  document.getElementById('exampleBtn').addEventListener('click', function(){
-    state.pages = EXAMPLE_PAGES.map(function(p){ return { n:p.n, words:p.words, badges:p.badges.slice(), included:p.included }; });
-    state.isExample = true;
-    state.exhibitCount = 3;
-    state.exhibitAuto = true;
+
+  document.getElementById('clearBtn').addEventListener('click', function(){
+    state.pages = [];
+    state.fileName = '';
     fileInput.value = '';
     setUploadError('');
     render();
@@ -663,7 +890,7 @@
     });
   });
   ['dragleave','dragend'].forEach(function(evt){
-    dropzone.addEventListener(evt, function(e){
+    dropzone.addEventListener(evt, function(){
       dropzone.classList.remove('drag');
     });
   });
@@ -681,8 +908,8 @@
   }
 
   function setLoading(isLoading){
-    document.getElementById('dropzoneText').textContent = isLoading ? 'Reading PDF…' : document.getElementById('dropzoneText').textContent;
     document.getElementById('chooseBtn').disabled = isLoading;
+    if (isLoading) document.getElementById('dropzoneText').textContent = 'Reading PDF…';
   }
 
   // pdf.js hands back text in small positioned runs (letters of a logo, kerned
@@ -693,64 +920,66 @@
   // wide enough, relative to text height, to be an actual space; a new baseline
   // always counts as a break.
   function joinItemsByProximity(items){
-    var parts = [], prevEndX = null, prevY = null, prevHeight = 12;
+    var parts = [], prevEndX = null, prevY = null, prevHeight = 12, prevEOL = false;
     for (var i = 0; i < items.length; i++){
       var item = items[i];
       var str = item.str;
+      // pdf.js 3.x emits a separate item holding a single space wherever its
+      // own metrics decide there is a gap, and it calls a subscript or a
+      // footnote mark a gap. Skip those items without advancing prevEndX: the
+      // horizontal distance they span stays in the gap between the two real
+      // runs either side, so the threshold below still sees a genuine
+      // interword space as wide and a math gap as narrow — and the decision
+      // is ours, not pdf.js's.
+      if (!str || !/\S/.test(str)) continue;
       var x = item.transform[4];
       var y = item.transform[5];
       var height = Math.hypot(item.transform[2], item.transform[3]) || item.height || prevHeight;
       if (prevY === null){
         parts.push(str);
-      } else if (Math.abs(y - prevY) > height * 0.4){
-        parts.push(' ' + str);
       } else {
+        var dy = Math.abs(y - prevY);
         var gap = x - prevEndX;
-        parts.push((gap > height * 0.12 ? ' ' : '') + str);
+        // pdf.js flags the run that ends a line; trust it when present, and
+        // fall back to geometry (x reset to the left margin, or a baseline
+        // shift of most a line) when it isn't. A superscript or subscript
+        // shifts the baseline a little while carrying on rightwards, and is
+        // NOT a line break: "juror.12" is one word, and so is a subscripted
+        // symbol like alpha-sub-g.
+        var lineBreak = prevEOL || dy > height * 0.8 ||
+                        (dy > height * 0.15 && gap < -height * 0.5);
+        // Gap threshold for a real space. An interword space in a text font is
+        // about a third of the font size; the thin and thick spaces LaTeX sets
+        // inside math run 0.17-0.28 of it. Sitting at 0.28 keeps math symbols
+        // and their subscripts joined without swallowing genuine spaces, which
+        // justification can shrink but not to this width.
+        parts.push(lineBreak ? ' ' + str : (gap > height * 0.28 ? ' ' : '') + str);
       }
       prevEndX = x + (item.width || 0);
       prevY = y;
+      prevEOL = item.hasEOL === true;
       if (height) prevHeight = height;
     }
     return parts.join('').replace(/\s+/g,' ').trim();
-  }
-
-  function detectBadges(pageIndex, text){
-    var badges = [];
-    if (pageIndex === 0) badges.push('Title page');
-    if (pageIndex <= 1 && /\babstract\b/i.test(text)) badges.push('Abstract');
-    if (/\breferences\b/i.test(text) || /\bbibliography\b/i.test(text)) badges.push('References');
-    if (/\bappendix\b/i.test(text)) badges.push('Appendix');
-    return badges;
   }
 
   function extractPages(file){
     return file.arrayBuffer().then(function(buf){
       return window.pdfjsLib.getDocument({ data: buf }).promise;
     }).then(function(pdf){
-      var captions = new Set();
       var pagesOut = [];
-
       function next(i){
-        if (i > pdf.numPages) return Promise.resolve();
+        if (i > pdf.numPages) return Promise.resolve(pagesOut);
         return pdf.getPage(i).then(function(page){
           return page.getTextContent();
         }).then(function(content){
           var text = joinItemsByProximity(content.items);
           var words = text.length ? text.split(' ').filter(Boolean).length : 0;
-          var re = /\b(Table|Figure)\s+([0-9]+|[IVXLC]+)\b/gi;
-          var m;
-          while ((m = re.exec(text))){
-            var word = m[1];
-            captions.add(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() + ' ' + m[2]);
-          }
-          pagesOut.push({ n:i, words:words, badges: detectBadges(i-1, text), included:true });
+          pagesOut.push({ n:i, words:words, text:text, included:true });
           return next(i+1);
         });
       }
-      return next(1).then(function(){
-        return { pages: pagesOut, exhibitGuess: captions.size };
-      });
+      return next(1);
     });
   }
 
@@ -762,26 +991,27 @@
     }
     setUploadError('');
     setLoading(true);
-    extractPages(file).then(function(result){
-      if (!result.pages.length || result.pages.every(function(p){ return p.words === 0; })){
-        setUploadError('No extractable text was found. The PDF may be scanned or image-based — export a text-based PDF and try again.');
+    extractPages(file).then(function(pages){
+      if (!pages.length || pages.every(function(p){ return p.words === 0; })){
+        setUploadError('No text could be read from that PDF. It may be scanned or image-based — export a text-based PDF and try again.');
       }
-      state.pages = result.pages;
-      state.isExample = false;
+      state.pages = pages;
       state.fileName = file.name;
-      state.exhibitCount = result.exhibitGuess;
-      state.exhibitAuto = true;
       setLoading(false);
       render();
     }).catch(function(err){
       console.error(err);
       setLoading(false);
-      setUploadError('Could not read that PDF — it may be encrypted or corrupted. Try re-exporting it and upload again.');
+      state.pages = [];
+      state.fileName = '';
+      render();
+      setUploadError('That PDF could not be read — it may be encrypted or damaged. Re-export it and try again.');
     });
   }
 
   render();
 })();
 </script>
+
 </body>
 </html>

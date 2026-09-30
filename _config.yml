@@ -31,7 +31,13 @@ plugins:
     - jekyll-redirect-from
 layouts_dir: ./doks-theme/_layouts
 includes_dir: ./doks-theme/_includes
-exclude: [ 'README.md', 'CHANGELOG.md' ]
+exclude:
+  - README.md
+  - CHANGELOG.md
+  # word-count tool test fixtures: LaTeX sources, PDFs, aux files and
+  # extracted-text dumps. Not part of the site.
+  - word-count-test/
+  - word-count/word-count-test2/
 permalink: /:title/
 
 # Welcome to Jekyll!
