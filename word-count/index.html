@@ -462,21 +462,6 @@
     overflow-wrap:break-word;
   }
 
-  /* ---------- Methodology / footer ---------- */
-  .note{
-    font-size:13px; line-height:1.65; color:var(--ink-soft);
-    border-top:1px solid var(--rule-strong);
-    padding-top:18px;
-    margin:0;
-  }
-  .note strong{ color:var(--ink); }
-  /* Not flex + gap here: a flex item is blockified and loses its ::marker,
-     so list spacing has to come from margins. */
-  footer{
-    font-size:12.5px; color:var(--ink-soft);
-    display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-  }
-  footer a{ color:var(--accent-ink); text-decoration:underline; }
   .visually-hidden{
     position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);
   }
@@ -594,13 +579,7 @@
     </div>
   </div>
 
-  <p class="note">
-    <strong>How this counts.</strong> A word is any run of characters separated by white space; equations, footnotes, and endnotes all count as body text. Expect this to land within about a percentage point of other word counts of the same PDF rather than match it exactly &mdash; mathematics, hyphenation, font encoding and other details of how a PDF stores text can all generate small discrepancies.
-  </p>
 
-  <footer>
-    <span>Insights: 6,000 words / 5 exhibits &middot; Communications: 2,000 words / 2 exhibits, per restud.com.</span>
-  </footer>
 
 </div>
 
@@ -611,25 +590,34 @@
  * PDF Word Counter — counts a manuscript PDF against the Review of Economic
  * Studies Insights and Communications limits, entirely in the browser.
  *
- * Copyright (c) 2026 Andrea Moro
+ * Copyright (c) 2026, Andrea Moro
+ * All rights reserved.
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
  *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its
+ *    contributors may be used to endorse or promote products derived from this
+ *    software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
  *
  * Uses PDF.js (https://mozilla.github.io/pdf.js/), Apache License 2.0.
  */
