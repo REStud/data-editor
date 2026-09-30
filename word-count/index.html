@@ -504,11 +504,11 @@
         <div class="segmented" role="group" aria-label="Select manuscript type">
           <button type="button" data-type="insights" aria-pressed="false">
             <span class="type-name">Insights</span>
-            <span class="type-limits">6,000 words &middot; 5 exhibits</span>
+            <span class="type-limits">Up to 6,000 words &middot; 5 of 5 exhibits</span>
           </button>
           <button type="button" data-type="communications" aria-pressed="false">
             <span class="type-name">Communications</span>
-            <span class="type-limits">2,000 words &middot; 2 exhibits</span>
+            <span class="type-limits">Up to 2,000 words &middot; 2 of 2 exhibits</span>
           </button>
         </div>
       </div>
@@ -708,8 +708,8 @@
       var over = state.exhibitCount > type.exhibits;
       var limitsEl = btn.querySelector('.type-limits');
       limitsEl.classList.toggle('over', over);
-      limitsEl.textContent = fmt(limit) + ' words \u00b7 ' + (over
-        ? fmt(type.exhibits) + ' exhibits exceeded'
+      limitsEl.textContent = 'Up to ' + fmt(limit) + ' words \u00b7 ' + (over
+        ? 'Max ' + fmt(type.exhibits) + ' exhibits exceeded'
         : fmt(state.exhibitCount) + ' of ' + fmt(type.exhibits) + ' exhibits');
     });
     document.getElementById('exhibitInput').value = state.exhibitCount;
