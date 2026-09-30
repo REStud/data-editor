@@ -215,15 +215,26 @@
   .num-input{
     width:100%;
     font-family:var(--font-mono);
-    font-size:18px;
+    font-size:20px;
     font-variant-numeric:tabular-nums;
-    padding:8px 10px;
+    padding:11px 12px;
     border:1px solid var(--band-rule);
     border-radius:6px;
     background:var(--field);
     color:var(--ink);
   }
   .num-input:focus-visible{ outline:2px solid var(--accent); outline-offset:1px; }
+  /* the native stepper is a few pixels tall by default and fiddly to hit;
+     keep it always visible and scale it up from the right edge */
+  .num-input::-webkit-outer-spin-button,
+  .num-input::-webkit-inner-spin-button{
+    opacity:1;
+    height:34px;
+    transform:scale(1.7);
+    transform-origin:right center;
+    margin-left:6px;
+    cursor:pointer;
+  }
 
   /* ---------- Upload ---------- */
   .prep{
@@ -503,8 +514,8 @@
       </div>
       <div class="field">
         <label for="exhibitInput">Exhibits (tables + figures)</label>
-        <input class="num-input" type="number" min="0" max="5" step="1" id="exhibitInput" value="5">
         <p class="hint">Count your tables and figures and enter the total.</p>
+        <input class="num-input" type="number" min="0" max="5" step="1" id="exhibitInput" value="5">
       </div>
     </div>
   </div>
@@ -690,7 +701,15 @@
 
   function renderControls(){
     document.querySelectorAll('.segmented button').forEach(function(btn){
+      var type = ARTICLE_TYPES[btn.dataset.type];
       btn.setAttribute('aria-pressed', btn.dataset.type === state.articleType ? 'true' : 'false');
+      if (!type) return;
+      // each type's limit carries its own allowance, so the two buttons answer
+      // "what would I get under the other type?" at the current exhibit count
+      var limit = type.words + unusedExhibits(type) * WORDS_PER_UNUSED_EXHIBIT;
+      btn.querySelector('.type-limits').textContent =
+        fmt(limit) + ' words \u00b7 ' + fmt(state.exhibitCount) + ' of ' +
+        fmt(type.exhibits) + ' exhibits';
     });
     document.getElementById('exhibitInput').value = state.exhibitCount;
   }
@@ -807,6 +826,7 @@
     if (isNaN(v) || v < 0) v = 0;
     if (v > MAX_EXHIBITS) { v = MAX_EXHIBITS; e.target.value = MAX_EXHIBITS; }
     state.exhibitCount = v;
+    renderControls();
     renderHero();
   });
 
