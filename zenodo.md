@@ -51,9 +51,9 @@ The Review uses [zenodo.org](https://zenodo.org/communities/restud-replication/?
 In case you are asked to make changes to your replication package, follow these steps.
 
 1. Go to the Zenodo entry you have created. You can use the DOI to find it.
-2. Click on the green "New version" button.
-3. Upload the new ZIP archive and edit metadata if necessary.
-4. Change the Publication date.
-5. Follow the steps above before saving and publishing.
+2. Click on the "edit" button.
+3. Remove the old ZIP archive and README, and upload the new ones; edit metadata if necessary.
+4. Change the Publication date (important: we use it to detect the package has changed)
+5. Notify the data editor in your response to the revision request.
 
 If you have any questions about replication package submission, please contact the [Data Editor]({{ site.baseurl }}/editor/).
