@@ -202,6 +202,7 @@
     margin-top:2px;
     font-variant-numeric:tabular-nums;
   }
+  .segmented button .type-limits.over{ color:var(--danger); font-weight:600; }
   .segmented button[aria-pressed="true"]{
     background:var(--field);
     box-shadow:inset 0 -3px 0 var(--accent);
@@ -210,7 +211,15 @@
   .segmented button:focus-visible{ outline:2px solid var(--accent); outline-offset:-2px; }
 
   .field{ display:flex; flex-direction:column; gap:6px; }
-  .field label{ font-size:14px; font-weight:600; color:var(--ink); }
+  /* same treatment as .card-label, without its bottom margin — the field is a
+     flex column and spaces itself with gap */
+  .field label{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+  }
   .field .hint{ font-size:12.5px; color:var(--ink-faint); line-height:1.4; margin:0; }
   .num-input{
     width:100%;
@@ -500,8 +509,8 @@
   <div class="card controls">
     <div class="controls-grid">
       <div>
-        <p class="card-label">Manuscript type</p>
-        <div class="segmented" role="group" aria-label="Manuscript type">
+        <p class="card-label">Select manuscript type</p>
+        <div class="segmented" role="group" aria-label="Select manuscript type">
           <button type="button" data-type="insights" aria-pressed="false">
             <span class="type-name">Insights</span>
             <span class="type-limits">6,000 words &middot; 5 exhibits</span>
@@ -707,9 +716,12 @@
       // each type's limit carries its own allowance, so the two buttons answer
       // "what would I get under the other type?" at the current exhibit count
       var limit = type.words + unusedExhibits(type) * WORDS_PER_UNUSED_EXHIBIT;
-      btn.querySelector('.type-limits').textContent =
-        fmt(limit) + ' words \u00b7 ' + fmt(state.exhibitCount) + ' of ' +
-        fmt(type.exhibits) + ' exhibits';
+      var over = state.exhibitCount > type.exhibits;
+      var limitsEl = btn.querySelector('.type-limits');
+      limitsEl.classList.toggle('over', over);
+      limitsEl.textContent = fmt(limit) + ' words \u00b7 ' + (over
+        ? fmt(type.exhibits) + ' exhibits exceeded'
+        : fmt(state.exhibitCount) + ' of ' + fmt(type.exhibits) + ' exhibits');
     });
     document.getElementById('exhibitInput').value = state.exhibitCount;
   }
@@ -816,6 +828,10 @@
     btn.addEventListener('click', function(){
       state.articleType = btn.dataset.type;
       lsSet('wcl-article-type', state.articleType);
+      // a count carried over from the other type may not fit this one; bring it
+      // down to the cap, but leave a smaller count alone rather than inflating it
+      var cap = ARTICLE_TYPES[state.articleType].exhibits;
+      if (state.exhibitCount > cap) state.exhibitCount = cap;
       renderControls();
       renderHero();
     });
