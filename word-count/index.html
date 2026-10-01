@@ -463,6 +463,18 @@
     overflow-wrap:break-word;
   }
 
+  .reminder{
+    font-size:14px;
+    line-height:1.6;
+    color:var(--ink-soft);
+    border-top:1px solid var(--rule-strong);
+    padding-top:18px;
+    margin:0;
+  }
+  .reminder strong{ color:var(--ink); font-weight:600; }
+  .reminder a{ color:var(--accent-ink); text-decoration:underline; }
+  .reminder a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
   .visually-hidden{
     position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);
   }
@@ -580,7 +592,7 @@
     </div>
   </div>
 
-
+  <p class="reminder"><strong>Reminder:</strong> if your paper contains any results generated with code, reported in tables, figures or elsewhere, you agree to comply with the Review's Data and Code Availability Policy upon first submission. You can find the policy, as well as additional requirements and information, at the <a href="https://restud.dataeditor.group/" target="_blank" rel="noopener">Data Editor's website</a>.</p>
 
 </div>
 
