@@ -37,12 +37,14 @@ Note that the DOI link will not work before the package is accepted. You can sti
    ![]({{ site.baseurl }}/assets/img/zenodo/doi-no.png)
 7. Select "Dataset" or "Software" as your upload type.
 8. Fill in the required metadata about your upload.
-   - Title: "Replication package for: {full title of your manuscript}"
-   - Publication date: {keep the Zenodo default - the day you are uploading the package}
-   - Creators: These are typically the manuscript authors, but you may also add others who have contributed significantly to the code you are uploading, such as research assistants.
-   - Description: Include a full citation of your manuscript and a one-sentence description of what the replication package contains.
-   - Do not worry about other metadata, these will be filled out by the journal office once the paper is published.
-     ![]({{ site.baseurl }}/assets/img/zenodo/description.png)
+
+- Title: "Replication package for: {full title of your manuscript}"
+- Publication date: {keep the Zenodo default - the day you are uploading the package}
+- Creators: These are typically the manuscript authors, but you may also add others who have contributed significantly to the code you are uploading, such as research assistants.
+- Description: Include a full citation of your manuscript and a one-sentence description of what the replication package contains.
+- Do not worry about other metadata, these will be filled out by the journal office once the paper is published.
+  ![]({{ site.baseurl }}/assets/img/zenodo/description.png)
+
 9. Select an open access License for your upload. Our [Data and Code Availability Policy]({{ site.baseurl }}/guidance/#the-data-availability-policy) requires that you allow readers to download, copy and modify your replication package. We recommend a "Creative Commons Attribution 4.0 International" license, but if you wish to use a different license, select "Other (Attribution)."
    ![]({{ site.baseurl }}/assets/img/zenodo/license-other.png)
 10. **Do not publish the package at this stage** because it is difficult to delete or modify published records.
@@ -57,10 +59,10 @@ To avoid mistakes and errors please "Preview" your package before submitting. "S
 In case you are asked to make changes to your replication package, follow these steps.
 
 1. Go to the Zenodo entry you have created
-3. Remove the old ZIP archive and README, and upload the new ones; edit metadata if necessary.
-4. Update the Publication date field to the current date (important: we use it to detect the package has changed)
-5. Notify the data editor in your response to the revision request.
+2. Remove the old ZIP archive and README, and upload the new ones; edit metadata if necessary.
+3. Update the Publication date field to the current date (important: we use it to detect the package has changed)
+4. Notify the data editor in your response to the revision request.
 
-Note: if you have previously published the record, it may be difficult to remove it or edit its files after 30 days of publication (you need to contact Zenodo's customer service and explain your motivation). You may initiate a new revision of it (which will generate a new DOI), or create a completely new record. In both cases, notify the Data Editor of the new DOI.
+Note: if you have previously published the record, it may be difficult to remove it or edit its files after 30 days of publication (you need to contact Zenodo's customer service and explain your motivation). You may initiate a new revision of it (which will generate a new DOI), or create a new record. In both cases, notify the Data Editor of the new DOI.
 
 If you have any questions about replication package submission, please contact the [Data Editor]({{ site.baseurl }}/editor/).
