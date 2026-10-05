@@ -33,7 +33,14 @@ layouts_dir: ./doks-theme/_layouts
 includes_dir: ./doks-theme/_includes
 exclude:
   - README.md
+  - README-DEPLOYMENT.md
   - CHANGELOG.md
+  # A custom exclude list replaces Jekyll's defaults, so restore the ones
+  # that matter: build files, and gems installed into vendor/ (as in CI).
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - vendor/
   # word-count tool test fixtures: LaTeX sources, PDFs, aux files and
   # extracted-text dumps. Not part of the site.
   - word-count-test/
