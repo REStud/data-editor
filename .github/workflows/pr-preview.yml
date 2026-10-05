@@ -62,7 +62,9 @@ jobs:
         GH_TOKEN: ${{ github.token }}
         REPO: ${{ github.repository }}
         PR: ${{ github.event.pull_request.number }}
-        URL: ${{ steps.preview.outputs.pages-deployment-alias-url }}
+        # Wrangler reports the alias URL only when it first creates it, so
+        # build the stable per-PR address from the --branch alias above.
+        URL: https://pr-${{ github.event.pull_request.number }}.${{ env.CF_PAGES_PROJECT }}.pages.dev
         # GITHUB_SHA is the temporary merge commit; show the PR's own commit.
         SHA: ${{ github.event.pull_request.head.sha }}
       run: |
