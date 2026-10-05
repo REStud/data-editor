@@ -63,7 +63,9 @@ jobs:
         REPO: ${{ github.repository }}
         PR: ${{ github.event.pull_request.number }}
         URL: ${{ steps.preview.outputs.pages-deployment-alias-url }}
+        # GITHUB_SHA is the temporary merge commit; show the PR's own commit.
+        SHA: ${{ github.event.pull_request.head.sha }}
       run: |
         echo "📖 Preview: $URL" >> "$GITHUB_STEP_SUMMARY"
         gh pr comment "$PR" --repo "$REPO" --edit-last --create-if-none \
-          --body "📖 **Preview:** $URL — commit \`${GITHUB_SHA:0:7}\`"
+          --body "📖 **Preview:** $URL — commit \`${SHA:0:7}\`"
