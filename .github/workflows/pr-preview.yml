@@ -1,0 +1,73 @@
+# Pull requests from branches of this repository (not forks) get a live
+# preview deployed to Cloudflare Pages, with the link posted as a PR comment.
+# The live site is unaffected: GitHub Pages still builds it from master.
+# One-time setup: create the Cloudflare Pages project named below, and add the
+# repository secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID.
+# See README-DEPLOYMENT.md.
+
+name: PR preview
+
+on:
+  pull_request:
+
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write     # only for the PR comment
+    env:
+      # Cloudflare Pages project names are global, so plain "data-editor" is
+      # likely taken; this must match the project created in Cloudflare.
+      CF_PAGES_PROJECT: restud-data-editor
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v7
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'    # what GitHub Pages builds with
+        bundler-cache: true
+
+    - name: Build site
+      # Not JEKYLL_ENV=production: that prefixes internal links with the live
+      # domain, which would send preview readers to the published site.
+      env:
+        PAGES_REPO_NWO: ${{ github.repository }}
+        JEKYLL_GITHUB_TOKEN: ${{ github.token }}
+      run: bundle exec jekyll build
+
+    - name: Deploy PR preview
+      id: preview
+      # Forked PRs cannot read secrets, and handing a deploy token to
+      # unreviewed code is a bad trade for a preview.
+      if: github.event.pull_request.head.repo.full_name == github.repository
+      uses: cloudflare/wrangler-action@v4
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: >-
+          pages deploy ./_site
+          --project-name=${{ env.CF_PAGES_PROJECT }}
+          --branch=pr-${{ github.event.pull_request.number }}
+
+    - name: Publish preview link
+      if: steps.preview.outcome == 'success'
+      env:
+        GH_TOKEN: ${{ github.token }}
+        REPO: ${{ github.repository }}
+        PR: ${{ github.event.pull_request.number }}
+        # Wrangler reports the alias URL only when it first creates it, so
+        # build the stable per-PR address from the --branch alias above.
+        URL: https://pr-${{ github.event.pull_request.number }}.${{ env.CF_PAGES_PROJECT }}.pages.dev
+        # GITHUB_SHA is the temporary merge commit; show the PR's own commit.
+        SHA: ${{ github.event.pull_request.head.sha }}
+      run: |
+        echo "📖 Preview: $URL" >> "$GITHUB_STEP_SUMMARY"
+        gh pr comment "$PR" --repo "$REPO" --edit-last --create-if-none \
+          --body "📖 **Preview:** $URL — commit \`${SHA:0:7}\`"
