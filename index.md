@@ -33,6 +33,10 @@ grid_navigation:
       excerpt: Follow our specific guidelines for a speedy replication
       cta: Read more
       url: '/package-howto/'
+    - title: Simulated data for confidential datasets
+      excerpt: If you cannot share your confidential data, learn how to provide simulated data instead.
+      cta: Read more
+      url: '/synthetic-data/'
     - title: Submitting packages to Zenodo
       excerpt: After preparing the package, learn how to deposit it to the Review's repository.
       cta: Read more
