@@ -30,7 +30,7 @@ Synthetic data allow the Data Editor to test whether the computational workflow 
 
 # Organizing the package
 
-You can organize the simulated and the real workflows in one of two ways. Choose the one that best fits your project, and describe it in the README.
+You can organize the simulated and the real workflows in one of two ways. Choose the one that best fits your project, and describe it in the README. A different approach is permitted when it is more appropriate to the structure of your package; please consult with the Data Editor if you have any questions.
 
 ## Option 1: two separate archives
 
@@ -81,9 +81,9 @@ Follow these steps in order.
    - *Coverage of all code paths:* make sure the simulated data contains at least one observation in each group or cell your code conditions on (e.g. all regions, all time periods, all treatment arms).
 3. **Set a random seed** at the top of your simulation script so that the simulated data is exactly reproducible.
 4. **Run your full pipeline on the simulated data**, from the first cleaning script to the last output script. Fix any errors that arise. Do not skip any script.
-5. **Collect the simulated output.** Save every table, figure, and in-text number produced by the simulated run in output folder(s). The output folder structure inside your replication packag should be identical to the structure of your original analysis if you adopt approach #1 above, or easily identifiable if you adopt approach #2 (e.g. you could have `output` and `output-simulated` folders). Include the simulated output (we recommend including the published output as well).
-6. **Include the simulation script** in your replication package (e.g. in `code/simulate/`) so the Data Editor can inspect it and, if needed, regenerate the simulated data. See [Organizing the package](#organizing-the-package) below for the two accepted ways of combining the simulated and real workflows.
-7. **Document everything in your README:** which files are simulated, how they were generated (with a pointer to the simulation script), which of the two organizations described below you chose, and that the `output-simulated/` folder contains the expected outputs of the simulated run.
+5. **Collect the simulated output.** Save every table, figure, and in-text number produced by the simulated run in output folder(s). The output folder structure inside your replication package should be identical to the structure of your original analysis if you adopt Option #1 above, or easily identifiable if you adopt Option #2 (e.g. you could have `output` and `output-simulated` folders). Include the simulated output (we recommend including the published output as well).
+6. **Include the simulation script** in your replication package (e.g. in `code/simulate/`) so the Data Editor can inspect it and, if needed, regenerate the simulated data. See [Organizing the package](#organizing-the-package) above for the two accepted ways of combining the simulated and real workflows.
+7. **Document everything in your README:** the approach you chose, which files are simulated, how they were generated (with a pointer to the simulation script), and the output folder(s).
 8. **Submit your package.** The Data Editor will run your pipeline on the simulated data and verify that the output matches what you produced.
 
 **Important:** the simulated output you provide in step 5 is the reference. The Data Editor must be able to run your code on the simulated data and obtain output identical to your reference output. Make sure your code is deterministic given the same simulated inputs (set seeds for any stochastic steps).
