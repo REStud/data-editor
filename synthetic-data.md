@@ -18,34 +18,15 @@ page_nav:
         content: Uploading to Zenodo
         url: '/zenodo/'
 ---
-
 When you have been granted a data exemption (see the [Data and Code Availability Policy]({{ site.baseurl }}/policy/)) and cannot provide the Data Editor with temporary access to your confidential data, you must supply a simulated (synthetic) dataset together with the corresponding simulated output. This page explains what to do, with examples.
 
 **If granting temporary access to the data is at all feasible, it is strongly preferred.** Please [contact the Data Editor]({{ site.baseurl }}/editor/) to discuss the options.
 
-# What the Data Editor needs to check
+# What the Data Editor needs to check, and why
 
 The goal is not to reproduce your published results. It is to verify that your code is complete, self-contained, and logically consistent: given simulated input data with the right structure, the code runs without errors and produces all outputs (tables, figures, in-text numbers) described in the paper. Of course, these outputs will differ from the ones in your paper.
 
-# Steps for authors
-
-Follow these steps in order.
-
-1. **Identify every confidential raw input file** your code reads. List them in your README.
-2. **Create a dedicated simulation script** that generates a simulated version of each file. The simulated data must satisfy the following:
-   - *Same variable names and types:* column names, data types (integer, float, string, date), and units must match the real data exactly, because your code references them by name.
-   - *Same file format:* if your code reads a `.dta` file, supply a `.dta` file; if it reads a `.csv`, supply a `.csv`.
-   - *Dimensionality:* the simulated data must have the same number of variables (columns) as the real data. It may have fewer observations (rows), as long as your programs still run correctly. Supply a simple document (`.csv` or `.md`) listing the number of rows and columns of each confidential dataset you use.
-   - *Sign and support restrictions:* if a variable is always positive in the real data (e.g. income, price, age), simulate it as positive. If a variable is a dummy, simulate it as 0/1. If a categorical variable takes values {1, 2, 3}, simulate it within that set. You do not need to match the distribution, but violating the support can cause downstream failures.
-   - *Coverage of all code paths:* make sure the simulated data contains at least one observation in each group or cell your code conditions on (e.g. all regions, all time periods, all treatment arms).
-3. **Set a random seed** at the top of your simulation script so that the simulated data is exactly reproducible.
-4. **Run your full pipeline on the simulated data**, from the first cleaning script to the last output script. Fix any errors that arise. Do not skip any script.
-5. **Collect the simulated output.** Save every table, figure, and in-text number produced by the simulated run in an `output-simulated/` folder (or an equivalent, clearly labelled folder) inside your replication package.
-6. **Include the simulation script** in your replication package (e.g. in `code/simulate/`) so the Data Editor can inspect it and, if needed, regenerate the simulated data. See [Organizing the package](#organizing-the-package) below for the two accepted ways of combining the simulated and real workflows.
-7. **Document everything in your README:** which files are simulated, how they were generated (with a pointer to the simulation script), which of the two organizations described below you chose, and that the `output-simulated/` folder contains the expected outputs of the simulated run.
-8. **Submit your package.** The Data Editor will run your pipeline on the simulated data and verify that the output matches what is in `output-simulated/`.
-
-**Important:** the simulated output you provide in step 5 is the reference. The Data Editor must be able to run your code on the simulated data and obtain output identical to your reference output. Make sure your code is deterministic given the same simulated inputs (set seeds for any stochastic steps).
+Synthetic data allow the Data Editor to test whether the computational workflow runs, even when the original data cannot be shared. We therefore verify that the package is usable without obtaining access to the original data. Since many people use replication packages to understand what is done and learn from it, and not to reproduce the results, having synthetic data that allows running the codes is a plus. This supports transparency and learning, even where exact replication is impossible.
 
 # Organizing the package
 
@@ -55,20 +36,21 @@ You can organize the simulated and the real workflows in one of two ways. Choose
 
 Submit two archives:
 
-1. **The simulated package** contains the full workflow, from the generation of the simulated data to the production of the simulated results: the simulation script, the simulated data, the analysis code, and the `output-simulated/` folder. Wherever feasible, it should also include the real data that are not confidential, so that only the confidential inputs are simulated.
+1. **The simulated package** contains the full workflow, from the generation of the simulated data to the production of the simulated results: the simulation script, the simulated data, the analysis code, and the `output` folder. Wherever feasible, it should also include the real data that are not confidential, so that only the confidential inputs are simulated.
 2. **The real package** is identical to the simulated one, except that it does not contain the confidential data (which cannot be shared), the simulation script, or the simulated data and output. It contains the results obtained from the real data, which are the ones reported in the paper.
 
 The analysis code must be the same in both archives. The Data Editor runs the simulated package and checks that the analysis code it contains matches the code in the real package.
 
 ## Option 2: a single archive with a switch
 
-Submit a single archive containing both workflows. The main script defines a global variable that selects the data source: with `real`, the code runs on the confidential data; with `simulated`, it first generates the simulated data and then runs the same analysis on them. Everything downstream of the switch (cleaning, analysis, output) must be the same code in both cases; only the input files and the output folder change.
+Submit a single archive containing both workflows. The main script defines a global variable that selects the data source: with `real`, the code runs on the confidential data; with `simulated`, it first generates the simulated data and then runs the same analysis on them. Everything downstream of the switch (cleaning, analysis, output) must be the same code in both cases; only the input files and the output folder change. You must include the simulated output for our checks.
 
 For example, in a Stata master script:
 
 ```stata
 * Set to "real" to use the confidential data, or "simulated" to use simulated data
 global datasource "simulated"
+* global datasource "real"
 
 if "$datasource" == "simulated" {
     do "code/simulate/simulate_confidential.do"
@@ -85,6 +67,26 @@ do "code/02_analysis.do"
 ```
 
 The same pattern works in any language, for example `datasource <- "simulated"` at the top of an R master script, or `DATASOURCE = "simulated"` in Python. The README must explain how to set the switch, and the archive must not contain the confidential data. Set the switch to `simulated` in the version you submit, so that the Data Editor can run the package without changes.
+
+# Steps for authors
+
+Follow these steps in order.
+
+1. **Identify every confidential raw input file** your code reads. List them in your README.
+2. **Create a dedicated simulation script** that generates a simulated version of each file. The simulated data must satisfy the following:
+   - *Same variable names and types:* column names, data types (integer, float, string, date), and units must match the real data exactly, because your code references them by name.
+   - *Same file format:* if your code reads a `.dta` file, supply a `.dta` file; if it reads a `.csv`, supply a `.csv`.
+   - *Dimensionality:* the simulated data must have the same number of variables (columns) as the real data. With large datasets, to save space, it may have fewer observations (rows), as long as your programs still run correctly.
+   - *Sign and support restrictions:* if a variable is always positive in the real data (e.g. income, price, age), simulate it as positive. If a variable is a dummy, simulate it as 0/1. If a categorical variable takes values {1, 2, 3}, simulate it within that set. You do not need to match the distribution, but violating the support can cause downstream failures.
+   - *Coverage of all code paths:* make sure the simulated data contains at least one observation in each group or cell your code conditions on (e.g. all regions, all time periods, all treatment arms).
+3. **Set a random seed** at the top of your simulation script so that the simulated data is exactly reproducible.
+4. **Run your full pipeline on the simulated data**, from the first cleaning script to the last output script. Fix any errors that arise. Do not skip any script.
+5. **Collect the simulated output.** Save every table, figure, and in-text number produced by the simulated run in output folder(s). The output folder structure inside your replication packag should be identical to the structure of your original analysis if you adopt approach #1 above, or easily identifiable if you adopt approach #2 (e.g. you could have `output` and `output-simulated` folders). Include the simulated output (we recommend including the published output as well).
+6. **Include the simulation script** in your replication package (e.g. in `code/simulate/`) so the Data Editor can inspect it and, if needed, regenerate the simulated data. See [Organizing the package](#organizing-the-package) below for the two accepted ways of combining the simulated and real workflows.
+7. **Document everything in your README:** which files are simulated, how they were generated (with a pointer to the simulation script), which of the two organizations described below you chose, and that the `output-simulated/` folder contains the expected outputs of the simulated run.
+8. **Submit your package.** The Data Editor will run your pipeline on the simulated data and verify that the output matches what you produced.
+
+**Important:** the simulated output you provide in step 5 is the reference. The Data Editor must be able to run your code on the simulated data and obtain output identical to your reference output. Make sure your code is deterministic given the same simulated inputs (set seeds for any stochastic steps).
 
 # How to simulate data: examples
 
