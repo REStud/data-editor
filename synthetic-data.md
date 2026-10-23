@@ -19,9 +19,7 @@ page_nav:
         url: '/zenodo/'
 ---
 
-*This page is adapted, with gratitude, from the [Procedure for Simulated Confidential Data](https://jpedataeditor.github.io/confidential.html) of the [Journal of Political Economy Data Editor](https://jpedataeditor.github.io/). The example scripts are reproduced from the same source.*
-
-When you have been granted a data exemption (see the [Data and Code Availability Policy]({{ site.baseurl }}/policy/)) and cannot provide the Data Editor with temporary access to your confidential data, you must supply a simulated (synthetic) dataset together with the corresponding simulated output. This page explains what to do, with examples and instructions for using an AI coding assistant.
+When you have been granted a data exemption (see the [Data and Code Availability Policy]({{ site.baseurl }}/policy/)) and cannot provide the Data Editor with temporary access to your confidential data, you must supply a simulated (synthetic) dataset together with the corresponding simulated output. This page explains what to do, with examples.
 
 **If granting temporary access to the data is at all feasible, it is strongly preferred.** Please [contact the Data Editor]({{ site.baseurl }}/editor/) to discuss the options.
 
@@ -165,100 +163,6 @@ panel = panel.sort_values(["id", "year"]).reset_index(drop=True)
 panel.to_csv("data/raw/simulated_panel.csv", index=False)
 ```
 
-# Using an AI coding assistant
+---
 
-If you use an AI coding assistant (Claude, ChatGPT, Copilot, Cursor, …), it can write the simulation script for you, but only your code and documentation should ever reach the model, never the confidential data. "The model never saw the raw rows" is not automatically the same as "this is safe": aggregated statistics can still leak information about individual records, and some data use agreements prohibit sending any derived information off your machine. The approach below is designed around both risks.
-
-## The hard rule: no raw data to the model
-
-An AI model, whether local or API-based, must never be given read access to your confidential raw data files, including through a coding agent that can browse your filesystem on its own.
-
-- Give the agent read access only to your code, README, and codebook/documentation, not to the data directory.
-- If the agent wants summary statistics to make the simulated distributions more realistic, do not let it compute them itself. Compute the summary yourself (see below) and hand over only the sanitized result.
-- State the rule explicitly in your prompt: "Never open, read, or load any file under `data/raw/`. If you need information about the actual data, stop and ask me for permission first." Treat this as a backstop, not the real control. The real control is removing the agent's filesystem permission to that directory entirely, with a deny rule in your coding tool's settings or by running the agent in a sandbox where the raw files are never available. A prompt instruction can be ignored by a model; a missing file permission cannot.
-
-For example, in Claude Code you can add a `deny` rule for your raw-data path to `.claude/settings.json` (project-level) or `~/.claude/settings.json` (user-level), adjusting the path to wherever your confidential inputs live:
-
-```json
-{
-  "permissions": {
-    "deny": [
-      "Read(./data/raw/**)",
-      "Bash(cat:./data/raw/**)",
-      "Bash(grep:./data/raw/**)"
-    ]
-  }
-}
-```
-
-## Optional: calibrate with a disclosure-safe summary
-
-Guessing distributions from code and documentation alone is often good enough. That is the default, and it carries no data-exposure risk. If you want the simulated data to track the real distributions more closely, compute a sanitized summary yourself (e.g. with `skimr::skim()` in R, `summarize` in Stata, or `.describe()` in Python) and hand only that to the model, never the underlying file.
-
-Before sharing that summary with any AI tool, strip it down:
-
-- *Drop identifiers and free text* from the summary entirely (firm names, addresses, any string field).
-- *Suppress exact extremes.* An exact minimum or maximum is often one real record. Round to a plausible range instead of passing through the true value.
-- *Mask small cells.* Any category, group, or summary row backed by very few observations (a common disclosure-control threshold is n < 5) effectively identifies individual records. Drop or coarsen these rather than reporting them.
-- *Check your data use agreement.* Many restricted-data agreements (administrative records, Census-type enclaves, IRB-governed data) prohibit transmitting any derived information to a third-party service, aggregated or not. Sanitizing the summary does not override a stricter contractual restriction. Confirm this is permitted before proceeding, and when in doubt, don't send it.
-
-Only once you have produced that sanitized file should the agent be allowed to read it, and only that file, never the original data.
-
-**Tip:** the simulation script does not need to be written in the same language as your analysis. Use whatever language you find most convenient. All that matters is that it produces output files in the exact format and at the exact paths your analysis code expects to read.
-
-## Prompt
-
-Copy the prompt below, fill in the bracketed sections with a description of your actual data (not the data itself), and paste it into your preferred tool.
-
-```text
-You are helping a researcher prepare a simulated version of a confidential dataset for a journal reproducibility check.
-
-Task: Write a complete simulation script that generates fake versions of the confidential
-input files listed below. The fake data will be used in place of the real data so the full
-analysis pipeline can be run end-to-end by an independent Data Editor.
-
-Hard rule: you must never open, read, or load any confidential raw data file, by any means
-(no read_csv/read_dta/read.table or equivalent on the paths listed below, no filesystem
-browsing into the data directory). If you need information about the actual data beyond
-what is given here, stop and ask for permission before doing anything else — do not try to
-read it yourself. The structure below (and, if provided, a sanitized summary file) is all
-you should rely on.
-
-Choose the most convenient language for this task — it does NOT need to be the same language
-as the analysis pipeline. Good choices include Python, R, Julia, Stata, or any language you
-are comfortable with. The only constraint is that the output files are saved in the exact
-format and at the exact paths that the analysis code expects to read.
-
-Requirements:
-- Same variable names and data types as the real data
-- You can use a smaller number of rows than the real data. Ask the user for the minimum required rows for each dataset.
-- Same file format and path as the real data (e.g. a .dta file at data/raw/file.dta)
-- Respect sign and support restrictions:
-    * Always-positive variables (income, price, age) → simulate as positive (e.g. log-normal)
-    * Binary variables → simulate as 0/1
-    * Categorical variables taking values {a, b, c} → simulate within that set
-- Ensure at least one observation in every group/cell the code conditions on
-- Set random seed 42 at the top of the script for reproducibility
-
-My confidential input files:
-[LIST EACH FILE AND DESCRIBE ITS VARIABLES, e.g.:
-  File: data/raw/admin_panel.dta  (read by Stata analysis code)
-  Structure: firm-year panel, ~50,000 obs, 200 firms, 1990–2014
-  Variables:
-    - firm_id (integer, identifier)
-    - year (integer, 1990–2014)
-    - revenue (float, always positive, USD thousands)
-    - employment (integer, always >= 1)
-    - treated (binary 0/1, constant within firm)
-    - region (categorical, values 1–5)]
-
-Groups/cells my code conditions on (must all appear in simulated data):
-[LIST e.g. all 5 regions, all years, both treatment arms]
-
-[OPTIONAL — only if you have produced a sanitized summary as described above:
-Here is a disclosure-safe summary of the real data's distributions (identifiers removed,
-extremes rounded, small cells suppressed) to calibrate the simulation more closely:
-<paste sanitized summary here>]
-
-Please write the complete simulation script and save output to the same path my code expects.
-```
+*This page is adapted, with gratitude, from the [Procedure for Simulated Confidential Data](https://jpedataeditor.github.io/confidential.html) of the [Journal of Political Economy Data Editor](https://jpedataeditor.github.io/). The example scripts are reproduced from the same source.*
