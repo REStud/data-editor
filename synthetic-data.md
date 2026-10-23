@@ -41,11 +41,50 @@ Follow these steps in order.
 3. **Set a random seed** at the top of your simulation script so that the simulated data is exactly reproducible.
 4. **Run your full pipeline on the simulated data**, from the first cleaning script to the last output script. Fix any errors that arise. Do not skip any script.
 5. **Collect the simulated output.** Save every table, figure, and in-text number produced by the simulated run in an `output-simulated/` folder (or an equivalent, clearly labelled folder) inside your replication package.
-6. **Include the simulation script** in your replication package (e.g. in `code/simulate/`) so the Data Editor can inspect it and, if needed, regenerate the simulated data.
-7. **Document everything in your README:** which files are simulated, how they were generated (with a pointer to the simulation script), and that the `output-simulated/` folder contains the expected outputs of the simulated run.
+6. **Include the simulation script** in your replication package (e.g. in `code/simulate/`) so the Data Editor can inspect it and, if needed, regenerate the simulated data. See [Organizing the package](#organizing-the-package) below for the two accepted ways of combining the simulated and real workflows.
+7. **Document everything in your README:** which files are simulated, how they were generated (with a pointer to the simulation script), which of the two organizations described below you chose, and that the `output-simulated/` folder contains the expected outputs of the simulated run.
 8. **Submit your package.** The Data Editor will run your pipeline on the simulated data and verify that the output matches what is in `output-simulated/`.
 
 **Important:** the simulated output you provide in step 5 is the reference. The Data Editor must be able to run your code on the simulated data and obtain output identical to your reference output. Make sure your code is deterministic given the same simulated inputs (set seeds for any stochastic steps).
+
+# Organizing the package
+
+You can organize the simulated and the real workflows in one of two ways. Choose the one that best fits your project, and describe it in the README.
+
+## Option 1: two separate archives
+
+Submit two archives:
+
+1. **The simulated package** contains the full workflow, from the generation of the simulated data to the production of the simulated results: the simulation script, the simulated data, the analysis code, and the `output-simulated/` folder. Wherever feasible, it should also include the real data that are not confidential, so that only the confidential inputs are simulated.
+2. **The real package** is identical to the simulated one, except that it does not contain the confidential data (which cannot be shared), the simulation script, or the simulated data and output. It contains the results obtained from the real data, which are the ones reported in the paper.
+
+The analysis code must be the same in both archives. The Data Editor runs the simulated package and checks that the analysis code it contains matches the code in the real package.
+
+## Option 2: a single archive with a switch
+
+Submit a single archive containing both workflows. The main script defines a global variable that selects the data source: with `real`, the code runs on the confidential data; with `simulated`, it first generates the simulated data and then runs the same analysis on them. Everything downstream of the switch (cleaning, analysis, output) must be the same code in both cases; only the input files and the output folder change.
+
+For example, in a Stata master script:
+
+```stata
+* Set to "real" to use the confidential data, or "simulated" to use simulated data
+global datasource "simulated"
+
+if "$datasource" == "simulated" {
+    do "code/simulate/simulate_confidential.do"
+    global rawdata "data/simulated"
+    global output  "output-simulated"
+}
+else {
+    global rawdata "data/raw"
+    global output  "output"
+}
+
+do "code/01_clean.do"
+do "code/02_analysis.do"
+```
+
+The same pattern works in any language, for example `datasource <- "simulated"` at the top of an R master script, or `DATASOURCE = "simulated"` in Python. The README must explain how to set the switch, and the archive must not contain the confidential data. Set the switch to `simulated` in the version you submit, so that the Data Editor can run the package without changes.
 
 # How to simulate data: examples
 
